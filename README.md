@@ -65,7 +65,6 @@ open FOMC_RAG_Vote_Simulator.html          # macOS
 | --- | --- | --- |
 | **`FOMC_RAG_Vote_Simulator.html`** | **主要展示**：BM25 檢索 244 場會議的 3,553 段原文，推論政策方向、逐一委員投票與出處 | 只要瀏覽器 |
 | `05_Design_Canvas/fomc-meeting-scene.html` | 會議現場動畫：12 個席次、舉手反對、點任一位展開理由 | 只要瀏覽器 |
-| `FOMC_Vote_Scenario_Lab.html` | 純計量模型的情境投票（無檢索），作為對照組 | 只要瀏覽器 |
 
 > 頁面內含完整倒排索引，第一次按「執行 RAG 情境預測」約 1 秒建索引，之後即時。
 > **整個模擬過程不呼叫任何 LLM**，全部是瀏覽器內的確定性算術——所以離線也跑得動，
@@ -139,12 +138,10 @@ FOMC-Decision-Memory/
 ├── AGENTS.md                          給 AI coding agent 的工作守則
 │
 ├── FOMC_RAG_Vote_Simulator.html       ★ 主要離線展示（開瀏覽器即可）
-├── FOMC_Vote_Scenario_Lab.html        純計量模型對照組
 ├── communications.csv                 479 份 FOMC 原始文件語料
 │
 ├── 01_Release-Handoff/                釋出 manifest、SHA-256、IT 部署文件
-├── 02_Application/                    R5 應用程式本體（1,102 檔，逐位元組凍結）
-├── 03_Environment/                    Python 3.11 環境紀錄
+├── 02_Application/                    R5 應用程式本體（1,005 檔，雜湊列管）
 ├── 04_RAG_Vote_Simulator/             索引建置與回測評估腳本
 ├── 05_Design_Canvas/                  會議現場動畫
 ├── docs/ENGINEERING_LOG_zh-TW.md      問題與解法摘要（開發過程）

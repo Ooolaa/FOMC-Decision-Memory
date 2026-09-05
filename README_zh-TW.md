@@ -17,7 +17,7 @@ App 共三個離線頁面：**Decision Replay**、**Assumption Monitor**、**Sim
 
 | 項目 | 狀態 |
 | --- | --- |
-| 應用程式原始碼（1,102 檔） | ✅ 完整，且與 manifest 逐檔相符 |
+| 應用程式原始碼（1,005 檔） | ✅ 完整，且與 manifest 逐檔相符 |
 | Python 環境（macOS） | ✅ 已建好，8 個釘選版本全部精確安裝 |
 | Streamlit 服務 | ✅ 可啟動，`127.0.0.1:8503` |
 | **資料（4 個 `.sqlite`）** | ❌ **未包含在交付包，需另外索取** |
@@ -134,7 +134,6 @@ cd 02_Application
 | 直譯器 | Python 3.11.16 |
 | 位置 | `03_Environment/.venv/` |
 | 套件 | `requirements.txt` 全部 8 個釘選版本，完全一致 |
-| 安裝紀錄 | `03_Environment/pip-install.log`、`conda-create.log` |
 
 環境刻意建在 `02_Application/` **之外**，讓 payload 與 `SOURCE_FILES.txt` 保持
 逐檔一致。
@@ -192,11 +191,7 @@ ModuleNotFoundError: No module named 'pkg_resources'
 | 資料庫說明 | `DATABASE_GUIDE.md`、`IT_DATA_INPUTS_zh-TW.md` |
 | Demo 腳本 | `DEMO_SCRIPT.md` |
 | 專案理念與成果 | `HACKATHON_SUBMISSION.md` |
-| 稽核報告 | `R5_COMPLETION_AUDIT.md`、`R5_TECHNICAL_COMPLETION_AUDIT_2026-09-01.md`、`R5_CORRECTION_AUDIT_2026-08-31.md`、`DECISION_TRACE_HUMAN_REVIEW.md` |
-| 投稿紀錄 | `SUBMISSION_CHECKLIST.md`、`SUBMISSION_RECORD.md` |
-| 設計歷程 | `docs/plans/` |
 | **主程式進入點** | `app.py` |
-| 測試 | `tests/`（依領域分組） |
 
 IT 部署說明在 `01_Release-Handoff/02_IT-Deployment/IT_DEPLOYMENT_HANDOFF_zh-TW.md`。
 該文件記錄發行識別（git tag／commit／tree）、8 步 IT 部署程序，以及測試與安全
@@ -210,7 +205,6 @@ IT 部署說明在 `01_Release-Handoff/02_IT-Deployment/IT_DEPLOYMENT_HANDOFF_zh
 | 檔案 | 內容 |
 | --- | --- |
 | `FOMC_RAG_Vote_Simulator.html` | **RAG 投票模擬**：以 BM25 檢索 `communications.csv` 的 3,553 段會議紀要／聲明，推論政策方向、逐一委員投票與原文出處 |
-| `FOMC_Vote_Scenario_Lab.html` | 情境投票預測（僅計量模型，無檢索） |
 
 RAG 模擬的**模型權重、全部參數與方法邊界**寫在
 `README_RAG_VOTE_SIMULATOR_zh-TW.md`；建置腳本與回測評估腳本在
@@ -236,7 +230,7 @@ cd 01_Release-Handoff
 shasum -a 256 -c 01_Manifests-and-Integrity/SHA256SUMS.txt
 ```
 
-應用程式 payload 共 1,102 個檔案，清單在
+應用程式 payload 共 1,005 個檔案，清單在
 `01_Release-Handoff/01_Manifests-and-Integrity/SOURCE_FILES.txt`，路徑相對於
 `02_Application/`。
 
@@ -275,24 +269,24 @@ shasum -a 256 -c 01_Manifests-and-Integrity/SHA256SUMS.txt
 
 | 該文件的描述 | 目前實際狀況 |
 | --- | --- |
-| 「已提供：`FOMC-Decision-Memory-R5-r5-handoff-2026.09.02/`（已解壓的來源樹，1090 個檔案）」 | 該目錄已更名為 `02_Application/`，內含 **1,102** 個檔案（測試檔重整與新增導覽文件所致，非本次整理造成） |
-| 「`SHA256SUMS.txt` 現僅涵蓋隨附的三個中繼檔」 | 現涵蓋 **4** 筆，且路徑相對於 `01_Release-Handoff/`（含保留的原始 `SOURCE_FILES.txt`） |
+| 「已提供：`FOMC-Decision-Memory-R5-r5-handoff-2026.09.02/`（已解壓的來源樹，1090 個檔案）」 | 該目錄已更名為 `02_Application/`，內含 **1,005** 個檔案 |
+| 「`SHA256SUMS.txt` 現僅涵蓋隨附的三個中繼檔」 | 現涵蓋 **3** 筆，且路徑相對於 `01_Release-Handoff/` |
 
 其餘內容 — 發行識別、驗證摘要、8 步部署程序、未包含項目 — 均仍有效。
 文中「本目錄為已解壓的本機工作副本，不是可直接轉交的發行包；若要再次對外交付，
 請由 annotated tag 重新產生來源 ZIP」這項要求也**依然適用**。
 
-### Manifest 重新產生（2026-09-04）
+### Manifest 重新產生（2026-09-05）
 
 `SOURCE_FILES.txt` 與 `SHA256SUMS.txt` 依 `decision_memory/engineering_handoff.py`
 （`_write_source_files` / `_write_checksums`）的原格式重新產生：UTF-8、LF、
 結尾換行、位元組序排序、`<sha256>  <path>`。
 
-- `SOURCE_FILES.txt` — 1090 → **1102** 筆。差異不是本次整理造成：2026-09-04
-  時 67 個扁平的 `tests/test_*.py` 被重整為 11 個分類子目錄（另加 11 個
-  `__init__.py`），並新增 `專案導覽_zh-TW.md`。3 個 `.DS_Store` 一律排除。
-- `SHA256SUMS.txt` — 路徑改為相對於 `01_Release-Handoff/`。
-- 重新產生前的原始檔保留在 `01_Release-Handoff/00_Superseded-r5-handoff-2026.09.02/`。
+- `SOURCE_FILES.txt` — **1,005 筆**。公開釋出時移除了 `tests/`（79）、
+  `docs/plans/`（11）與 6 份稽核／投稿報告；原交付的 1,102 筆清單另有一項
+  `專案導覽_zh-TW.md` 在交付當下就不存在，一併校正。
+- `SHA256SUMS.txt` — 3 筆，路徑相對於 `01_Release-Handoff/`。
+- **兩項驗證目前都通過**：檔案比對零差異，`shasum -c` 三筆全 OK。
 
 **`RELEASE_MANIFEST.json` 刻意未修改。** 它是綁定 git tag `r5-handoff-2026.09.02`
 的釋出證據，記錄 `"tagged_file_count": 1090` 與當時 `SOURCE_FILES.txt` 的 SHA-256

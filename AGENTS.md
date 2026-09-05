@@ -6,7 +6,7 @@ manifest 列管的 **payload**。請把它當成需要驗證的證據，而不�
 
 ## 不變條件
 
-`02_Application/` 必須剛好是 **1,102 個檔案**，與
+`02_Application/` 必須剛好是 **1,005 個檔案**，與
 `01_Release-Handoff/01_Manifests-and-Integrity/SOURCE_FILES.txt` 完全一致。
 
 動工前後都要檢查：

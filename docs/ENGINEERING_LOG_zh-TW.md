@@ -171,13 +171,16 @@ cd 04_RAG_Vote_Simulator && python3 check_index.py
 
 ## 十、交付包本身就有的問題（不是我們造成的）
 
-`AGENTS.md` 要求 `02_Application/` 必須剛好 **1,102 個檔案**，與 `SOURCE_FILES.txt`
+`AGENTS.md` 原本要求 `02_Application/` 必須剛好 **1,102 個檔案**，與 `SOURCE_FILES.txt`
 完全一致。實際上只有 **1,101 個**——缺 `專案導覽_zh-TW.md`，而 AGENTS.md 還指名
 要讀它。
 
 這在動工前就是如此（該目錄所有檔案的 mtime 都停在解壓時間），
 `shasum -c SHA256SUMS.txt` 仍全數通過。動工前先跑一次 diff 把基準記錄下來，
 才不會把它誤認成自己弄壞的。
+
+**現況**：公開釋出時 manifest 已依 `engineering_handoff.py` 的原格式重產為
+**1,005 筆**，這道缺口一併校正，下面這條 diff 現在是零差異。
 
 ```sh
 cd 02_Application && find . -type f -not -name '.DS_Store' -not -path '*/__pycache__/*' \
