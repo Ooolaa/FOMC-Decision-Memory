@@ -139,7 +139,7 @@ build_app.py  ──►  dist/FOMC_RAG_Vote_Simulator.html  （索引內嵌，�
 ## 專案結構
 
 ```
-FOMC-Decision-Memory/
+decision-memory-lab/
 ├── README.md                       ← 你在這裡
 │
 ├── dist/

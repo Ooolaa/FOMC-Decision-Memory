@@ -3,7 +3,8 @@
 本文說明 `src/app/` 底下 R5 應用程式的安裝、啟動與疑難排解。
 想先看不用安裝的離線展示，回到 [`../README.md`](../README.md)。
 
-這是一套以 FOMC 為 benchmark、可離線展示的「AI 決策記憶系統」MVP。它把每次重大
+這是**決策記憶 Lab（Decision Memory Lab）**的應用程式端：一套可離線展示的
+「AI 決策記憶系統」MVP，以 FOMC 當驗證場（不是題目本身）。它把每次重大
 決策保存成可追溯的 **DecisionTrace**：當時看見哪些資料、有哪些選項與爭論、最後
 為何這樣決定、哪些假設支撐這個決定，以及誰支持或反對。系統另有 **Assumption
 Monitor**，以預先登記的規則監看資料序列，在第一個反證出現時產生可稽核提醒。
@@ -41,7 +42,7 @@ App 共三個離線頁面：**Decision Replay**、**Assumption Monitor**、**Sim
 ## 目錄結構
 
 ```
-FOMC-Decision-Memory/
+decision-memory-lab/
 ├── src/app/       應用程式本體 — 請勿搬動裡面的檔案
 ├── release/       釋出 manifest、雜湊、IT 部署文件
 └── .venv/         Python 3.11 環境（自行建立，不進版本庫）

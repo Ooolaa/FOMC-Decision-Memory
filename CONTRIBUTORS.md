@@ -1,6 +1,6 @@
 # Contributors
 
-FOMC 決策記憶 Lab（FUTUREMODE × SITCON BUILDMODE）
+決策記憶 Lab · Decision Memory Lab（FUTUREMODE × SITCON BUILDMODE）
 
 | GitHub | 角色 |
 | --- | --- |
