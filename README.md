@@ -173,7 +173,7 @@ FOMC-Decision-Memory/
 │
 └── docs/
     ├── SETUP_zh-TW.md              安裝、啟動、常見問題
-    ├── MODEL_zh-TW.md              模型權重、全部參數與方法邊界
+    ├── MODEL_zh-TW.md              方法全文：模型、參數、回測、消融實驗與邊界
     ├── ENGINEERING_LOG_zh-TW.md    問題與解法摘要（開發過程）
     └── screenshots/
 ```
@@ -187,7 +187,7 @@ FOMC-Decision-Memory/
 | | |
 | --- | --- |
 | [`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md) | Streamlit App 的安裝、啟動與常見問題 |
-| [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md) | RAG 模擬的完整模型權重、全部參數、回測結果與方法邊界 |
+| [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md) | 方法全文：四條路線的模型權重與全部參數、回測、消融實驗矩陣與方法邊界 |
 | [`docs/ENGINEERING_LOG_zh-TW.md`](docs/ENGINEERING_LOG_zh-TW.md) | 開發過程真正踩到的坑與修法，每項附可重跑的驗證 |
 
 ### 可重跑的驗證
