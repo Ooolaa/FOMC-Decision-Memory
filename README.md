@@ -56,15 +56,15 @@
 ```sh
 git clone https://github.com/Ooolaa/FOMC-Decision-Memory.git
 cd FOMC-Decision-Memory
-open FOMC_RAG_Vote_Simulator.html          # macOS
-# Windows: start FOMC_RAG_Vote_Simulator.html
-# Linux:   xdg-open FOMC_RAG_Vote_Simulator.html
+open dist/FOMC_RAG_Vote_Simulator.html          # macOS
+# Windows: start dist\FOMC_RAG_Vote_Simulator.html
+# Linux:   xdg-open dist/FOMC_RAG_Vote_Simulator.html
 ```
 
 | 檔案 | 內容 | 需要什麼 |
 | --- | --- | --- |
-| **`FOMC_RAG_Vote_Simulator.html`** | **主要展示**：BM25 檢索 244 場會議的 3,553 段原文，推論政策方向、逐一委員投票與出處 | 只要瀏覽器 |
-| `05_Design_Canvas/fomc-meeting-scene.html` | 會議現場動畫：12 個席次、舉手反對、點任一位展開理由 | 只要瀏覽器 |
+| **`dist/FOMC_RAG_Vote_Simulator.html`** | **主要展示**：BM25 檢索 244 場會議的 3,553 段原文，推論政策方向、逐一委員投票與出處 | 只要瀏覽器 |
+| `src/scene/fomc-meeting-scene.html` | 會議現場動畫：12 個席次、舉手反對、點任一位展開理由 | 只要瀏覽器 |
 
 > 頁面內含完整倒排索引，第一次按「執行 RAG 情境預測」約 1 秒建索引，之後即時。
 > **整個模擬過程不呼叫任何 LLM**，全部是瀏覽器內的確定性算術——所以離線也跑得動，
@@ -73,19 +73,19 @@ open FOMC_RAG_Vote_Simulator.html          # macOS
 ### 完整的路：R5 Streamlit 應用程式
 
 三個離線頁面（Decision Replay、Assumption Monitor、Simulation & Evidence）在
-`02_Application/`。**它需要 4 個 `.sqlite` 執行期資料庫，那些檔案刻意不放進版本庫**
+`src/app/`。**它需要 4 個 `.sqlite` 執行期資料庫，那些檔案刻意不放進版本庫**
 （見〈[資料在哪裡](#資料在哪裡)〉）。安裝與啟動步驟完整寫在
-**[`README_zh-TW.md`](README_zh-TW.md)**。
+**[`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md)**。
 
 ```sh
-# 需 Python 3.11（不是 3.12，原因見 README_zh-TW.md）
-python3.11 -m venv 03_Environment/.venv
-03_Environment/.venv/bin/python -m pip install -r 02_Application/requirements.txt
+# 需 Python 3.11（不是 3.12，原因見 docs/SETUP_zh-TW.md）
+python3.11 -m venv .venv
+.venv/bin/python -m pip install -r src/app/requirements.txt
 
-cd 02_Application
+cd src/app
 export PYTHONUTF8=1
 export FOMC_APP_DB="$PWD/fomc_simulation.decision_trace_50_display.sqlite"
-../03_Environment/.venv/bin/python -m streamlit run app.py \
+../../.venv/bin/python -m streamlit run app.py \
   --server.headless true --server.address 127.0.0.1 --server.port 8503
 ```
 
@@ -94,16 +94,16 @@ export FOMC_APP_DB="$PWD/fomc_simulation.decision_trace_50_display.sqlite"
 ## 這套系統是怎麼運作的
 
 ```
-communications.csv          479 份 FOMC 文件（243 會議紀要 + 225 聲明 + 11 已排定）
+data/communications.csv     479 份 FOMC 文件（243 會議紀要 + 225 聲明 + 11 已排定）
         │                   雙重 UTF-8 編碼修復 → 解析
         ▼
-04_RAG_Vote_Simulator/build_rag_index.py
+src/retrieval/build_rag_index.py
         │                   切段、標條件標籤、抽異議句、判鷹鴿方向
         ▼
 fomc_rag_index.json         244 場會議 · 3,553 段可檢索原文 · 68 位具名委員 · 88 筆異議
         │
         ▼
-build_app.py  ──►  FOMC_RAG_Vote_Simulator.html   （索引內嵌，離線可跑）
+build_app.py  ──►  dist/FOMC_RAG_Vote_Simulator.html  （索引內嵌，離線可跑）
                           │
                           ├─ BM25 取回 K=400 段 → 去重成會議
                           ├─ 依條件標籤重排（矛盾標籤 δ=1.5 扣分）→ 取前 M=8 場
@@ -132,21 +132,39 @@ build_app.py  ──►  FOMC_RAG_Vote_Simulator.html   （索引內嵌，離線
 
 ```
 FOMC-Decision-Memory/
-├── README.md                          ← 你在這裡
-├── README_zh-TW.md                    R5 交付說明：安裝、啟動、常見問題
-├── README_RAG_VOTE_SIMULATOR_zh-TW.md RAG 模擬的完整模型權重、參數與邊界
-├── AGENTS.md                          給 AI coding agent 的工作守則
+├── README.md                       ← 你在這裡
 │
-├── FOMC_RAG_Vote_Simulator.html       ★ 主要離線展示（開瀏覽器即可）
-├── communications.csv                 479 份 FOMC 原始文件語料
+├── dist/
+│   └── FOMC_RAG_Vote_Simulator.html  ★ 主要離線展示（開瀏覽器即可）
 │
-├── 01_Release-Handoff/                釋出 manifest、SHA-256、IT 部署文件
-├── 02_Application/                    R5 應用程式本體（1,005 檔，雜湊列管）
-├── 04_RAG_Vote_Simulator/             索引建置與回測評估腳本
-├── 05_Design_Canvas/                  會議現場動畫
-├── docs/ENGINEERING_LOG_zh-TW.md      問題與解法摘要（開發過程）
-└── docs/screenshots/                  README 截圖
+├── src/
+│   ├── app/                        Streamlit 應用程式（1,005 檔，雜湊列管）
+│   ├── retrieval/                  RAG 索引建置與回測評估腳本
+│   └── scene/                      會議現場動畫
+│
+├── data/
+│   └── communications.csv          479 份 FOMC 原始文件語料
+│
+├── release/                        釋出 manifest、SHA-256、IT 部署文件
+│
+└── docs/
+    ├── SETUP_zh-TW.md              安裝、啟動、常見問題
+    ├── MODEL_zh-TW.md              模型權重、全部參數與方法邊界
+    ├── ENGINEERING_LOG_zh-TW.md    問題與解法摘要（開發過程）
+    └── screenshots/
 ```
+
+`dist/FOMC_RAG_Vote_Simulator.html` 是 `src/retrieval/build_app.py` 把
+`fomc_rag_index.json` 與 R5 封存係數注進 `app_template.html` 產生的；改了索引或
+參數就重跑 `cd src/retrieval && python3 build_app.py`。
+
+### 文件
+
+| | |
+| --- | --- |
+| [`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md) | Streamlit App 的安裝、啟動與常見問題 |
+| [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md) | RAG 模擬的完整模型權重、全部參數、回測結果與方法邊界 |
+| [`docs/ENGINEERING_LOG_zh-TW.md`](docs/ENGINEERING_LOG_zh-TW.md) | 開發過程真正踩到的坑與修法，每項附可重跑的驗證 |
 
 ### 資料在哪裡
 
@@ -154,7 +172,7 @@ FOMC-Decision-Memory/
 external frozen inputs 另外遞交。這不是檔案損壞：`RELEASE_MANIFEST.json` 的
 `excluded` 明列 `"runtime databases"`，`SOURCE_FILES.txt` 也沒有任何 `.sqlite` 條目。
 8 項檔案的 SHA-256 清單在
-[`02_Application/IT_DATA_INPUTS_zh-TW.md`](02_Application/IT_DATA_INPUTS_zh-TW.md)。
+[`src/app/IT_DATA_INPUTS_zh-TW.md`](src/app/IT_DATA_INPUTS_zh-TW.md)。
 
 同樣地，`artifacts/codex_subscription/` 與 `artifacts/llm_preflight/`（385 個封存的
 模型 run，共 360 MB）由 payload 自己的 `.gitignore` 排除，改由 artifact manifest

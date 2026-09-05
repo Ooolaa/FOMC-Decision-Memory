@@ -133,7 +133,7 @@
       <h2>2. 委員會名單</h2>
       <div id="rosterLabel" style="font-weight:650"></div>
       <div id="rosterBox" style="margin-top:10px;max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:9px"></div>
-      <p class="hint">取消勾選即可把該委員排除在本次模擬之外。檢索與計分的參數已固定為回測調校後的數值，說明見 <code>README_RAG_VOTE_SIMULATOR_zh-TW.md</code>。</p>
+      <p class="hint">取消勾選即可把該委員排除在本次模擬之外。檢索與計分的參數已固定為回測調校後的數值，說明見 <code>docs/MODEL_zh-TW.md</code>。</p>
     </section>
   </div>
 
@@ -158,14 +158,14 @@
       <p class="hint" style="margin:0">把這次的結果演成一場會議：12 位委員圍桌，投反對票的舉手說明理由，
       後牆是十年的 CPI 與失業率走勢。點任一位委員可以看他為什麼這樣投。</p>
     </div>
-    <a class="btnlink" href="05_Design_Canvas/fomc-meeting-scene.html" target="_blank" rel="noopener">開啟會議現場</a>
+    <a class="btnlink" href="../src/scene/fomc-meeting-scene.html" target="_blank" rel="noopener">開啟會議現場</a>
   </section>
 
 </main>
 
 <footer>
   語料：<code>communications.csv</code>（FOMC 聲明與會議紀要）。計量模型：R5 封存
-  <code>02_Application/artifacts/reaction/pooled_ordered_logit_v1.json</code>。
+  <code>src/app/artifacts/reaction/pooled_ordered_logit_v1.json</code>。
   預設名單：<code>artifacts/forecast/fomc_2026_09_15_ensemble_v1</code> 的 FOMC-2026-09-15 名單。
   全部運算在瀏覽器離線完成，不連網、不需 API 金鑰。僅供研究／展示，不構成投資或政策建議。
 </footer>
@@ -194,7 +194,7 @@ const TAG_NAME = {
   labor_deteriorating:'勞動市場急速惡化'
 };
 /* 檢索與計分參數。這些值是留一法回測選出來的（見
-   README_RAG_VOTE_SIMULATOR_zh-TW.md 的「模型權重與參數」一節），介面上不再開放
+   docs/MODEL_zh-TW.md 的「模型權重與參數」一節），介面上不再開放
    調整，避免展示時被無意間調到未經驗證的組合。 */
 const PARAMS = {
   topk: 400,       // 檢索取回的段落數（重排的候選池；證據面板只顯示前 12 段）

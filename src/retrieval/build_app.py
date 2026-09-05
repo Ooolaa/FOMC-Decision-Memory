@@ -6,7 +6,7 @@ Injects three payloads into app_template.html:
   __MODEL_JSON__   the frozen R5 pooled ordered-logit coefficients
   __ROSTER_JSON__  selectable committee rosters
 
-Nothing under 02_Application/ is read for anything but its JSON artifacts, and
+Nothing under src/app/ is read for anything but its JSON artifacts, and
 nothing there is written.
 """
 from __future__ import annotations
@@ -16,11 +16,11 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
-APP = ROOT / "02_Application"
+ROOT = HERE.parent.parent
+APP = ROOT / "src" / "app"
 INDEX_PATH = HERE / "fomc_rag_index.json"
 TEMPLATE = HERE / "app_template.html"
-OUT = ROOT / "FOMC_RAG_Vote_Simulator.html"
+OUT = ROOT / "dist" / "FOMC_RAG_Vote_Simulator.html"
 
 LOGIT = APP / "artifacts/reaction/pooled_ordered_logit_v1.json"
 ENSEMBLE = APP / "artifacts/forecast/fomc_2026_09_15_ensemble_v1/runs/named_persona_reaction.json"

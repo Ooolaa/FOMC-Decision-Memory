@@ -156,7 +156,7 @@ def main() -> int:
     meetings, chunks = d['meetings'], d['chunks']
     cm = [c['m'] for c in chunks]
     index = Index(chunks)
-    lg = json.load(open('../02_Application/artifacts/reaction/pooled_ordered_logit_v1.json'))
+    lg = json.load(open('../app/artifacts/reaction/pooled_ordered_logit_v1.json'))
     sig = lambda v: 1 / (1 + math.exp(-v))
 
     def logit(x):

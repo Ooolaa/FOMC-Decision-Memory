@@ -2,7 +2,7 @@
 import json, datetime, collections, sys
 
 d = json.load(open('fomc_rag_index.json'))
-lg = json.load(open('../02_Application/artifacts/reaction/pooled_ordered_logit_v1.json'))
+lg = json.load(open('../app/artifacts/reaction/pooled_ordered_logit_v1.json'))
 mine = {m['d']: m['a'] for m in d['meetings']}
 
 

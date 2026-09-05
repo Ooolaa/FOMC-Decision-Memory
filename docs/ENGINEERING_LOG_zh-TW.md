@@ -32,7 +32,7 @@
 降息召回率 32% → 35%。
 
 ```sh
-cd 04_RAG_Vote_Simulator && python3 diag_coverage.py
+cd src/retrieval && python3 diag_coverage.py
 ```
 
 ---
@@ -101,7 +101,7 @@ cd 04_RAG_Vote_Simulator && python3 diag_coverage.py
 「**2008-10-29、2008-10-07、2008-12-16、2008-03-18**」。
 
 ```sh
-cd 04_RAG_Vote_Simulator && python3 eval_momentum.py
+cd src/retrieval && python3 eval_momentum.py
 ```
 
 **仍然答錯的兩個案例，原因也寫進文件**：2020-03 的降息是基於疫情的前瞻判斷
@@ -124,7 +124,7 @@ footing」）；2022-06 則是檢索側答對了、計量模型把它拉回來�
 臨時降息，R5 標為「維持」，本工具依聲明原文標為「降息」。
 
 ```sh
-cd 04_RAG_Vote_Simulator && python3 check_index.py
+cd src/retrieval && python3 check_index.py
 ```
 
 ---
@@ -171,9 +171,8 @@ cd 04_RAG_Vote_Simulator && python3 check_index.py
 
 ## 十、交付包本身就有的問題（不是我們造成的）
 
-`AGENTS.md` 原本要求 `02_Application/` 必須剛好 **1,102 個檔案**，與 `SOURCE_FILES.txt`
-完全一致。實際上只有 **1,101 個**——缺 `專案導覽_zh-TW.md`，而 AGENTS.md 還指名
-要讀它。
+交付包的 agent 守則要求 `src/app/` 必須剛好 **1,102 個檔案**，與 `SOURCE_FILES.txt`
+完全一致。實際上只有 **1,101 個**——缺 `專案導覽_zh-TW.md`，而該守則還指名要讀它。
 
 這在動工前就是如此（該目錄所有檔案的 mtime 都停在解壓時間），
 `shasum -c SHA256SUMS.txt` 仍全數通過。動工前先跑一次 diff 把基準記錄下來，
@@ -183,9 +182,9 @@ cd 04_RAG_Vote_Simulator && python3 check_index.py
 **1,005 筆**，這道缺口一併校正，下面這條 diff 現在是零差異。
 
 ```sh
-cd 02_Application && find . -type f -not -name '.DS_Store' -not -path '*/__pycache__/*' \
+cd src/app && find . -type f -not -name '.DS_Store' -not -path '*/__pycache__/*' \
   | sed 's|^\./||' | LC_ALL=C sort \
-  | diff - ../01_Release-Handoff/01_Manifests-and-Integrity/SOURCE_FILES.txt
+  | diff - ../release/01_Manifests-and-Integrity/SOURCE_FILES.txt
 ```
 
 ---
@@ -210,7 +209,7 @@ cd 02_Application && find . -type f -not -name '.DS_Store' -not -path '*/__pycac
 誤差回測量不到。
 
 ```sh
-cd 04_RAG_Vote_Simulator
+cd src/retrieval
 python3 eval_tags.py       # 留一法回測
 python3 eval_momentum.py   # 六個歷史危機案例
 python3 check_index.py     # 行動標記與封存標籤比對

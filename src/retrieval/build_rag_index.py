@@ -18,8 +18,8 @@ from pathlib import Path
 
 csv.field_size_limit(10 ** 9)
 
-ROOT = Path(__file__).resolve().parent.parent
-CSV_PATH = ROOT / "communications.csv"
+ROOT = Path(__file__).resolve().parent.parent.parent
+CSV_PATH = ROOT / "data" / "communications.csv"
 OUT_PATH = Path(__file__).resolve().parent / "fomc_rag_index.json"
 
 # --- text hygiene -----------------------------------------------------------

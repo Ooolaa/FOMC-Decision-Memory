@@ -1,6 +1,6 @@
 # FOMC 決策記憶 RAG 投票模擬（新增離線展示）
 
-直接以瀏覽器開啟套件根目錄的 `FOMC_RAG_Vote_Simulator.html` 即可，不需要
+直接以瀏覽器開啟`dist/FOMC_RAG_Vote_Simulator.html` 即可，不需要
 Python、網路或 API 金鑰。整份語料索引已內嵌在 HTML 中（約 3.6 MB），所有檢索與
 運算都在瀏覽器離線完成。
 
@@ -29,12 +29,12 @@ Python、網路或 API 金鑰。整份語料索引已內嵌在 HTML 中（約 3.
    （整體通膨／勞動市場敘述、委員會決議段落）另外收在第 5 區「委員會層級的原文
    證據」，同樣點擊展開。
 
-介面只保留輸入與結果；參數調整與回測留在 `04_RAG_Vote_Simulator/` 的離線腳本裡
+介面只保留輸入與結果；參數調整與回測留在 `src/retrieval/` 的離線腳本裡
 （見下方「模型權重與參數」）。
 
 ## 從語料萃取出什麼
 
-`communications.csv` 有 479 筆文件（243 份會議紀要、225 份聲明、11 筆已排定
+`data/communications.csv` 有 479 筆文件（243 份會議紀要、225 份聲明、11 筆已排定
 會議），全部經過雙重 UTF-8 編碼修復後解析：
 
 | 項目 | 數量 |
@@ -184,7 +184,7 @@ Fed 明說總體數據是強的，降息 100bp 是基於疫情的**前瞻判斷*
 ## 模型權重與參數
 
 介面上不再開放調整這些參數（避免展示時被無意間調到未經驗證的組合）。全部寫在
-`04_RAG_Vote_Simulator/app_template.html` 的 `PARAMS` 常數裡，改了重跑
+`src/retrieval/app_template.html` 的 `PARAMS` 常數裡，改了重跑
 `build_app.py` 即可。
 
 ### 檢索與計分參數
@@ -228,7 +228,7 @@ p(類別)   = (raw + α) ÷ (Σraw + 3α),   α = 0.12 × Σraw
 
 ### 計量模型係數（R5 封存，唯讀）
 
-`02_Application/artifacts/reaction/pooled_ordered_logit_v1.json`，
+`src/app/artifacts/reaction/pooled_ordered_logit_v1.json`，
 model_id `reaction-4e24ed5f780bd2dcdc9fe439`，訓練期 2006-01-31 – 2020-12-15
 共 121 場，訓練集準確率 0.7934。特徵先做標準化 `(x − mean) / scale` 再乘係數。
 
@@ -299,7 +299,7 @@ p(異議) = clamp(base × exp(1.2 × lean × tilt) × (1 + evid), 0.01, 0.9)
 
 ## 會議現場動畫
 
-第 5 區下方的「開啟會議現場」按鈕連到 `05_Design_Canvas/fomc-meeting-scene.html`
+第 5 區下方的「開啟會議現場」按鈕連到 `src/scene/fomc-meeting-scene.html`
 （相對路徑，離線可開）：12 位委員圍桌，投反對票的舉手並以發言泡泡說明理由，
 後牆投影 2016–2026 的 CPI 年增率與失業率走勢，點任一位委員展開他投票的理由與
 語料原文引文。
@@ -318,7 +318,7 @@ CSV 端點取得的。順帶驗證了一件事：`artifacts/forecast/.../bundles
 
 ## 這個專案有沒有用 LLM
 
-**這個工具本身沒有。** `FOMC_RAG_Vote_Simulator.html` 從頭到尾不呼叫任何語言
+**這個工具本身沒有。** `dist/FOMC_RAG_Vote_Simulator.html` 從頭到尾不呼叫任何語言
 模型：BM25 檢索、ordered-logit、個人票規則全部是瀏覽器裡的確定性算術，離線、
 無 API 金鑰、同樣輸入必得同樣輸出。所謂「RAG」在這裡只有 R（retrieval）與
 A（augmented），把檢索到的原文餵給規則而不是餵給 LLM；因此畫面上的「理由」是
@@ -326,7 +326,7 @@ A（augmented），把檢索到的原文餵給規則而不是餵給 LLM；因此
 
 **原 R5 交付包則有用，用的是 OpenAI 的 `gpt-5.6-terra`。** 證據：
 
-- `02_Application/requirements.txt` 釘 `openai==2.32.0`
+- `src/app/requirements.txt` 釘 `openai==2.32.0`
 - `decision_memory/ai_member_explanation.py` 的 `DEFAULT_MODEL = "gpt-5.6-terra"`，
   `model_preflight.py` 的 `EXPECTED_MODEL_ID` 也是它（執行前會強制檢查）
 - `decision_memory/codex_subscription.py` 以 subprocess 呼叫 `codex` CLI，走
@@ -344,13 +344,12 @@ A（augmented），把檢索到的原文餵給規則而不是餵給 LLM；因此
 
 ## 檔案與重建
 
-新增檔案都在套件根目錄與 `04_RAG_Vote_Simulator/`，**未修改 `02_Application/`
-任何 manifest 列管檔案**：
+成品與建置腳本分別在 `dist/` 與 `src/retrieval/`：
 
 ```
-FOMC_RAG_Vote_Simulator.html      成品，可直接開啟
-README_RAG_VOTE_SIMULATOR_zh-TW.md
-04_RAG_Vote_Simulator/
+dist/FOMC_RAG_Vote_Simulator.html   成品，可直接開啟
+docs/MODEL_zh-TW.md                 本文
+src/retrieval/
   build_rag_index.py              語料 → fomc_rag_index.json
   build_app.py                    模板 + 索引 + 係數 + 名單 → 成品 HTML
   app_template.html               版面與前端邏輯（索引以佔位符注入）
@@ -368,10 +367,10 @@ README_RAG_VOTE_SIMULATOR_zh-TW.md
 重建：
 
 ```sh
-cd 04_RAG_Vote_Simulator
-python3 build_rag_index.py     # 讀 ../communications.csv
+cd src/retrieval
+python3 build_rag_index.py     # 讀 ../../data/communications.csv
 python3 check_index.py         # 應顯示 match=120/121
-python3 build_app.py           # 產生 ../FOMC_RAG_Vote_Simulator.html
+python3 build_app.py           # 產生 ../../dist/FOMC_RAG_Vote_Simulator.html
 ```
 
 模型係數與預設名單取自 R5 封存 artifact（唯讀）：
