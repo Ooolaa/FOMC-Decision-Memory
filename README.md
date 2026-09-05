@@ -46,22 +46,6 @@
 
 ---
 
-## 兩個入口
-
-| | 內容 | 需要什麼 |
-| --- | --- | --- |
-| **`dist/FOMC_RAG_Vote_Simulator.html`** | **主要展示**：輸入會前的總體與市場情境，BM25 從 244 場會議的 3,553 段原文檢索條件最接近的會議，推論政策方向、**逐一委員的投票**與每個判斷的原文出處 | 只要瀏覽器 |
-| `src/scene/fomc-meeting-scene.html` | 同一組結果換成會議室的樣子：12 個席次、舉手的是投反對票的人，點任一位展開他為什麼這樣投 | 只要瀏覽器 |
-| `src/app/` | R5 Streamlit 應用程式：Decision Replay、Assumption Monitor、Simulation & Evidence | Python 3.11 ＋ 4 個外部資料庫 |
-
-離線頁面的索引已內嵌在 HTML 裡，第一次按「執行 RAG 情境預測」約 1 秒建索引，之後即時。
-**整個模擬過程不呼叫任何 LLM**，全部是瀏覽器內的確定性算術——所以離線也跑得動，
-而且同樣的輸入永遠得到同樣的輸出。
-
-Streamlit 應用程式的安裝與啟動步驟，見 **[`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md)**。
-
----
-
 ## 我們怎麼得到這個結論
 
 這不是「接一個 LLM 然後相信它」。結論是把**計量經濟模型、檢索式 ML、
@@ -181,50 +165,6 @@ FOMC-Decision-Memory/
 `dist/FOMC_RAG_Vote_Simulator.html` 是 `src/retrieval/build_app.py` 把
 `fomc_rag_index.json` 與 R5 封存係數注進 `app_template.html` 產生的；改了索引或
 參數就重跑 `cd src/retrieval && python3 build_app.py`。
-
-### 文件
-
-| | |
-| --- | --- |
-| [`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md) | Streamlit App 的安裝、啟動與常見問題 |
-| [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md) | 方法全文：四條路線的模型權重與全部參數、回測、消融實驗矩陣與方法邊界 |
-| [`docs/ENGINEERING_LOG_zh-TW.md`](docs/ENGINEERING_LOG_zh-TW.md) | 開發過程真正踩到的坑與修法，每項附可重跑的驗證 |
-
-### 可重跑的驗證
-
-這個 repo 的每個結構性宣稱都有對應指令，不必相信文件：
-
-```sh
-# 成品可從原始碼重建，且逐位元組相同
-cd src/retrieval && python3 build_app.py
-
-# payload 檔案清單與 manifest 完全一致（1,005 筆）
-cd src/app && find . -type f -not -name '.DS_Store' -not -path '*/__pycache__/*' \
-  | sed 's|^\./||' | LC_ALL=C sort \
-  | diff - ../../release/01_Manifests-and-Integrity/SOURCE_FILES.txt
-
-# 上面那張消融實驗表就是這個檔案，不是手打的（在 repo 根目錄執行）
-python3 -c "import json;[print(f\"{r['variant_id']:32} acc={r['policy_accuracy']:.3f} f1={r['dissent_f1']}\") \
-  for r in json.load(open('src/app/artifacts/evaluation/r5_subscription_variant_matrix_v1.json'))['rows']]"
-
-# 釋出檔案未被竄改
-cd release && shasum -a 256 -c 01_Manifests-and-Integrity/SHA256SUMS.txt
-
-# 離線建置雜湊清單與封存 manifest 相符（需先建好 .venv，見 SETUP）
-cd src/app && ../../.venv/bin/python -m decision_memory.submission_gate
-```
-
-### 資料在哪裡
-
-4 個執行期 `.sqlite` 資料庫與 `official_documents/` **刻意不在版本庫裡**，以
-external frozen inputs 另外遞交。這不是檔案損壞：`RELEASE_MANIFEST.json` 的
-`excluded` 明列 `"runtime databases"`，`SOURCE_FILES.txt` 也沒有任何 `.sqlite` 條目。
-8 項檔案的 SHA-256 清單在
-[`src/app/IT_DATA_INPUTS_zh-TW.md`](src/app/IT_DATA_INPUTS_zh-TW.md)。
-
-同樣地，`artifacts/codex_subscription/` 與 `artifacts/llm_preflight/`（385 個封存的
-模型 run，共 360 MB）由 payload 自己的 `.gitignore` 排除，改由 artifact manifest
-治理。**上面兩個離線頁面不需要其中任何一項。**
 
 ---
 
