@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "experiment_id": "terra_luna_controlled_3case_v1",
+  "authorized_at_utc": "2026-08-28T02:51:02Z",
+  "authorization": {
+    "new_run_count": 5,
+    "aggregate_hard_cap_usd": 10.0,
+    "frozen_45_authorized": false
+  },
+  "harness": {
+    "runner_sha256": "e2198ba649147d34374e9395c8ff9056d7a7a9e35d7ef6f83dfb14b5bf011711",
+    "stage_schema_sha256": "91785f74ee5df2306d4d9e0a83305aeb016e216f298b5905ba7035406921a7d9",
+    "stage_order": ["profiles", "openings", "options", "chair", "votes"],
+    "reasoning_effort": ["medium", "high", "high", "high", "medium"],
+    "runtime_document_id_enum": true,
+    "repair_allowlist": true,
+    "maximum_semantic_repairs_per_stage": 1
+  },
+  "models": {
+    "gpt-5.6-terra": {
+      "spec_sha256": "86e6b7f5fc27b0793f8f825a068d2ac823ca7a0eeb1f44ae3fb0669a74a90335"
+    },
+    "gpt-5.6-luna": {
+      "spec_sha256": "23b4b55ebfdc14cf3193c1d42dc46d7b6183ff04b8cc9e2b04c509297dbad1fd"
+    }
+  },
+  "app_database_sha256_before": "ed7fc676be41d77e1c56c5668e1d4a833c2b1348383dfd65f7242b8157df77a3",
+  "cases": [
+    {
+      "meeting_id": "FOMC-2022-03-15",
+      "actual_action": "HIKE",
+      "actual_dissent_count": 1,
+      "bundle_hash": "6627e4825b9a60418c7a84931b9539efa66a16fe76af217cab171c58890c45cb",
+      "bundle_sha256": "08b04d7098cf449fae37e8628b2620417a27050e4d9943cb0a534b740ff55f66",
+      "existing_luna_artifact_sha256": "914311d47c142786d4b7959e2ba589c32ca3cb0d3e198075706995e6787043ba",
+      "new_runs": ["gpt-5.6-terra"]
+    },
+    {
+      "meeting_id": "FOMC-2023-09-19",
+      "actual_action": "HOLD",
+      "actual_dissent_count": 0,
+      "bundle_hash": "c467ae559c7e30f920ad707af884bca545638ff5e1ed8aa6898b81768c4c57e0",
+      "bundle_sha256": "164585dc8f6bd77a6af1b037e67b89d197c5b36ad6c7340d0c6c8d20d359dd65",
+      "new_runs": ["gpt-5.6-terra", "gpt-5.6-luna"]
+    },
+    {
+      "meeting_id": "FOMC-2024-09-17",
+      "actual_action": "CUT",
+      "actual_dissent_count": 1,
+      "bundle_hash": "8346fe618580e91aed15c91727a3d3045e0ac766bf026f038d024ea523af7169",
+      "bundle_sha256": "251244d0ed01b96ffa36095c90a3bdb138f21220f8865450bd73c736a348373f",
+      "new_runs": ["gpt-5.6-terra", "gpt-5.6-luna"]
+    }
+  ],
+  "execution_order": [
+    "FOMC-2022-03-15:gpt-5.6-terra",
+    "FOMC-2023-09-19:gpt-5.6-terra",
+    "FOMC-2023-09-19:gpt-5.6-luna",
+    "FOMC-2024-09-17:gpt-5.6-terra",
+    "FOMC-2024-09-17:gpt-5.6-luna"
+  ],
+  "cost_envelope": {
+    "theoretical_cached_total_usd": 2.9868,
+    "character_estimate_all_cache_write_total_usd": 9.1569,
+    "estimate_is_not_actual_usage": true
+  },
+  "stop_rules": [
+    "Execute sequentially with no case interleaving.",
+    "Subtract each successful run's actual token-priced cost from the aggregate remaining cap.",
+    "Pass only the aggregate remaining cap to the next run.",
+    "Stop the entire batch on any failure, semantic repair failure, cap block, artifact conflict or database integrity error.",
+    "Do not replace a failed model or case and do not spend unused cap on extra runs."
+  ],
+  "promotion_status_before_execution": "INSUFFICIENT_FOR_FROZEN_PROMOTION"
+}

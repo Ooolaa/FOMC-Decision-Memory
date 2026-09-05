@@ -1,0 +1,65 @@
+{
+  "schema_version": "hackathon_r5_final_ui_rehearsal_v8",
+  "status": "PASS",
+  "executed_at": "2026-09-02T17:20:38.707547+08:00",
+  "app_sha256": "fbbeaa4bac4d437e0e0060d85fbeb4465aadf3712700f95a775ee90a67f699f7",
+  "launcher_sha256": "8d90cb18772267821b07c17061aaafcf09c3c644a03ad8b19ec71951ed01f363",
+  "matrix_path": "artifacts/evaluation/r5_subscription_variant_matrix_v1.json",
+  "matrix_sha256": "d3ad48b9f7fa17320c46e36447ba15b188e3d4320f589b3aaedd5fcc79c3cea0",
+  "browser": {
+    "family": "Microsoft Edge",
+    "version": "152.0.4191.53",
+    "viewport": "1440x1100"
+  },
+  "network_binding": {
+    "address": "127.0.0.1",
+    "wildcard_listener_absent": true,
+    "health_probe": "status=200 body=ok"
+  },
+  "modes": [
+    {
+      "name": "normal_browser_path",
+      "result": "PASS",
+      "capture_report": "artifacts/rehearsal/ui_fomc_focused_normal_loopback_v1/capture_report.json",
+      "capture_report_sha256": "668ca99074a213c04e1030e70d3fd9068c2ddb8320c2f035e661faa7088ab824",
+      "health_probe": "status=200 body=ok"
+    },
+    {
+      "name": "process_without_openai_api_key",
+      "result": "PASS",
+      "capture_report": "artifacts/rehearsal/ui_fomc_focused_no_process_key_loopback_v1/capture_report.json",
+      "capture_report_sha256": "668ca99074a213c04e1030e70d3fd9068c2ddb8320c2f035e661faa7088ab824",
+      "health_probe": "status=200 body=ok",
+      "api_key_removed_from_child_process": true
+    },
+    {
+      "name": "stop_and_restart",
+      "result": "PASS",
+      "capture_report": "artifacts/rehearsal/ui_fomc_focused_restart_loopback_v1/capture_report.json",
+      "capture_report_sha256": "668ca99074a213c04e1030e70d3fd9068c2ddb8320c2f035e661faa7088ab824",
+      "health_probe": "status=200 body=ok",
+      "stopped_probe_failed": true
+    }
+  ],
+  "canonical_screenshots": [
+    {
+      "view_id": "next_meeting_forecast",
+      "path": "artifacts/screenshots/next_meeting_forecast.png",
+      "sha256": "0b6def44a25edccc8e3f91f5243b465fb8c6b0566974c52ee4c15c7a2debb24c"
+    },
+    {
+      "view_id": "decision_replay",
+      "path": "artifacts/screenshots/decision_replay.png",
+      "sha256": "1c7c865202b7e50ced9144b6fb2bcdc2bf95eae9bce63e3a89017765fb26ad6c"
+    },
+    {
+      "view_id": "historical_results",
+      "path": "artifacts/screenshots/historical_results.png",
+      "sha256": "b37667d4efa7846e1028abcbe0736bfd2c64bf2404acc4ac82b34f8879c3d34a"
+    }
+  ],
+  "equivalence": {
+    "body_text_sha256_equal_for_all_required_views": true,
+    "screenshot_sha256_equal_for_all_required_views": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "ui_decision_trace_catalog_rehearsal_v1",
+  "verified_at": "2026-09-01T16:33:00+08:00",
+  "url": "http://localhost:8503/",
+  "app_database": "fomc_simulation.decision_trace_50_display.sqlite",
+  "app_database_sha256": "d60364029cafb6e79dc8b3e6a902b06016970620b827752f09f1d3df54139186",
+  "result": "PASS",
+  "checks": [
+    {
+      "check_id": "catalog_counts",
+      "result": "PASS",
+      "evidence": "完整重播 51 場｜基礎政策案例 115 場"
+    },
+    {
+      "check_id": "latest_base_case",
+      "meeting_id": "FOMC-2026-07-28",
+      "result": "PASS",
+      "evidence": "2026-07-28/29; 維持利率; base-case disclosure visible; no named historical speech generated"
+    },
+    {
+      "check_id": "early_full_trace",
+      "meeting_id": "FOMC-2006-01-31",
+      "result": "PASS",
+      "evidence": "context/options/debate/decision tabs visible; codex-subscription-decision-trace-v5-atomic-monitor"
+    },
+    {
+      "check_id": "middle_full_trace",
+      "meeting_id": "FOMC-2011-12-13",
+      "result": "PASS",
+      "evidence": "selected meeting rendered; 模型抽取 DecisionTrace／抽樣人工 QA badge visible"
+    },
+    {
+      "check_id": "current_source_hash",
+      "result": "PASS",
+      "evidence": "02f96292422ece4556e952902a4660c663652d9eaff8b470e75eec3dc7c91187"
+    }
+  ]
+}

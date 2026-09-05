@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "comparison_id": "terra_luna_votes_only_3case_v1",
+  "created_at_utc": "2026-08-28T03:56:01Z",
+  "comparison_status": "CONDITIONAL_VOTES_ONLY_ENGINEERING_COMPARISON_COMPLETED",
+  "promotion_status": "INSUFFICIENT_FOR_FROZEN_PROMOTION",
+  "experiment_spec_sha256": "4b168e55e371fcec5b4fc61301ccea62b9b2953289d0015a7b5f6a54c67f3c18",
+  "authorization_amendment_sha256": "d99aa74042a3ffe7cb113827b0d65f75a85c6f7ee1330f77afc130b141f8b102",
+  "controls": {
+    "runner_sha256": "51f789e841edf3272cf63a651d01ddf932d130eb9b4aa1aeb64467ba87a55af1",
+    "stage_schema_sha256": "91785f74ee5df2306d4d9e0a83305aeb016e216f298b5905ba7035406921a7d9",
+    "stage_order": ["votes"],
+    "reasoning_effort": "medium",
+    "same_locked_context_within_case": true,
+    "anchor_model_id": "gpt-5.6-terra",
+    "maximum_semantic_repairs": 1,
+    "actual_repairs": 0,
+    "execution_order": "SEQUENTIAL_NO_INTERLEAVING",
+    "app_database_mode": "READ_ONLY_EVALUATION",
+    "instrument_disclosure": "This is a conditional votes-only instrument using locked Terra profiles, discussion and Chair proposal. Existing full-run artifacts do not preserve every original intermediate prompt field, so this is not represented as an exact replay of the original five-stage votes request."
+  },
+  "cost_authorization": {
+    "aggregate_hard_cap_usd": 6.5,
+    "actual_cost_usd": 3.89411955,
+    "unused_cap_usd": 2.60588045,
+    "paid_request_count": 6,
+    "reallocated_to_other_work": false
+  },
+  "cases": [
+    {
+      "meeting_id": "FOMC-2022-03-15",
+      "actual_dissent_count": 1,
+      "participant_count": 9,
+      "locked_context_hash": "02598afa4a5d6791fca88b377ad3667cfd39c67f6e4b8f1f9b665c99d6bd5305",
+      "models": {
+        "gpt-5.6-terra": {
+          "artifact_sha256": "2f9a2749228248c50f8e274a318c0d45f170cdff22194db9516efb7788973aa4",
+          "predicted_dissent_count": 0,
+          "dissent_confusion": {"tp": 0, "fp": 0, "fn": 1, "tn": 8},
+          "cost_usd": 0.6844735,
+          "latency_seconds": 6.40417,
+          "input_tokens": 271846,
+          "output_tokens": 405,
+          "reasoning_tokens": 0,
+          "repair_count": 0
+        },
+        "gpt-5.6-luna": {
+          "artifact_sha256": "ef76092458961c0f2a4d7816c2dd54ffbcb454b18725243040a0830041c15787",
+          "predicted_dissent_count": 0,
+          "dissent_confusion": {"tp": 0, "fp": 0, "fn": 1, "tn": 8},
+          "cost_usd": 0.06850495,
+          "latency_seconds": 7.257569,
+          "input_tokens": 271846,
+          "output_tokens": 453,
+          "reasoning_tokens": 64,
+          "repair_count": 0
+        }
+      }
+    },
+    {
+      "meeting_id": "FOMC-2023-09-19",
+      "actual_dissent_count": 0,
+      "participant_count": 12,
+      "locked_context_hash": "12b1745129fdd81e379e7719c2d0263a5c110aba0ab4d4d7563637694e2fd61b",
+      "models": {
+        "gpt-5.6-terra": {
+          "artifact_sha256": "b3e0674631dabdc0a10caa06c0edcea35ace322adf0304622e775597078c0e2e",
+          "predicted_dissent_count": 0,
+          "dissent_confusion": {"tp": 0, "fp": 0, "fn": 0, "tn": 12},
+          "cost_usd": 1.433099,
+          "latency_seconds": 7.97296,
+          "input_tokens": 284734,
+          "output_tokens": 524,
+          "reasoning_tokens": 0,
+          "repair_count": 0
+        },
+        "gpt-5.6-luna": {
+          "artifact_sha256": "a9adc4293661b9a6b9cb5ccdd8841cb181346862b59bffa69b50e35d8f2e8c1f",
+          "predicted_dissent_count": 3,
+          "false_positive_participant_ids": ["christopher-j-waller", "lorie-k-logan", "michelle-w-bowman"],
+          "dissent_confusion": {"tp": 0, "fp": 3, "fn": 0, "tn": 9},
+          "cost_usd": 0.1433675,
+          "latency_seconds": 5.977358,
+          "input_tokens": 284734,
+          "output_tokens": 556,
+          "reasoning_tokens": 66,
+          "repair_count": 0
+        }
+      }
+    },
+    {
+      "meeting_id": "FOMC-2024-09-17",
+      "actual_dissent_count": 1,
+      "participant_count": 12,
+      "locked_context_hash": "1bbef1a52d4bb657a91596bf9160db96ba5d89e3fc2c9c72b927dfd0f3463558",
+      "models": {
+        "gpt-5.6-terra": {
+          "artifact_sha256": "c339971d4a90e27ec20292d99fd7233b51d69e00a680592614bd1a2e314fe7ae",
+          "predicted_dissent_count": 1,
+          "dissent_confusion": {"tp": 1, "fp": 0, "fn": 0, "tn": 11},
+          "cost_usd": 1.422402,
+          "latency_seconds": 7.394418,
+          "input_tokens": 282537,
+          "output_tokens": 540,
+          "reasoning_tokens": 0,
+          "repair_count": 0
+        },
+        "gpt-5.6-luna": {
+          "artifact_sha256": "6b2fb236a049277756b19483c6fbc1dc2578d3b87aa78e071f8048fcaeaf3766",
+          "predicted_dissent_count": 1,
+          "dissent_confusion": {"tp": 1, "fp": 0, "fn": 0, "tn": 11},
+          "cost_usd": 0.1422726,
+          "latency_seconds": 8.236201,
+          "input_tokens": 282537,
+          "output_tokens": 558,
+          "reasoning_tokens": 88,
+          "repair_count": 0
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "gpt-5.6-terra": {
+      "case_count": 3,
+      "participant_count": 33,
+      "dissent_confusion": {"tp": 1, "fp": 0, "fn": 1, "tn": 31},
+      "dissent_precision": 1.0,
+      "dissent_recall": 0.5,
+      "dissent_f1": 0.6666666666666666,
+      "participant_accuracy": 0.9696969696969697,
+      "cost_usd": 3.5399745,
+      "mean_latency_seconds": 7.257182666666666,
+      "tokens": {"input": 839117, "output": 1469, "reasoning": 0},
+      "request_count": 3,
+      "repair_count": 0
+    },
+    "gpt-5.6-luna": {
+      "case_count": 3,
+      "participant_count": 33,
+      "dissent_confusion": {"tp": 1, "fp": 3, "fn": 1, "tn": 28},
+      "dissent_precision": 0.25,
+      "dissent_recall": 0.5,
+      "dissent_f1": 0.3333333333333333,
+      "participant_accuracy": 0.8787878787878788,
+      "cost_usd": 0.35414505,
+      "mean_latency_seconds": 7.157042666666666,
+      "tokens": {"input": 839117, "output": 1567, "reasoning": 218},
+      "request_count": 3,
+      "repair_count": 0
+    }
+  },
+  "paired_comparison": {
+    "dissent_f1_difference_luna_minus_terra": -0.3333333333333333,
+    "participant_accuracy_difference_luna_minus_terra": -0.09090909090909094,
+    "luna_cost_as_share_of_terra": 0.10004169521560113,
+    "luna_cost_reduction_vs_terra": 0.8999583047843989,
+    "mean_latency_difference_luna_minus_terra_seconds": -0.10013999999999967,
+    "both_completed_all_cases_without_repair": true
+  },
+  "comparison_to_full_harness": {
+    "full_harness_artifact": "artifacts/evaluation/terra_luna_controlled_3case_v1.json",
+    "gpt-5.6-terra": {
+      "full_harness_dissent_f1": 0.6666666666666666,
+      "votes_only_dissent_f1": 0.6666666666666666,
+      "confusion_changed": false
+    },
+    "gpt-5.6-luna": {
+      "full_harness_dissent_f1": 0.25,
+      "votes_only_dissent_f1": 0.3333333333333333,
+      "full_harness_false_positives": 5,
+      "votes_only_false_positives": 3,
+      "change": "The locked Terra upstream context removed two 2024 false positives, but Luna still converted three hawkish 2023 preferences into false formal dissents."
+    }
+  },
+  "conclusion": "Under identical locked profiles, discussion and Chair proposal, Terra retained the stronger dissent result (F1 0.667 versus Luna 0.333). Luna cost about 10.00% as much, but its three false-positive dissents in the unanimous 2023 HOLD case show that the votes decoder itself still contributes error; the problem is not solely inherited from upstream Luna stages. Three single runs do not estimate sampling variance and do not authorize model replacement or Frozen 45 promotion."
+}

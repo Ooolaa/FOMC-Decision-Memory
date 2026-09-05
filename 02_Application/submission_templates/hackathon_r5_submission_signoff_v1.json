@@ -1,0 +1,38 @@
+{
+  "schema_version": "hackathon_r5_submission_signoff_v1",
+  "presenter": "__FILL_PRIMARY_HUMAN_PRESENTER__",
+  "video": {
+    "path": "__FILL_WORKSPACE_RELATIVE_VIDEO_PATH__",
+    "sha256": "__FILL_VIDEO_SHA256__",
+    "watched_end_to_end_with_audio": false
+  },
+  "rehearsals": [
+    {
+      "run": 1,
+      "duration_seconds": 0,
+      "occurred_at": "__FILL_ISO8601_WITH_TIMEZONE__"
+    },
+    {
+      "run": 2,
+      "duration_seconds": 0,
+      "occurred_at": "__FILL_ISO8601_WITH_TIMEZONE__"
+    },
+    {
+      "run": 3,
+      "duration_seconds": 0,
+      "occurred_at": "__FILL_ISO8601_WITH_TIMEZONE__"
+    }
+  ],
+  "submission": {
+    "archive_path": "__FILL_WORKSPACE_RELATIVE_ARCHIVE_PATH__",
+    "confirmation_id": "__FILL_ORGANIZER_CONFIRMATION_ID__"
+  },
+  "second_person_review": {
+    "reviewer": "__FILL_SECOND_HUMAN_REVIEWER__",
+    "signed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+    "synthetic_labels_visible": false,
+    "no_secrets_or_private_data_visible": false,
+    "download_access_tested": false,
+    "contact_information_checked": false
+  }
+}

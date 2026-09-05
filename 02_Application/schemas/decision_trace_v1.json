@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "decision_trace_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision_id",
+    "meeting_id",
+    "context",
+    "options",
+    "debate",
+    "decision",
+    "vote",
+    "assumptions"
+  ],
+  "$defs": {
+    "evidence_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document_id", "locator", "excerpt"],
+      "properties": {
+        "document_id": {"type": "string", "minLength": 1},
+        "locator": {"type": "string", "minLength": 1, "maxLength": 200},
+        "excerpt": {"type": "string", "minLength": 1, "maxLength": 1000}
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidence_ref"}
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "decision_trace_v1"},
+    "decision_id": {"type": "string", "minLength": 1},
+    "meeting_id": {
+      "oneOf": [
+        {"type": "string", "pattern": "^FOMC-[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        {"type": "null"}
+      ]
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "evidence_refs"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 1},
+        "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+      }
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["option_id", "description", "evidence_refs"],
+        "properties": {
+          "option_id": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+        }
+      }
+    },
+    "debate": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "speaker_scope",
+          "participant_id",
+          "position",
+          "reasoning",
+          "evidence_refs"
+        ],
+        "properties": {
+          "speaker_scope": {"enum": ["committee", "participant"]},
+          "participant_id": {"type": ["string", "null"]},
+          "position": {"type": "string", "minLength": 1},
+          "reasoning": {"type": "string", "minLength": 1},
+          "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action_class",
+        "target_rate",
+        "target_lower",
+        "target_upper",
+        "rationale",
+        "evidence_refs"
+      ],
+      "properties": {
+        "action_class": {"enum": ["CUT", "HOLD", "HIKE", "PROCEED", "DEFER", "REJECT"]},
+        "target_rate": {"type": ["number", "null"]},
+        "target_lower": {"type": ["number", "null"]},
+        "target_upper": {"type": ["number", "null"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+      }
+    },
+    "vote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rounds"],
+      "properties": {
+        "rounds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "vote_round",
+              "for_count",
+              "against_count",
+              "abstain_count",
+              "evidence_refs"
+            ],
+            "properties": {
+              "vote_round": {"type": "integer", "minimum": 1},
+              "for_count": {"type": "integer", "minimum": 0},
+              "against_count": {"type": "integer", "minimum": 0},
+              "abstain_count": {"type": "integer", "minimum": 0},
+              "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+            }
+          }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assumption_id",
+          "claim",
+          "monitor_series_id",
+          "monitor_operator",
+          "threshold_value",
+          "direction_map_version",
+          "monitor_rule_version",
+          "evidence_refs"
+        ],
+        "properties": {
+          "assumption_id": {"type": "string", "minLength": 1},
+          "claim": {"type": "string", "minLength": 1},
+          "monitor_series_id": {"type": "string", "minLength": 1},
+          "monitor_operator": {"enum": ["GT", "GTE", "LT", "LTE"]},
+          "threshold_value": {"type": "number"},
+          "direction_map_version": {"type": "string", "minLength": 1},
+          "monitor_rule_version": {"type": "string", "minLength": 1},
+          "evidence_refs": {"$ref": "#/$defs/evidence_refs"}
+        }
+      }
+    }
+  }
+}

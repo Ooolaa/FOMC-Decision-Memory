@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "amendment_id": "terra_luna_controlled_3case_v1_cap_amendment_1",
+  "experiment_id": "terra_luna_controlled_3case_v1",
+  "authorized_at_utc": "2026-08-28T03:09:11Z",
+  "authorization_basis": "User approved raising the aggregate hard cap from US$10 to US$14.",
+  "original_experiment_spec_sha256": "203072211a5e123e31ac258aa2ad8fd6e36a1a6bc05d8764a68f18c4f6cef9d8",
+  "cost_authorization": {
+    "prior_aggregate_hard_cap_usd": 10.0,
+    "amended_aggregate_hard_cap_usd": 14.0,
+    "incremental_authorization_usd": 4.0,
+    "actual_spend_before_amendment_usd": 5.28661926,
+    "remaining_aggregate_cap_usd": 8.71338074
+  },
+  "pending_runs_only": [
+    "FOMC-2024-09-17:gpt-5.6-terra",
+    "FOMC-2024-09-17:gpt-5.6-luna"
+  ],
+  "frozen_inputs": {
+    "runner_sha256": "e2198ba649147d34374e9395c8ff9056d7a7a9e35d7ef6f83dfb14b5bf011711",
+    "stage_schema_sha256": "91785f74ee5df2306d4d9e0a83305aeb016e216f298b5905ba7035406921a7d9",
+    "terra_spec_sha256": "86e6b7f5fc27b0793f8f825a068d2ac823ca7a0eeb1f44ae3fb0669a74a90335",
+    "luna_spec_sha256": "23b4b55ebfdc14cf3193c1d42dc46d7b6183ff04b8cc9e2b04c509297dbad1fd",
+    "fomc_2024_09_17_bundle_sha256": "251244d0ed01b96ffa36095c90a3bdb138f21220f8865450bd73c736a348373f",
+    "app_database_sha256_before_resume": "6ec332d7e8bed48d7698a02223647160b6f828fb3b44f29341c561244cd01f6b"
+  },
+  "unchanged_controls": {
+    "harness_changed": false,
+    "cohort_changed": false,
+    "reasoning_effort_changed": false,
+    "execution_order_changed": false,
+    "stop_rules_changed": false,
+    "frozen_45_authorized": false
+  }
+}

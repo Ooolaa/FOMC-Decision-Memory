@@ -1,0 +1,145 @@
+{
+  "case_count": 45,
+  "disclosures": [
+    "Deterministic baselines do not emit individual dissent predictions.",
+    "Date-only is a policy-only memorization probe; dissent metrics are not applicable.",
+    "All LLM development variants were executed through ChatGPT subscription auth, not Platform API billing."
+  ],
+  "platform_api_calls": 0,
+  "platform_api_cost_usd": 0.0,
+  "rows": [
+    {
+      "dissent_base_rate": null,
+      "dissent_f1": null,
+      "dissent_precision": null,
+      "dissent_recall": null,
+      "false_action_on_hold": 0.0,
+      "kind": "deterministic_baseline",
+      "metric_coverage": "policy_only",
+      "n": 45,
+      "policy_accuracy": 0.6222222222222222,
+      "policy_action_mae": 0.37777777777777777,
+      "variant_id": "majority_deterministic"
+    },
+    {
+      "dissent_base_rate": null,
+      "dissent_f1": null,
+      "dissent_precision": null,
+      "dissent_recall": null,
+      "false_action_on_hold": 4.0,
+      "kind": "deterministic_baseline",
+      "metric_coverage": "policy_only",
+      "n": 45,
+      "policy_accuracy": 0.8222222222222222,
+      "policy_action_mae": 0.17777777777777778,
+      "variant_id": "persistence_deterministic"
+    },
+    {
+      "dissent_base_rate": null,
+      "dissent_f1": null,
+      "dissent_precision": null,
+      "dissent_recall": null,
+      "false_action_on_hold": 2.0,
+      "kind": "deterministic_baseline",
+      "metric_coverage": "policy_only",
+      "n": 45,
+      "policy_accuracy": 0.5777777777777777,
+      "policy_action_mae": 0.4222222222222222,
+      "variant_id": "pooled_reaction_deterministic"
+    },
+    {
+      "dissent_base_rate": 0.04448742746615087,
+      "dissent_f1": 0.10714285714285714,
+      "dissent_precision": 0.09090909090909091,
+      "dissent_recall": 0.13043478260869565,
+      "false_action_on_hold": 0.0,
+      "kind": "subscription_llm",
+      "metric_coverage": "policy_and_dissent",
+      "n": 45,
+      "policy_accuracy": 0.9777777777777777,
+      "policy_action_mae": 0.022222222222222223,
+      "variant_id": "naked_frozen_llm"
+    },
+    {
+      "dissent_base_rate": 0.04448742746615087,
+      "dissent_f1": 0.31111111111111117,
+      "dissent_precision": 0.3181818181818182,
+      "dissent_recall": 0.30434782608695654,
+      "false_action_on_hold": 0.0,
+      "kind": "subscription_llm",
+      "metric_coverage": "policy_and_dissent",
+      "n": 45,
+      "policy_accuracy": 0.9777777777777777,
+      "policy_action_mae": 0.022222222222222223,
+      "variant_id": "named_persona_reaction"
+    },
+    {
+      "dissent_base_rate": 0.04448742746615087,
+      "dissent_f1": 0.1176470588235294,
+      "dissent_precision": 0.18181818181818182,
+      "dissent_recall": 0.08695652173913043,
+      "false_action_on_hold": 0.0,
+      "kind": "subscription_llm",
+      "metric_coverage": "policy_and_dissent",
+      "n": 45,
+      "policy_accuracy": 0.9777777777777777,
+      "policy_action_mae": 0.022222222222222223,
+      "variant_id": "anonymous_persona_reaction"
+    },
+    {
+      "dissent_base_rate": 0.04448742746615087,
+      "dissent_f1": 0.28571428571428575,
+      "dissent_precision": 0.3157894736842105,
+      "dissent_recall": 0.2608695652173913,
+      "false_action_on_hold": 1.0,
+      "kind": "subscription_llm",
+      "metric_coverage": "policy_and_dissent",
+      "n": 45,
+      "policy_accuracy": 0.9333333333333333,
+      "policy_action_mae": 0.06666666666666667,
+      "variant_id": "named_persona_no_reaction"
+    },
+    {
+      "dissent_base_rate": null,
+      "dissent_f1": null,
+      "dissent_precision": null,
+      "dissent_recall": null,
+      "false_action_on_hold": 3,
+      "kind": "subscription_llm_probe",
+      "metric_coverage": "policy_only",
+      "n": 45,
+      "policy_accuracy": 0.9111111111111111,
+      "policy_action_mae": 0.08888888888888889,
+      "variant_id": "date_only_memorization_probe"
+    }
+  ],
+  "schema_version": "r5_subscription_variant_matrix_v1",
+  "sources": {
+    "anonymous_persona_reaction": {
+      "path": "artifacts\\codex_subscription\\r5_variants_v2\\anonymous_persona_reaction\\batch_status.json",
+      "sha256": "68961015376d58818608f04250655aaeb989c0faac3640feb94c10940682f046"
+    },
+    "date_only_memorization_probe": {
+      "path": "artifacts\\codex_subscription\\r5_variants_v2\\date_only_memorization_probe\\batch_status.json",
+      "sha256": "8e79cfc385a8a44ceefb30cb6442bba255693f4e3f5dd8b0fb89d642a89f0c9d"
+    },
+    "deterministic_baseline": {
+      "path": "artifacts\\evaluation\\frozen_45_policy_baselines_v1.json",
+      "sha256": "cc875fe22fd3814064b65714b2ce8acc2f3e38b382b147a97482125cbcd71206"
+    },
+    "naked_frozen_llm": {
+      "path": "artifacts\\codex_subscription\\r5_variants_v2\\naked_frozen_llm\\batch_status.json",
+      "sha256": "2b6bbf501000960aa29bc21b1b43fc9070b035d772555d4cd8461ca3101d1e07"
+    },
+    "named_persona_no_reaction": {
+      "path": "artifacts\\codex_subscription\\r5_variants_v2\\named_persona_no_reaction\\batch_status.json",
+      "sha256": "7bdd259983b33195dc2cbe7b5ebf3bec4afec853f206d7dafe8544b18265fe48"
+    },
+    "named_persona_reaction": {
+      "path": "artifacts\\codex_subscription\\r5_variants_v2\\named_persona_reaction\\batch_status.json",
+      "sha256": "d06a192877c1dcce6c81be2e10eec3cdad75e58b1ce160a618b6b8e12dc733a8"
+    }
+  },
+  "split_manifest_hash": "0f15dda445112ec637e85b8cfe99f195ac0ed9e1d5a8f79e1be375b0420cee14",
+  "status": "EVALUATION_MATRIX_COMPLETED"
+}

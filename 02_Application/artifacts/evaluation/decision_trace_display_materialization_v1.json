@@ -1,0 +1,28 @@
+{
+  "assumption_id_namespace": "meeting_id::artifact_assumption_id",
+  "candidate_database": "fomc_simulation.transcript_segmentation_v3_candidate.sqlite",
+  "candidate_database_sha256": "9be4bcf672b2f1dcf53f31a8fc985fb1acc02e9ed55a0de505bf1d82c7ebbcb3",
+  "fomc_trace_count": 51,
+  "foreign_key_error_count": 0,
+  "human_review": {
+    "checklist_failure_count": 0,
+    "decision_counts": {
+      "PASS": 12
+    },
+    "formal_import_disclosure": "PASS applies only to the sampled cases and does not mean all 50 traces were individually reviewed.",
+    "formal_import_gate": "PASS",
+    "review_results_sha256": "449b0bc91bba5b15adf102ad0a2314090a6efdaa880eaf881b9c927de57b7de0",
+    "reviewed_case_count": 12,
+    "sample_case_count": 12,
+    "sample_manifest_sha256": "93a44911021774106cb51a01da01afd798d3c9130ec9758911178df54a9f9436"
+  },
+  "imported_batch_trace_count": 50,
+  "integrity_check": "ok",
+  "meeting_outcome_count": 166,
+  "output_database": "fomc_simulation.decision_trace_50_display.sqlite",
+  "output_database_sha256": "d60364029cafb6e79dc8b3e6a902b06016970620b827752f09f1d3df54139186",
+  "participant_vote_count": 1736,
+  "schema_version": "decision_trace_display_materialization_v1",
+  "source_database": "fred_fomc_real.sqlite",
+  "source_database_sha256": "02f96292422ece4556e952902a4660c663652d9eaff8b470e75eec3dc7c91187"
+}

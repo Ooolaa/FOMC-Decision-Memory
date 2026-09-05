@@ -1,0 +1,60 @@
+{
+  "schema_version": "hackathon_r5_final_ui_rehearsal_v7",
+  "status": "PASS",
+  "executed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+  "app_sha256": "__FILL_APP_SHA256__",
+  "launcher_sha256": "__FILL_RUN_APP_SHA256__",
+  "matrix_path": "artifacts/evaluation/r5_subscription_variant_matrix_v1.json",
+  "matrix_sha256": "__FILL_MATRIX_SHA256__",
+  "browser": {
+    "family": "Microsoft Edge",
+    "version": "__FILL_EDGE_VERSION__",
+    "viewport": "1440x1100"
+  },
+  "modes": [
+    {
+      "name": "normal_browser_path",
+      "result": "PASS",
+      "capture_report": "__FILL_NORMAL_CAPTURE_REPORT_PATH__",
+      "capture_report_sha256": "__FILL_CAPTURE_REPORT_SHA256__",
+      "health_probe": "status=200 body=ok"
+    },
+    {
+      "name": "process_without_openai_api_key",
+      "result": "PASS",
+      "capture_report": "__FILL_NO_KEY_CAPTURE_REPORT_PATH__",
+      "capture_report_sha256": "__FILL_CAPTURE_REPORT_SHA256__",
+      "health_probe": "status=200 body=ok",
+      "api_key_removed_from_child_process": true
+    },
+    {
+      "name": "stop_and_restart",
+      "result": "PASS",
+      "capture_report": "__FILL_RESTART_CAPTURE_REPORT_PATH__",
+      "capture_report_sha256": "__FILL_CAPTURE_REPORT_SHA256__",
+      "health_probe": "status=200 body=ok",
+      "stopped_probe_failed": true
+    }
+  ],
+  "canonical_screenshots": [
+    {
+      "view_id": "next_meeting_forecast",
+      "path": "artifacts/screenshots/next_meeting_forecast.png",
+      "sha256": "__FILL_SCREENSHOT_SHA256__"
+    },
+    {
+      "view_id": "decision_replay",
+      "path": "artifacts/screenshots/decision_replay.png",
+      "sha256": "__FILL_SCREENSHOT_SHA256__"
+    },
+    {
+      "view_id": "historical_results",
+      "path": "artifacts/screenshots/historical_results.png",
+      "sha256": "__FILL_SCREENSHOT_SHA256__"
+    }
+  ],
+  "equivalence": {
+    "body_text_sha256_equal_for_all_required_views": true,
+    "screenshot_sha256_equal_for_all_required_views": true
+  }
+}

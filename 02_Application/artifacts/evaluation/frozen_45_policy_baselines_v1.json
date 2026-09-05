@@ -1,0 +1,788 @@
+{
+  "actual_class_counts": {
+    "CUT": 6,
+    "HIKE": 11,
+    "HOLD": 28
+  },
+  "dissent_disclosure": "Policy baselines do not predict individual dissent; dissent precision/recall is deferred to the structured simulator output.",
+  "evaluation_version": "frozen_45_policy_baselines_v1",
+  "metrics": {
+    "majority": {
+      "accuracy": 0.6222222222222222,
+      "false_action_count_on_hold": 0,
+      "macro_f1": 0.2557077625570776,
+      "mean_absolute_action_error": 0.37777777777777777,
+      "n": 45,
+      "per_class": {
+        "CUT": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 6
+        },
+        "HIKE": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 11
+        },
+        "HOLD": {
+          "f1": 0.7671232876712328,
+          "precision": 0.6222222222222222,
+          "recall": 1.0,
+          "support": 28
+        }
+      },
+      "predicted_class_counts": {
+        "HOLD": 45
+      }
+    },
+    "persistence": {
+      "accuracy": 0.8222222222222222,
+      "false_action_count_on_hold": 4,
+      "macro_f1": 0.7806637806637807,
+      "mean_absolute_action_error": 0.17777777777777778,
+      "n": 45,
+      "per_class": {
+        "CUT": {
+          "f1": 0.6666666666666666,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "support": 6
+        },
+        "HIKE": {
+          "f1": 0.8181818181818182,
+          "precision": 0.8181818181818182,
+          "recall": 0.8181818181818182,
+          "support": 11
+        },
+        "HOLD": {
+          "f1": 0.8571428571428571,
+          "precision": 0.8571428571428571,
+          "recall": 0.8571428571428571,
+          "support": 28
+        }
+      },
+      "predicted_class_counts": {
+        "CUT": 6,
+        "HIKE": 11,
+        "HOLD": 28
+      }
+    },
+    "pooled_reaction": {
+      "accuracy": 0.5777777777777777,
+      "false_action_count_on_hold": 2,
+      "macro_f1": 0.24413145539906103,
+      "mean_absolute_action_error": 0.4222222222222222,
+      "n": 45,
+      "per_class": {
+        "CUT": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 6
+        },
+        "HIKE": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 11
+        },
+        "HOLD": {
+          "f1": 0.7323943661971831,
+          "precision": 0.6046511627906976,
+          "recall": 0.9285714285714286,
+          "support": 28
+        }
+      },
+      "predicted_class_counts": {
+        "HIKE": 2,
+        "HOLD": 43
+      }
+    }
+  },
+  "per_case": [
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-01-26",
+      "meeting_start_date": "2021-01-26",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.029441305152071873,
+        "HIKE": 0.1636702385117521,
+        "HOLD": 0.806888456336176
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-03-16",
+      "meeting_start_date": "2021-03-16",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.06488540500662475,
+        "HIKE": 0.07881219331368228,
+        "HOLD": 0.856302401679693
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-04-27",
+      "meeting_start_date": "2021-04-27",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.04140646394551026,
+        "HIKE": 0.12082800758433843,
+        "HOLD": 0.8377655284701513
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-06-15",
+      "meeting_start_date": "2021-06-15",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.004760125673186634,
+        "HIKE": 0.5538076135409162,
+        "HOLD": 0.44143226078589715
+      },
+      "pooled_reaction": "HIKE"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-07-27",
+      "meeting_start_date": "2021-07-27",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.005857453627992517,
+        "HIKE": 0.5018807536743208,
+        "HOLD": 0.4922617926976866
+      },
+      "pooled_reaction": "HIKE"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-09-21",
+      "meeting_start_date": "2021-09-21",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.00943730920354397,
+        "HIKE": 0.3838968936265086,
+        "HOLD": 0.6066657971699474
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-11-02",
+      "meeting_start_date": "2021-11-02",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.009669777483944656,
+        "HIKE": 0.37810262564171226,
+        "HOLD": 0.612227596874343
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2021-12-14",
+      "meeting_start_date": "2021-12-14",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.010363274337210675,
+        "HIKE": 0.361797056471837,
+        "HOLD": 0.6278396691909524
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-01-25",
+      "meeting_start_date": "2022-01-25",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.01138540216300408,
+        "HIKE": 0.3401400806926568,
+        "HOLD": 0.6484745171443391
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-03-15",
+      "meeting_start_date": "2022-03-15",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.011080792465068753,
+        "HIKE": 0.34632262376650147,
+        "HOLD": 0.6425965837684298
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-05-03",
+      "meeting_start_date": "2022-05-03",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.011002367589026462,
+        "HIKE": 0.3479503015643689,
+        "HOLD": 0.6410473308466046
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-06-14",
+      "meeting_start_date": "2022-06-14",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.010332026662908179,
+        "HIKE": 0.3625019122963926,
+        "HOLD": 0.6271660610406992
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-07-26",
+      "meeting_start_date": "2022-07-26",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.017690859310424106,
+        "HIKE": 0.24791104882747683,
+        "HOLD": 0.734398091862099
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-09-20",
+      "meeting_start_date": "2022-09-20",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.017780495401514232,
+        "HIKE": 0.24695295319762112,
+        "HOLD": 0.7352665514008646
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-11-01",
+      "meeting_start_date": "2022-11-01",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.03632692532203281,
+        "HIKE": 0.1360550243914619,
+        "HOLD": 0.8276180502865053
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2022-12-13",
+      "meeting_start_date": "2022-12-13",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.025636995824705775,
+        "HIKE": 0.1840876236455704,
+        "HOLD": 0.7902753805297238
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-01-31",
+      "meeting_start_date": "2023-01-31",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.03749630549382585,
+        "HIKE": 0.13223422157243292,
+        "HOLD": 0.8302694729337412
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-03-21",
+      "meeting_start_date": "2023-03-21",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.07624327064540731,
+        "HIKE": 0.06709943605770874,
+        "HOLD": 0.8566572932968839
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-05-02",
+      "meeting_start_date": "2023-05-02",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.06871043825836144,
+        "HIKE": 0.07446977476590799,
+        "HOLD": 0.8568197869757306
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-06-13",
+      "meeting_start_date": "2023-06-13",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.058766517515944174,
+        "HIKE": 0.08682573965119367,
+        "HOLD": 0.8544077428328621
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HIKE",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-07-25",
+      "meeting_start_date": "2023-07-25",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.036552420345888716,
+        "HIKE": 0.13530189397010706,
+        "HOLD": 0.8281456856840043
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-09-19",
+      "meeting_start_date": "2023-09-19",
+      "persistence": "HIKE",
+      "pooled_probabilities": {
+        "CUT": 0.05225517059444941,
+        "HIKE": 0.09720300197097576,
+        "HOLD": 0.8505418274345748
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-10-31",
+      "meeting_start_date": "2023-10-31",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.10950795789811005,
+        "HIKE": 0.04605078471320356,
+        "HOLD": 0.8444412573886864
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2023-12-12",
+      "meeting_start_date": "2023-12-12",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.06057385796674728,
+        "HIKE": 0.08430541490468968,
+        "HOLD": 0.855120727128563
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-01-30",
+      "meeting_start_date": "2024-01-30",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.08267410028355497,
+        "HIKE": 0.06179847127996774,
+        "HOLD": 0.8555274284364773
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-03-19",
+      "meeting_start_date": "2024-03-19",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.057834978147367835,
+        "HIKE": 0.0881805254175747,
+        "HOLD": 0.8539844964350575
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-04-30",
+      "meeting_start_date": "2024-04-30",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.061019241895151136,
+        "HIKE": 0.0837052152001474,
+        "HOLD": 0.8552755429047014
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-06-11",
+      "meeting_start_date": "2024-06-11",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.054673149787493415,
+        "HIKE": 0.09308931503828521,
+        "HOLD": 0.8522375351742214
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-07-30",
+      "meeting_start_date": "2024-07-30",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.08193390251815624,
+        "HIKE": 0.06236912165435882,
+        "HOLD": 0.8556969758274849
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-09-17",
+      "meeting_start_date": "2024-09-17",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.10776423731108452,
+        "HIKE": 0.04684835915314467,
+        "HOLD": 0.8453874035357708
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-11-06",
+      "meeting_start_date": "2024-11-06",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.06647519469375361,
+        "HIKE": 0.0769516787550274,
+        "HOLD": 0.856573126551219
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2024-12-17",
+      "meeting_start_date": "2024-12-17",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.06142001831375993,
+        "HIKE": 0.0831719098335243,
+        "HOLD": 0.8554080718527157
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-01-28",
+      "meeting_start_date": "2025-01-28",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.07169084499599444,
+        "HIKE": 0.07138272307363358,
+        "HOLD": 0.856926431930372
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-03-18",
+      "meeting_start_date": "2025-03-18",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.07511612982230072,
+        "HIKE": 0.0681151431502518,
+        "HOLD": 0.8567687270274474
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-05-06",
+      "meeting_start_date": "2025-05-06",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.12671728739861665,
+        "HIKE": 0.039303621304991876,
+        "HOLD": 0.8339790912963915
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-06-17",
+      "meeting_start_date": "2025-06-17",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.10386337107628356,
+        "HIKE": 0.0487243028656118,
+        "HOLD": 0.8474123260581047
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 2,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-07-29",
+      "meeting_start_date": "2025-07-29",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.10317783616576555,
+        "HIKE": 0.04906783241828905,
+        "HOLD": 0.8477543314159454
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-09-16",
+      "meeting_start_date": "2025-09-16",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.10131442374309878,
+        "HIKE": 0.0500237951807746,
+        "HOLD": 0.8486617810761267
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 2,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-10-28",
+      "meeting_start_date": "2025-10-28",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.08701205239715329,
+        "HIKE": 0.05863680058517107,
+        "HOLD": 0.8543511470176757
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "CUT",
+      "dissent_count": 3,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2025-12-09",
+      "meeting_start_date": "2025-12-09",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.09042190515933693,
+        "HIKE": 0.056351320026510554,
+        "HOLD": 0.8532267748141525
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 2,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2026-01-27",
+      "meeting_start_date": "2026-01-27",
+      "persistence": "CUT",
+      "pooled_probabilities": {
+        "CUT": 0.0769628258909427,
+        "HIKE": 0.06646545718492392,
+        "HOLD": 0.8565717169241334
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 1,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2026-03-17",
+      "meeting_start_date": "2026-03-17",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.08521838130632604,
+        "HIKE": 0.05990762420968765,
+        "HOLD": 0.8548739944839863
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 4,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2026-04-28",
+      "meeting_start_date": "2026-04-28",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.08031986308568707,
+        "HIKE": 0.0636474024925261,
+        "HOLD": 0.8560327344217868
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 0,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2026-06-16",
+      "meeting_start_date": "2026-06-16",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.05809300361809463,
+        "HIKE": 0.08780132056007306,
+        "HOLD": 0.8541056758218323
+      },
+      "pooled_reaction": "HOLD"
+    },
+    {
+      "actual": "HOLD",
+      "dissent_count": 3,
+      "majority": "HOLD",
+      "meeting_id": "FOMC-2026-07-28",
+      "meeting_start_date": "2026-07-28",
+      "persistence": "HOLD",
+      "pooled_probabilities": {
+        "CUT": 0.05848433796214328,
+        "HIKE": 0.08723199350819333,
+        "HOLD": 0.8542836685296634
+      },
+      "pooled_reaction": "HOLD"
+    }
+  ],
+  "reaction_model_id": "reaction-4e24ed5f780bd2dcdc9fe439",
+  "split_manifest": {
+    "manifest_hash": "0f15dda445112ec637e85b8cfe99f195ac0ed9e1d5a8f79e1be375b0420cee14",
+    "meeting_ids": [
+      "FOMC-2021-01-26",
+      "FOMC-2021-03-16",
+      "FOMC-2021-04-27",
+      "FOMC-2021-06-15",
+      "FOMC-2021-07-27",
+      "FOMC-2021-09-21",
+      "FOMC-2021-11-02",
+      "FOMC-2021-12-14",
+      "FOMC-2022-01-25",
+      "FOMC-2022-03-15",
+      "FOMC-2022-05-03",
+      "FOMC-2022-06-14",
+      "FOMC-2022-07-26",
+      "FOMC-2022-09-20",
+      "FOMC-2022-11-01",
+      "FOMC-2022-12-13",
+      "FOMC-2023-01-31",
+      "FOMC-2023-03-21",
+      "FOMC-2023-05-02",
+      "FOMC-2023-06-13",
+      "FOMC-2023-07-25",
+      "FOMC-2023-09-19",
+      "FOMC-2023-10-31",
+      "FOMC-2023-12-12",
+      "FOMC-2024-01-30",
+      "FOMC-2024-03-19",
+      "FOMC-2024-04-30",
+      "FOMC-2024-06-11",
+      "FOMC-2024-07-30",
+      "FOMC-2024-09-17",
+      "FOMC-2024-11-06",
+      "FOMC-2024-12-17",
+      "FOMC-2025-01-28",
+      "FOMC-2025-03-18",
+      "FOMC-2025-05-06",
+      "FOMC-2025-06-17",
+      "FOMC-2025-07-29",
+      "FOMC-2025-09-16",
+      "FOMC-2025-10-28",
+      "FOMC-2025-12-09",
+      "FOMC-2026-01-27",
+      "FOMC-2026-03-17",
+      "FOMC-2026-04-28",
+      "FOMC-2026-06-16",
+      "FOMC-2026-07-28"
+    ],
+    "test_start": "2021-01-01"
+  }
+}

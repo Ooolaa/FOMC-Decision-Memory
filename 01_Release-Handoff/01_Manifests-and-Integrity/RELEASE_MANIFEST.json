@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project_name": "FOMC Decision Memory R5",
+  "version": "r5-handoff-2026.09.02",
+  "profile": "generic",
+  "generated_at": "2026-09-02T10:04:32.205216+00:00",
+  "git": {
+    "tag": "r5-handoff-2026.09.02",
+    "tag_object": "287fb1b52414df8ec39ecdae8269ca88055a9787",
+    "commit": "b745ef45391be7228129c4a6dbc09b5ebf596240",
+    "tree": "4774b2b72daa21623b23df90c05e6b21d106c35e",
+    "remote_count": 0
+  },
+  "verification": {
+    "tests": "Clean tagged checkout with external frozen inputs: 261 tests ran in 75.886s, OK; technical gate 12/12 READY; eight pinned project packages match requirements. Shared Conda pip check reports unrelated global-package conflicts.",
+    "security": "Initial scan found one medium unauthenticated wildcard Streamlit binding. Fixed to 127.0.0.1 in launcher and config; final independent verification found no bypass or remaining concrete issue. Runtime netstat shows 127.0.0.1:8503 only; health 200 ok; high-confidence secret matches 0; forbidden release paths 0.",
+    "live_production_host": "not verified by packaging"
+  },
+  "tagged_file_count": 1090,
+  "artifacts": [
+    {
+      "file": "FOMC-Decision-Memory-R5-r5-handoff-2026.09.02-source.zip",
+      "sha256": "383ee63a4f7b31ffa1321ce80e8483b46d2fef24111f405bbb94ab553f362905",
+      "bytes": 53070180,
+      "source": "git archive r5-handoff-2026.09.02"
+    },
+    {
+      "file": "IT_DEPLOYMENT_HANDOFF_zh-TW.md",
+      "sha256": "2b0c6e95c5411c7a8d1faf767e186792de5ecb0cc8ffdcd5cdfac7ba970ba541",
+      "bytes": 2047
+    },
+    {
+      "file": "SOURCE_FILES.txt",
+      "sha256": "9f906fe7a17706146ed90c1592e1bf0318724f836ebd979aa2d2f84257ce83bb",
+      "bytes": 92959
+    }
+  ],
+  "excluded": [
+    ".git",
+    ".env",
+    "secrets",
+    "runtime databases",
+    "logs and caches",
+    "local worktrees",
+    "profile-specific external inputs"
+  ]
+}

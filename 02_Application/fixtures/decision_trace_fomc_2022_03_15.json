@@ -1,0 +1,103 @@
+{
+  "schema_version": "decision_trace_v1",
+  "decision_id": "fomc-FOMC-2022-03-15",
+  "meeting_id": "FOMC-2022-03-15",
+  "context": {
+    "summary": "Inflation was elevated, labor conditions were strong, and geopolitical uncertainty complicated the pace of tightening.",
+    "evidence_refs": [
+      {
+        "document_id": "doc-3b5946862261c1b45db4d7a8",
+        "locator": "statement paragraph 46",
+        "excerpt": "Indicators of economic activity and employment have continued to strengthen. Job gains have been strong in recent months, and the unemployment rate has declined substantially. Inflation remains elevated, reflecting supply and demand imbalances related to the pandemic, higher energy prices, and broader price pressures."
+      }
+    ]
+  },
+  "options": [
+    {
+      "option_id": "raise_25bp",
+      "description": "Raise the target range by 25 basis points.",
+      "evidence_refs": [
+        {
+          "document_id": "doc-1b00ccf6a5863ae4321b08a0",
+          "locator": "minutes paragraph 127",
+          "excerpt": "A number of these participants indicated, however, that, in light of greater near-term uncertainty associated with Russia's invasion of Ukraine, they judged that a 25 basis point increase would be appropriate at this meeting."
+        }
+      ]
+    },
+    {
+      "option_id": "raise_50bp",
+      "description": "Raise the target range by 50 basis points.",
+      "evidence_refs": [
+        {
+          "document_id": "doc-1b00ccf6a5863ae4321b08a0",
+          "locator": "minutes paragraph 127",
+          "excerpt": "Many participants noted that—with inflation well above the Committee's objective, inflationary risks to the upside, and the federal funds rate well below participants' estimates of its longer-run level—they would have preferred a 50 basis point increase in the target range for the federal funds rate at this meeting."
+        }
+      ]
+    }
+  ],
+  "debate": [
+    {
+      "speaker_scope": "committee",
+      "participant_id": null,
+      "position": "A larger increase would address upside inflation risks, while a smaller first step would account for war-related uncertainty.",
+      "reasoning": "The minutes report support for both 25 and 50 basis point paths without attributing the committee-level summary to named speakers.",
+      "evidence_refs": [
+        {
+          "document_id": "doc-1b00ccf6a5863ae4321b08a0",
+          "locator": "minutes paragraph 127",
+          "excerpt": "Many participants noted that one or more 50 basis point increases in the target range could be appropriate at future meetings, particularly if inflation pressures remained elevated or intensified."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "action_class": "HIKE",
+    "target_rate": null,
+    "target_lower": 0.25,
+    "target_upper": 0.5,
+    "rationale": "The Committee began removing accommodation with a 25 basis point increase and signaled ongoing increases.",
+    "evidence_refs": [
+      {
+        "document_id": "doc-3b5946862261c1b45db4d7a8",
+        "locator": "statement paragraph 48",
+        "excerpt": "In support of these goals, the Committee decided to raise the target range for the federal funds rate to 1/4 to 1/2 percent and anticipates that ongoing increases in the target range will be appropriate."
+      }
+    ]
+  },
+  "vote": {
+    "rounds": [
+      {
+        "vote_round": 1,
+        "for_count": 8,
+        "against_count": 1,
+        "abstain_count": 0,
+        "evidence_refs": [
+          {
+            "document_id": "doc-3b5946862261c1b45db4d7a8",
+            "locator": "statement paragraph 50",
+            "excerpt": "Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michelle W. Bowman; Lael Brainard; Esther L. George; Patrick Harker; Loretta J. Mester; and Christopher J. Waller. Voting against this action was James Bullard, who preferred at this meeting to raise the target range for the federal funds rate by 0.5 percentage point to 1/2 to 3/4 percent."
+          }
+        ]
+      }
+    ]
+  },
+  "assumptions": [
+    {
+      "assumption_id": "fomc-2022-03-inflation-return",
+      "claim": "Appropriate policy firming will return inflation to the 2 percent objective while the labor market remains strong.",
+      "monitor_series_id": "CPIAUCSL",
+      "monitor_operator": "LTE",
+      "threshold_value": 2.0,
+      "direction_map_version": "inflation_hawkish_v1",
+      "monitor_rule_version": "cpi_yoy_return_to_target_v1",
+      "evidence_refs": [
+        {
+          "document_id": "doc-3b5946862261c1b45db4d7a8",
+          "locator": "statement paragraph 48",
+          "excerpt": "With appropriate firming in the stance of monetary policy, the Committee expects inflation to return to its 2 percent objective and the labor market to remain strong."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "reaction_feature_contract_v1",
+  "contract_id": "reaction-feature-contract-hackathon-r5-v1",
+  "decision_status": "APPROVED",
+  "approved_on": "2026-08-29",
+  "authority": {
+    "kind": "explicit_user_authorization",
+    "statement": "接受 BAA10Y proxy"
+  },
+  "scope": "hackathon_r5",
+  "authoritative_plan": {
+    "path": "FOMC_決策記憶系統_Hackathon_MVP_開發計畫_R5.docx",
+    "sha256": "29ef4686048b0b3f9c2e2376d6e634b045e5986bc3192f5a177dba7004a9b361"
+  },
+  "planned_feature": "NFCI",
+  "approved_proxy_feature": "credit_spread_baa10y",
+  "approved_proxy_series_id": "BAA10Y",
+  "proxy_interpretation": "Moody's seasoned Baa corporate bond yield spread is used as a narrow, observable credit-conditions proxy for the Hackathon reaction model; it is not represented as the broad Chicago Fed NFCI.",
+  "approved_feature_set": [
+    "cpi_yoy",
+    "unemployment_level",
+    "unemployment_12m_change",
+    "payroll_yoy",
+    "credit_spread_baa10y",
+    "yield_curve_10y_2y",
+    "policy_midpoint"
+  ],
+  "reaction_model": {
+    "artifact": "artifacts/reaction/pooled_ordered_logit_v1.json",
+    "artifact_sha256": "b55f0a50d3b29c7778dc6e8de77a371db1869f77ce36d059f44d952c10d9484c",
+    "model_id": "reaction-4e24ed5f780bd2dcdc9fe439",
+    "training_meeting_count": 121
+  },
+  "existing_bundle_rerun_required": false,
+  "rerun_rationale": "The approved contract documents the already frozen v1 feature set and does not change model weights, prompts, schemas, case inputs, or model-bundle hashes.",
+  "disclosure_required": true,
+  "required_disclosure": "The Hackathon reaction model uses BAA10Y as a narrow credit-conditions proxy, not NFCI and not a complete measure of financial conditions.",
+  "boundaries": [
+    "Approval applies only to the Hackathon R5 lineage.",
+    "The proxy decision does not establish statistical superiority or production suitability.",
+    "Production model selection must compare BAA10Y and NFCI under a separately frozen evaluation contract.",
+    "Results from a future NFCI model must not be mixed with this BAA10Y lineage."
+  ]
+}

@@ -1,0 +1,26 @@
+# Large local data and historical snapshots are distributed outside Git.
+*.sqlite
+*.sqlite-*
+*.db
+
+# Generated handoff packages and official-document caches.
+engineering_handoff/
+official_documents/
+*.zip
+*.docx
+~$*
+
+# Local browser/rehearsal state; canonical reports and screenshots remain trackable.
+artifacts/rehearsal/edge_profile*/
+artifacts/rehearsal/ui_zh_*/
+artifacts/rehearsal/*.sqlite
+
+# Large model-run workspaces remain governed by artifact manifests.
+artifacts/codex_subscription/
+artifacts/llm_preflight/
+
+# Python and local working files.
+__pycache__/
+*.py[cod]
+.codex_doc_work/
+tmp*/

@@ -1,0 +1,257 @@
+{
+  "case_count": 45,
+  "cases": [
+    {
+      "meeting_id": "FOMC-2021-01-26",
+      "meeting_start_date": "2021-01-26",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-03-16",
+      "meeting_start_date": "2021-03-16",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-04-27",
+      "meeting_start_date": "2021-04-27",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-06-15",
+      "meeting_start_date": "2021-06-15",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-07-27",
+      "meeting_start_date": "2021-07-27",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-09-21",
+      "meeting_start_date": "2021-09-21",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-11-02",
+      "meeting_start_date": "2021-11-02",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2021-12-14",
+      "meeting_start_date": "2021-12-14",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2022-01-25",
+      "meeting_start_date": "2022-01-25",
+      "rate_constrained": true
+    },
+    {
+      "meeting_id": "FOMC-2022-03-15",
+      "meeting_start_date": "2022-03-15",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-05-03",
+      "meeting_start_date": "2022-05-03",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-06-14",
+      "meeting_start_date": "2022-06-14",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-07-26",
+      "meeting_start_date": "2022-07-26",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-09-20",
+      "meeting_start_date": "2022-09-20",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-11-01",
+      "meeting_start_date": "2022-11-01",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2022-12-13",
+      "meeting_start_date": "2022-12-13",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-01-31",
+      "meeting_start_date": "2023-01-31",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-03-21",
+      "meeting_start_date": "2023-03-21",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-05-02",
+      "meeting_start_date": "2023-05-02",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-06-13",
+      "meeting_start_date": "2023-06-13",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-07-25",
+      "meeting_start_date": "2023-07-25",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-09-19",
+      "meeting_start_date": "2023-09-19",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-10-31",
+      "meeting_start_date": "2023-10-31",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2023-12-12",
+      "meeting_start_date": "2023-12-12",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-01-30",
+      "meeting_start_date": "2024-01-30",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-03-19",
+      "meeting_start_date": "2024-03-19",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-04-30",
+      "meeting_start_date": "2024-04-30",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-06-11",
+      "meeting_start_date": "2024-06-11",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-07-30",
+      "meeting_start_date": "2024-07-30",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-09-17",
+      "meeting_start_date": "2024-09-17",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-11-06",
+      "meeting_start_date": "2024-11-06",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2024-12-17",
+      "meeting_start_date": "2024-12-17",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-01-28",
+      "meeting_start_date": "2025-01-28",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-03-18",
+      "meeting_start_date": "2025-03-18",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-05-06",
+      "meeting_start_date": "2025-05-06",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-06-17",
+      "meeting_start_date": "2025-06-17",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-07-29",
+      "meeting_start_date": "2025-07-29",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-09-16",
+      "meeting_start_date": "2025-09-16",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-10-28",
+      "meeting_start_date": "2025-10-28",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2025-12-09",
+      "meeting_start_date": "2025-12-09",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2026-01-27",
+      "meeting_start_date": "2026-01-27",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2026-03-17",
+      "meeting_start_date": "2026-03-17",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2026-04-28",
+      "meeting_start_date": "2026-04-28",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2026-06-16",
+      "meeting_start_date": "2026-06-16",
+      "rate_constrained": false
+    },
+    {
+      "meeting_id": "FOMC-2026-07-28",
+      "meeting_start_date": "2026-07-28",
+      "rate_constrained": false
+    }
+  ],
+  "censoring_disclosure": "Rate-only action and response censoring is informative; Kaplan-Meier may be shown only as descriptive sensitivity analysis.",
+  "constrained_case_count": 9,
+  "constrained_meeting_ids": [
+    "FOMC-2021-01-26",
+    "FOMC-2021-03-16",
+    "FOMC-2021-04-27",
+    "FOMC-2021-06-15",
+    "FOMC-2021-07-27",
+    "FOMC-2021-09-21",
+    "FOMC-2021-11-02",
+    "FOMC-2021-12-14",
+    "FOMC-2022-01-25"
+  ],
+  "constraint_episode_counts": [
+    55,
+    15
+  ],
+  "expected_constrained_meetings": 70,
+  "observed_rate_capacity_case_count": 36,
+  "recognition_censored_by_rate_constraint": false,
+  "schema_version": "rate_only_censoring_audit_v1",
+  "source_database_sha256": "a7fd78ff8cb52eca2a81ea6b9777bdf048711f2ed6c0a0a660d6d3a777527960",
+  "spec_id": "rate_only_response_v1",
+  "spec_sha256": "2cc438181638837e0c04c8f94c57a31fa99c8cf96ff354fc997927f544fd93cb",
+  "split_manifest_hash": "0f15dda445112ec637e85b8cfe99f195ac0ed9e1d5a8f79e1be375b0420cee14",
+  "status": "COMPLETED",
+  "test_start": "2021-01-01"
+}

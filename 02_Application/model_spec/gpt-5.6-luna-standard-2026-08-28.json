@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "model_id": "gpt-5.6-luna",
+  "service_tier": "standard",
+  "checked_at": "2026-08-28",
+  "model_source_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+  "pricing_source_url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+  "context": {
+    "window_tokens": 1050000,
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "long_context_threshold_tokens": 272000
+  },
+  "required_features": [
+    "responses",
+    "structured_outputs",
+    "prompt_caching"
+  ],
+  "pricing_usd_per_million": {
+    "input": 0.2,
+    "cached_input": 0.02,
+    "cache_write": 0.25,
+    "output": 1.2
+  },
+  "long_context_pricing_usd_per_million": {
+    "input": 0.4,
+    "cached_input": 0.04,
+    "cache_write": 0.5,
+    "output": 1.8
+  },
+  "cost_status": "OFFICIAL_UNIT_PRICES_VERIFIED_USAGE_ENVELOPE_UNVERIFIED"
+}

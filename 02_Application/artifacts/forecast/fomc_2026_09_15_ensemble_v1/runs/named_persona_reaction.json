@@ -1,0 +1,283 @@
+{
+  "billing_route": "chatgpt_subscription",
+  "execution_provider": "codex_subscription",
+  "forecast_as_of": "2026-09-01",
+  "meeting_id": "FOMC-2026-09-15",
+  "model_bundle_hash": "c58f331dddbe2c115d6c91232e0aaa87c62c4d3024d8089388ed7b63012456a0",
+  "model_id": "gpt-5.6-terra",
+  "output": {
+    "discussion": [
+      {
+        "participant_id": "anna-paulson",
+        "synthetic_text": "I favor maintaining the current range while we test whether the recent easing in inflation can continue. The labor market remains balanced, but inflation is still above objective and warrants a readiness to respond if progress stalls."
+      },
+      {
+        "participant_id": "beth-m-hammack",
+        "synthetic_text": "I see a case for a modest increase. Inflation remains materially above target, activity and labor conditions remain resilient, and delaying further restraint could make a later adjustment more costly."
+      },
+      {
+        "participant_id": "christopher-j-waller",
+        "synthetic_text": "I would keep policy unchanged for now. With unemployment low and inflation still elevated, there is no basis for easing; but the available data do not yet establish that additional firming is necessary today."
+      },
+      {
+        "participant_id": "jerome-h-powell",
+        "synthetic_text": "I support holding at the present range. The economy remains solid and inflation is above goal, but policy should retain room to assess whether the expected disinflation resumes without compromising labor-market stability."
+      },
+      {
+        "participant_id": "john-c-williams",
+        "synthetic_text": "My preference is to maintain the current stance. The balance of evidence still calls for restraint, while stable employment conditions give us time to judge whether inflation is moving sustainably toward 2 percent."
+      },
+      {
+        "participant_id": "kevin-m-warsh",
+        "synthetic_text": "I begin from a preference to hold the current range. Inflation remains too high and demand appears resilient, yet a measured pause preserves optionality while we determine whether price pressures are broadening or moderating."
+      },
+      {
+        "participant_id": "lisa-d-cook",
+        "synthetic_text": "I favor maintaining the current setting while emphasizing that price stability is unfinished. Inflation risks remain tilted upward, but the present stance allows us to incorporate further evidence before changing the rate."
+      },
+      {
+        "participant_id": "lorie-k-logan",
+        "synthetic_text": "I lean toward a modest increase. With inflation above target, credit conditions broadly accommodative, and the labor market stable, additional restraint would better guard against persistent inflation becoming embedded."
+      },
+      {
+        "participant_id": "michael-s-barr",
+        "synthetic_text": "I support holding the policy rate steady. The dual-mandate picture is not yet sufficiently clear: inflation remains elevated, but uncertainty around activity and labor-market developments argues for waiting for additional confirmation."
+      },
+      {
+        "participant_id": "michelle-w-bowman",
+        "synthetic_text": "I favor maintaining the current range while keeping a close watch on inflation persistence. Solid activity and a stable labor market mean we can remain patient, but policy should be ready to tighten if disinflation fails to resume."
+      },
+      {
+        "participant_id": "neel-kashkari",
+        "synthetic_text": "I see the balance of risks as favoring a modest increase. Inflation has remained above target through repeated supply disturbances, while employment conditions have held up, so added restraint would reinforce the credibility of the objective."
+      },
+      {
+        "participant_id": "philip-n-jefferson",
+        "synthetic_text": "I favor holding at the current range. Inflation remains elevated, but labor-market conditions are balanced and policy is already positioned to respond as incoming data clarify the trajectory of prices and demand."
+      }
+    ],
+    "final_proposal": {
+      "action_class": "HOLD",
+      "proposer_participant_id": "kevin-m-warsh",
+      "rationale": "Maintain the current target range. Inflation remains above the objective and activity is resilient, but stable labor conditions and uncertainty around the durability of disinflation favor waiting for additional evidence before changing the stance of policy."
+    },
+    "meeting_id": "FOMC-2026-09-15",
+    "profiles": [
+      {
+        "display_name": "Anna Paulson",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "anna-paulson"
+      },
+      {
+        "display_name": "Beth M. Hammack",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "display_name": "Christopher J. Waller",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "display_name": "Jerome H. Powell",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "display_name": "John C. Williams",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "john-c-williams"
+      },
+      {
+        "display_name": "Kevin M. Warsh",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": true,
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "display_name": "Lisa D. Cook",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "display_name": "Lorie K. Logan",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "display_name": "Michael S. Barr",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "display_name": "Michelle W. Bowman",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "display_name": "Neel Kashkari",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "display_name": "Philip N. Jefferson",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "philip-n-jefferson"
+      }
+    ],
+    "schema_version": "simulation_output_v1",
+    "synthetic": true,
+    "votes": [
+      {
+        "choice": "FOR",
+        "participant_id": "anna-paulson"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "john-c-williams"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "philip-n-jefferson"
+      }
+    ]
+  },
+  "platform_api_cost_usd": 0.0,
+  "schema_version": "forward_variant_run_v1",
+  "status": "SUBSCRIPTION_FORWARD_COMPLETED",
+  "usage": [
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 62870,
+      "latency_seconds": 16.955338,
+      "output_tokens": 592,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 0,
+      "stage": "profiles",
+      "thread_id": "01a05fba-3119-7ea2-be42-f47d2053eea8"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 63447,
+      "latency_seconds": 28.112308,
+      "output_tokens": 1194,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 102,
+      "stage": "openings",
+      "thread_id": "01a05fba-7386-71d1-b821-6f3374ebff65"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 64533,
+      "latency_seconds": 12.767266,
+      "output_tokens": 346,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 42,
+      "stage": "options",
+      "thread_id": "01a05fba-e181-7e41-833e-3d97a2241e46"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 64827,
+      "latency_seconds": 9.234684,
+      "output_tokens": 149,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 52,
+      "stage": "chair",
+      "thread_id": "01a05fbb-1392-7cd3-9687-415d1f0a26cc"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 64949,
+      "latency_seconds": 17.454299,
+      "output_tokens": 598,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 94,
+      "stage": "votes",
+      "thread_id": "01a05fbb-37d3-7590-aad8-efc9de6ecf14"
+    }
+  ],
+  "usage_totals": {
+    "cached_input_tokens": 63744,
+    "input_tokens": 320626,
+    "output_tokens": 2879,
+    "reasoning_output_tokens": 290
+  },
+  "variant_id": "named_persona_reaction"
+}

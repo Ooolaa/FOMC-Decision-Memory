@@ -1,0 +1,45 @@
+{
+  "forecast_as_of": "2026-09-01",
+  "historical_metric_disclosure_zh": "歷史正確率僅供研究比較；日期記憶測試顯示可能存在答案記憶，本次會前鎖定結果才是前瞻驗證起點。",
+  "locked_at": "2026-09-02T01:31:33Z",
+  "meeting_end_date": "2026-09-16",
+  "meeting_id": "FOMC-2026-09-15",
+  "meeting_start_date": "2026-09-15",
+  "models": [
+    {
+      "historical_dissent_f1": 0.10714285714285714,
+      "historical_policy_accuracy": 0.9777777777777777,
+      "model_label_zh": "匿名總體資料模擬",
+      "run_artifact": "artifacts\\forecast\\fomc_2026_09_15_ensemble_v1\\runs\\naked_frozen_llm.json",
+      "run_artifact_sha256": "951bf6734d4975928d6bd8d42758275c83bf7f12dd43cbc17e0db4d87cf4ee8b",
+      "variant_id": "naked_frozen_llm"
+    },
+    {
+      "historical_dissent_f1": 0.31111111111111117,
+      "historical_policy_accuracy": 0.9777777777777777,
+      "model_label_zh": "具名委員與歷史反應",
+      "run_artifact": "artifacts\\forecast\\fomc_2026_09_15_ensemble_v1\\runs\\named_persona_reaction.json",
+      "run_artifact_sha256": "ff99a471d89b0b99721ed3e1c8be0bb78220de7acd105baef1a4c7bc91e7a86c",
+      "variant_id": "named_persona_reaction"
+    },
+    {
+      "historical_dissent_f1": 0.1176470588235294,
+      "historical_policy_accuracy": 0.9777777777777777,
+      "model_label_zh": "匿名委員與歷史反應",
+      "run_artifact": "artifacts\\forecast\\fomc_2026_09_15_ensemble_v1\\runs\\anonymous_persona_reaction.json",
+      "run_artifact_sha256": "d78215e02855a498e42db856203d585456a1c45731a838ad2b9d0a10867f4ee2",
+      "variant_id": "anonymous_persona_reaction"
+    },
+    {
+      "historical_dissent_f1": 0.28571428571428575,
+      "historical_policy_accuracy": 0.9333333333333333,
+      "model_label_zh": "具名委員但不使用歷史反應",
+      "run_artifact": "artifacts\\forecast\\fomc_2026_09_15_ensemble_v1\\runs\\named_persona_no_reaction.json",
+      "run_artifact_sha256": "1928a9e82cda4d568f59e29309c8cb1e9732bfdf09acbd7c4efccb5472795cfd",
+      "variant_id": "named_persona_no_reaction"
+    }
+  ],
+  "policy_rule": "THREE_OF_FOUR_ELSE_PERSISTENCE",
+  "schema_version": "forward_ensemble_forecast_v1",
+  "vote_rule": "TWO_OF_FOUR_AGAINST"
+}

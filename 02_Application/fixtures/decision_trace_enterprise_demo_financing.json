@@ -1,0 +1,103 @@
+{
+  "schema_version": "decision_trace_v1",
+  "decision_id": "enterprise-demo-financing-001",
+  "meeting_id": null,
+  "context": {
+    "summary": "Synthetic composite financing decision used to demonstrate cross-domain decision memory.",
+    "evidence_refs": [
+      {
+        "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+        "locator": "synthetic composite memo paragraph 2",
+        "excerpt": "[Synthetic composite] The organization considered proceeding with financing now or deferring while market conditions were monitored."
+      }
+    ]
+  },
+  "options": [
+    {
+      "option_id": "proceed_now",
+      "description": "Proceed with financing now to secure funding availability.",
+      "evidence_refs": [
+        {
+          "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+          "locator": "synthetic composite memo paragraph 3",
+          "excerpt": "[Synthetic composite] Proceeding now would secure funding availability but accept the current financing spread."
+        }
+      ]
+    },
+    {
+      "option_id": "defer_and_monitor",
+      "description": "Defer the financing decision and monitor BAA10Y.",
+      "evidence_refs": [
+        {
+          "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+          "locator": "synthetic composite memo paragraph 4",
+          "excerpt": "[Synthetic composite] Deferring would preserve flexibility while monitoring whether BAA10Y remained at or below 2.25 percent."
+        }
+      ]
+    }
+  ],
+  "debate": [
+    {
+      "speaker_scope": "committee",
+      "participant_id": null,
+      "position": "Funding certainty favored proceeding, while possible spread improvement favored waiting.",
+      "reasoning": "This is an illustrative committee-level trade-off and is not attributed to a real person or customer.",
+      "evidence_refs": [
+        {
+          "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+          "locator": "synthetic composite memo paragraph 5",
+          "excerpt": "[Synthetic composite] The illustrative committee weighed funding certainty against the risk that financing conditions would become less favorable."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "action_class": "DEFER",
+    "target_rate": null,
+    "target_lower": null,
+    "target_upper": null,
+    "rationale": "The composite committee deferred while retaining BAA10Y as a monitored assumption.",
+    "evidence_refs": [
+      {
+        "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+        "locator": "synthetic composite memo paragraph 6",
+        "excerpt": "[Synthetic composite] The illustrative decision was to defer while BAA10Y remained a monitored condition."
+      }
+    ]
+  },
+  "vote": {
+    "rounds": [
+      {
+        "vote_round": 1,
+        "for_count": 3,
+        "against_count": 1,
+        "abstain_count": 0,
+        "evidence_refs": [
+          {
+            "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+            "locator": "synthetic composite memo paragraph 7",
+            "excerpt": "[Synthetic composite] Three illustrative votes supported deferral and one opposed."
+          }
+        ]
+      }
+    ]
+  },
+  "assumptions": [
+    {
+      "assumption_id": "enterprise-demo-financing-001-baa10y",
+      "claim": "BAA10Y remains at or below 2.25 percent.",
+      "monitor_series_id": "BAA10Y",
+      "monitor_operator": "GT",
+      "threshold_value": 2.25,
+      "direction_map_version": "baa10y_upper_bound_v1",
+      "monitor_rule_version": "baa10y_upper_bound_v1",
+      "evidence_refs": [
+        {
+          "document_id": "ENTERPRISE_FIXTURE_DOCUMENT_ID",
+          "locator": "synthetic composite memo paragraph 8",
+          "excerpt": "[Synthetic composite] The decision assumes BAA10Y remains at or below 2.25 percent."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "source_database_refresh_audit_v1",
+  "audited_at": "2026-09-01T15:42:00+08:00",
+  "before_database": "fred_fomc_real.before_2026-09-01_refresh.sqlite",
+  "before_sha256": "a7fd78ff8cb52eca2a81ea6b9777bdf048711f2ed6c0a0a660d6d3a777527960",
+  "after_database": "fred_fomc_real.sqlite",
+  "after_sha256": "02f96292422ece4556e952902a4660c663652d9eaff8b470e75eec3dc7c91187",
+  "after_integrity_check": "ok",
+  "after_foreign_key_violation_count": 0,
+  "series_count": 22,
+  "observation_vintage_count": 570584,
+  "meeting_count": 166,
+  "meeting_snapshot_row_count_before": 1541111,
+  "meeting_snapshot_row_count_after": 1541111,
+  "meeting_snapshot_missing_in_after": 0,
+  "meeting_snapshot_missing_in_before": 0,
+  "meeting_snapshot_selection_change_count": 0,
+  "meeting_snapshot_numeric_value_change_count": 0,
+  "meeting_snapshot_raw_format_change_count": 12,
+  "raw_format_change_scope": [
+    "FOMC-2026-07-28:DGS2:2026-07-20..2026-07-27",
+    "FOMC-2026-07-28:DGS10:2026-07-20..2026-07-27"
+  ],
+  "raw_format_change_semantics": "Trailing zero normalization only; value_num is unchanged.",
+  "refresh_command": "python .\\build_real_fred_db.py --output .\\fred_fomc_real.sqlite --observation-start 1996-01-01 --update-existing --strict-point-in-time --calendar-through-date 2026-09-01",
+  "status": "PASS_NO_HISTORICAL_NUMERIC_DRIFT"
+}

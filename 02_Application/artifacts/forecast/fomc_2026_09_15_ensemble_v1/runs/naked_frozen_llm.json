@@ -1,0 +1,296 @@
+{
+  "billing_route": "chatgpt_subscription",
+  "execution_provider": "codex_subscription",
+  "forecast_as_of": "2026-09-01",
+  "meeting_id": "FOMC-2026-09-15",
+  "model_bundle_hash": "7b417c287da8251be81f0aa86902fb7db2ee9a6ae30b9030ce23e8cf65ac8e85",
+  "model_id": "gpt-5.6-terra",
+  "output": {
+    "discussion": [
+      {
+        "participant_id": "anna-paulson",
+        "synthetic_text": "I favor holding the target range today. Inflation is still above goal, but the supplied snapshot shows unemployment at 4.1 percent and prior materials describe a stable labor market; a pause preserves room to judge whether disinflation resumes."
+      },
+      {
+        "participant_id": "beth-m-hammack",
+        "synthetic_text": "I lean toward a 25-basis-point increase. CPI inflation remains above 3 percent, financial conditions appear supportive, and recent Committee materials emphasize upside inflation risks amid solid activity."
+      },
+      {
+        "participant_id": "christopher-j-waller",
+        "synthetic_text": "I support maintaining the current range. The labor market remains close to balance and prior projections anticipated inflation easing as supply-related pressures fade; further evidence is needed before altering policy."
+      },
+      {
+        "participant_id": "jerome-h-powell",
+        "synthetic_text": "I would hold today while retaining a firm bias. Inflation remains materially above target, yet the modestly positive yield-curve slope and contained credit spread do not by themselves establish a need for an immediate move."
+      },
+      {
+        "participant_id": "john-c-williams",
+        "synthetic_text": "I favor a 25-basis-point increase. With unemployment at 4.1 percent, payrolls still higher than a year earlier, and CPI inflation above 3 percent, the balance of current data argues for added restraint against persistence."
+      },
+      {
+        "participant_id": "kevin-m-warsh",
+        "synthetic_text": "My initial preference is to hold the range. Inflation progress is incomplete, but the labor market is stable and the previous discussion stressed uncertainty around supply shocks; maintaining the current stance lets us assess incoming data without prejudging the next step."
+      },
+      {
+        "participant_id": "lisa-d-cook",
+        "synthetic_text": "I support holding. The current policy midpoint is 3.625 percent, while prior statements characterized activity as solid but uncertainty as elevated; a pause is consistent with a meeting-by-meeting assessment of the dual mandate."
+      },
+      {
+        "participant_id": "lorie-k-logan",
+        "synthetic_text": "I lean toward a 25-basis-point increase. CPI inflation is above 3 percent and prior materials identify broad price pressures and upside inflation risks; stable employment gives policy scope to reinforce price stability."
+      },
+      {
+        "participant_id": "michael-s-barr",
+        "synthetic_text": "I favor holding. Inflation warrants vigilance, but unemployment has declined over the past year and credit spreads remain contained; I would wait for confirmation that inflation persistence, rather than temporary supply effects, is dominant."
+      },
+      {
+        "participant_id": "michelle-w-bowman",
+        "synthetic_text": "I favor a 25-basis-point increase. The combination of above-target CPI inflation, solid labor conditions, and prior concern that financial conditions may be insufficiently restrictive supports a measured further tightening."
+      },
+      {
+        "participant_id": "neel-kashkari",
+        "synthetic_text": "I support maintaining the current range. Inflation remains elevated, but prior staff outlooks expected some easing and recognized substantial uncertainty; holding keeps policy restrictive while avoiding overreaction to a limited set of new observations."
+      },
+      {
+        "participant_id": "philip-n-jefferson",
+        "synthetic_text": "I favor holding with close monitoring. The positive 10-year minus 2-year spread and narrow BAA spread indicate no immediate financial-stress signal, while inflation and labor data call for patience rather than an easing move."
+      }
+    ],
+    "final_proposal": {
+      "action_class": "HOLD",
+      "proposer_participant_id": "kevin-m-warsh",
+      "rationale": "I propose maintaining the 3.50–3.75 percent target range. Inflation remains above the Committee's objective and warrants continued vigilance, but the supplied snapshot shows a stable labor market and prior materials describe substantial uncertainty around the persistence of supply-related price pressures. Holding preserves the current restrictive stance while allowing additional data to clarify the inflation path and balance of risks."
+    },
+    "meeting_id": "FOMC-2026-09-15",
+    "profiles": [
+      {
+        "display_name": "Participant 01",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "anna-paulson"
+      },
+      {
+        "display_name": "Participant 02",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": false,
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "display_name": "Participant 03",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f",
+          "doc-543dbe22df93ca41f70003a1"
+        ],
+        "is_chair": false,
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "display_name": "Participant 04",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-35f6cc371cd432f4a8433702"
+        ],
+        "is_chair": false,
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "display_name": "Participant 05",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "john-c-williams"
+      },
+      {
+        "display_name": "Chair",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": true,
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "display_name": "Participant 07",
+        "evidence_ids": [
+          "doc-05444dd8467e4fb082534298",
+          "doc-543dbe22df93ca41f70003a1"
+        ],
+        "is_chair": false,
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "display_name": "Participant 08",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-35f6cc371cd432f4a8433702"
+        ],
+        "is_chair": false,
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "display_name": "Participant 09",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f",
+          "doc-35f6cc371cd432f4a8433702"
+        ],
+        "is_chair": false,
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "display_name": "Participant 10",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": false,
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "display_name": "Participant 11",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f",
+          "doc-543dbe22df93ca41f70003a1"
+        ],
+        "is_chair": false,
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "display_name": "Participant 12",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-35f6cc371cd432f4a8433702"
+        ],
+        "is_chair": false,
+        "participant_id": "philip-n-jefferson"
+      }
+    ],
+    "schema_version": "simulation_output_v1",
+    "synthetic": true,
+    "votes": [
+      {
+        "choice": "FOR",
+        "participant_id": "anna-paulson"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "john-c-williams"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "philip-n-jefferson"
+      }
+    ]
+  },
+  "platform_api_cost_usd": 0.0,
+  "schema_version": "forward_variant_run_v1",
+  "status": "SUBSCRIPTION_FORWARD_COMPLETED",
+  "usage": [
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 51471,
+      "latency_seconds": 22.323613,
+      "output_tokens": 838,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 95,
+      "stage": "profiles",
+      "thread_id": "01a05fb8-ccbd-7b83-b8ca-80f44db90d2a"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 52197,
+      "latency_seconds": 28.495843,
+      "output_tokens": 1191,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 55,
+      "stage": "openings",
+      "thread_id": "01a05fb9-216e-7191-81fb-52018e6b4201"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 13056,
+      "input_tokens": 54903,
+      "latency_seconds": 13.638219,
+      "output_tokens": 339,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 0,
+      "stage": "options",
+      "thread_id": "01a05fb9-910f-7073-bc22-70f837c35528"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 53658,
+      "latency_seconds": 10.295406,
+      "output_tokens": 163,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 37,
+      "stage": "chair",
+      "thread_id": "01a05fb9-c664-7f93-8d3a-9f29aacc424e"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 53809,
+      "latency_seconds": 16.822245,
+      "output_tokens": 543,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 84,
+      "stage": "votes",
+      "thread_id": "01a05fb9-ef12-7330-b530-994c520a2bf3"
+    }
+  ],
+  "usage_totals": {
+    "cached_input_tokens": 13056,
+    "input_tokens": 266038,
+    "output_tokens": 3074,
+    "reasoning_output_tokens": 271
+  },
+  "variant_id": "naked_frozen_llm"
+}

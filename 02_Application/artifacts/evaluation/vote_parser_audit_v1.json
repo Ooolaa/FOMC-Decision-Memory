@@ -1,0 +1,34 @@
+{
+  "dissent_meeting_count": 61,
+  "errors": [],
+  "implicit_against_count": 2,
+  "mapped_vote_meeting_count": 5,
+  "minute_document_count": 120,
+  "multi_vote_document_count": 4,
+  "multi_vote_meeting_mappings": {
+    "FOMC-2008-01-29": [
+      "FOMC-2008-01-29",
+      null
+    ],
+    "FOMC-2008-10-28": [
+      "FOMC-2008-10-28",
+      null
+    ],
+    "FOMC-2011-12-13": [
+      "FOMC-2011-12-13",
+      null
+    ],
+    "FOMC-2020-03-15": [
+      "FOMC-2020-03-15",
+      "FOMC-2020-03-02"
+    ]
+  },
+  "multi_vote_round_count": 8,
+  "parsed_meeting_count": 121,
+  "schema_version": "vote_parser_audit_v1",
+  "source_manifest": "document_manifests/training_2006_2020.json",
+  "source_manifest_sha256": "702b41b027d21f685f94036accd6c31e5c492b14ae1f1dff2fb9973bc7432b77",
+  "status": "COMPLETED",
+  "vote_count": 1219,
+  "vote_round_count": 121
+}

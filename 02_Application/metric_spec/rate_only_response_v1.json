@@ -1,0 +1,27 @@
+{
+  "spec_id": "rate_only_response_v1",
+  "frozen_on": "2026-09-03",
+  "policy_response_at": "The first later meeting_end_date with a same-direction DFEDTAR or DFEDTARL/DFEDTARU change after statement_flip_at.",
+  "policy_series": {
+    "single_target": "DFEDTAR",
+    "target_range_lower": "DFEDTARL",
+    "target_range_upper": "DFEDTARU",
+    "target_range_starts": "2008-12-16"
+  },
+  "constraint_episodes": [
+    {
+      "start": "2009-01-27",
+      "end": "2015-10-27",
+      "expected_meetings": 55
+    },
+    {
+      "start": "2020-04-28",
+      "end": "2022-01-25",
+      "expected_meetings": 15
+    }
+  ],
+  "expected_constrained_meetings": 70,
+  "non_rate_tools_close_event": false,
+  "recognition_censored_by_rate_constraint": false,
+  "censoring_disclosure": "Rate-only action and response censoring is informative; Kaplan-Meier may be shown only as descriptive sensitivity analysis."
+}

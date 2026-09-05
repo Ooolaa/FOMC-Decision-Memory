@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "simulation_stage_envelope_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stage",
+    "profiles",
+    "openings",
+    "options",
+    "final_proposal",
+    "votes"
+  ],
+  "properties": {
+    "stage": {
+      "enum": ["profiles", "openings", "options", "chair", "votes"]
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "display_name", "is_chair", "evidence_ids"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "display_name": {"type": "string", "minLength": 1},
+          "is_chair": {"type": "boolean"},
+          "evidence_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "openings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "synthetic_text", "evidence_ids"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "synthetic_text": {"type": "string", "minLength": 1},
+          "evidence_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["option_id", "action_class", "rationale", "evidence_ids"],
+        "properties": {
+          "option_id": {"type": "string", "minLength": 1},
+          "action_class": {"enum": ["CUT", "HOLD", "HIKE"]},
+          "rationale": {"type": "string", "minLength": 1},
+          "evidence_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "final_proposal": {
+      "type": ["object", "null"],
+      "required": ["proposer_participant_id", "action_class", "rationale"],
+      "additionalProperties": false,
+      "properties": {
+        "proposer_participant_id": {"type": "string", "minLength": 1},
+        "action_class": {"enum": ["CUT", "HOLD", "HIKE"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "votes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "choice", "rationale"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "choice": {"enum": ["FOR", "AGAINST"]},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

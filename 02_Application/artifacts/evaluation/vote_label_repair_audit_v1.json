@@ -1,0 +1,138 @@
+{
+  "schema_version": "vote_label_repair_audit_v1",
+  "status": "CANDIDATE_VALIDATED_NOT_PROMOTED",
+  "formal_database": {
+    "path": "fomc_simulation.sqlite",
+    "sha256": "83ef409125bea85f9463f2c1bf2c7a9accb46414d6e7268262b53c93a1c9732c",
+    "modified": false
+  },
+  "candidate_database": {
+    "path": "fomc_simulation.vote_labels_fixed_candidate.sqlite",
+    "sha256": "0a44b22b2321433a4d0bddbf28bba6d815ceb839eeefbc496ebcab02da10f014",
+    "integrity_check": "ok",
+    "foreign_key_error_count": 0
+  },
+  "prediction_contract": {
+    "known_input": "meeting_participant rows where is_voter=1",
+    "prediction_target": "FOR or AGAINST for every known voter",
+    "attendance_prediction_has_value": false,
+    "required_roster_coverage": 1.0,
+    "required_label_coverage": 1.0
+  },
+  "validated_scope": {
+    "meeting_count": 166,
+    "training_meeting_count": 121,
+    "post_2020_meeting_count": 45,
+    "candidate_vote_count": 1736,
+    "training_vote_count": 1219,
+    "training_dissent_count": 80,
+    "post_2020_vote_count": 517,
+    "post_2020_dissent_count": 23,
+    "participant_count": 79,
+    "meeting_participant_count": 2982
+  },
+  "candidate_difference_from_formal": {
+    "vote_keys_added": 25,
+    "formal_vote_keys_missing_from_candidate": 0,
+    "shared_vote_choice_changes": 0,
+    "shared_dissent_changes": 0,
+    "shared_evidence_changes": 0,
+    "roster_keys_added": 0,
+    "roster_keys_missing": 0,
+    "roster_role_changes": 0,
+    "roster_voter_flag_changes": 25,
+    "roster_chair_flag_changes": 0,
+    "participants_added": 0,
+    "participants_missing": 0,
+    "added_vote_rows_are_all_against": true,
+    "added_dissent_breakdown": {
+      "Thomas M. Hoenig": 9,
+      "Jeffrey M. Lacker": 5,
+      "Richard W. Fisher": 5,
+      "Charles I. Plosser": 3,
+      "Eric S. Rosengren": 1,
+      "Esther L. George": 1,
+      "Narayana Kocherlakota": 1
+    }
+  },
+  "source_reconciliation": {
+    "training_statement_evidence_meetings": 119,
+    "training_minutes_fallback_meetings": 2,
+    "post_2020_minutes_evidence_meetings": 45,
+    "statement_minutes_disagreement_count_after_fix": 0,
+    "post_2020_label_changes_from_formal": 0
+  },
+  "known_roster_vote_gate": {
+    "artifact": "artifacts/evaluation/frozen_45_vote_baselines_candidate_v1.json",
+    "test_meeting_count": 45,
+    "test_voter_case_count": 517,
+    "dissent_base_rate": 0.04448742746615087,
+    "all_for_accuracy": 0.9555125725338491,
+    "all_for_f1": 0.0,
+    "reference_baseline": "prior_dissent_rate",
+    "reference_f1": 0.34782608695652173,
+    "promotion_condition": "model_dissent_f1 > 0.34782608695652173 and roster_coverage=1 and label_coverage=1"
+  },
+  "saved_output_diagnostic": {
+    "artifact": "artifacts/evaluation/frozen45_saved_outputs_candidate_reevaluation_v1.json",
+    "platform_api_calls": 0,
+    "case_count": 45,
+    "model_dissent_f1": 0.31818181818181823,
+    "reference_f1": 0.34782608695652173,
+    "metric_only_pass": false,
+    "input_lineage_stale": true,
+    "promotion_eligible": false,
+    "interpretation": "Existing outputs cover all known voters but do not beat the deterministic prior-dissent-rate baseline; their original bundles also used the old app database hash."
+  },
+  "lineage_status": {
+    "rule": "Artifacts remain internally consistent with the unchanged formal database, but are stale for candidate promotion and must not be silently reused after candidate promotion.",
+    "old_formal_hash_references": [
+      "artifacts/codex_subscription/decision_trace_50_v1/bundle_preflight.json",
+      "artifacts/codex_subscription/decision_trace_50_v2/bundle_preflight.json",
+      "artifacts/codex_subscription/decision_trace_50_v3/bundle_preflight.json",
+      "artifacts/codex_subscription/decision_trace_50_v4/bundle_preflight.json",
+      "artifacts/codex_subscription/decision_trace_50_v4/qa_queue.json",
+      "artifacts/codex_subscription/frozen45_v1/bundle_preflight.json",
+      "artifacts/manifests/hackathon_r5_offline_build_2026-08-28_v12.json",
+      "artifacts/manifests/hackathon_r5_offline_build_2026-08-28_v13.json"
+    ],
+    "candidate_stale_surfaces": [
+      {
+        "path": "artifacts/reaction/fomc_2022_03_15_profile_cards_v1.json",
+        "reason": "prior vote and dissent history changed"
+      },
+      {
+        "path": "artifacts/codex_subscription/decision_trace_50_v1 through decision_trace_50_v4",
+        "reason": "bundles and evaluations were built from the old app database hash"
+      },
+      {
+        "path": "artifacts/codex_subscription/frozen45_v1",
+        "reason": "Frozen outputs used bundles with old profile history and evaluator v1"
+      },
+      {
+        "path": "artifacts/codex_subscription/r5_variants_v1 and r5_variants_v2",
+        "reason": "variant bundles may include old prior dissent history"
+      },
+      {
+        "path": "artifacts/evaluation/r5_subscription_variant_matrix_v1.json",
+        "reason": "promotion comparison predates the corrected vote baseline and evaluator v2"
+      },
+      {
+        "path": "artifacts/codex_subscription/decision_trace_50_v4/human_review_results_v1.json",
+        "reason": "human review applies to old DecisionTrace lineage and cannot promote the candidate lineage"
+      },
+      {
+        "path": "artifacts/manifests/hackathon_r5_offline_build_2026-08-28_v12.json and v13.json",
+        "reason": "frozen payload hashes name the old formal app database"
+      }
+    ]
+  },
+  "promotion_requirements": [
+    "Explicitly approve replacing the formal app database; no replacement has occurred.",
+    "Rebuild profile cards and all bundles that consume prior vote or dissent history.",
+    "Re-evaluate model outputs with simulation_policy_vote_v2 or rerun outputs when their inputs changed.",
+    "Require exact known-voter roster coverage and complete official labels for every evaluated meeting.",
+    "Require model dissent F1 to exceed the 0.34782608695652173 deterministic reference baseline.",
+    "Create a new immutable submission manifest; do not edit an old manifest hash in place."
+  ]
+}

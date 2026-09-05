@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FOMC 決策記憶 RAG 投票模擬</title>
+<style>
+  :root{
+    --navy:#102a43; --teal:#147d92; --ink:#243b53; --muted:#627d98; --bg:#f4f7fa;
+    --card:#fff; --line:#d9e2ec; --warn:#9c2c14; --green:#176b4b; --amber:#8a5a00;
+    --hawk:#9c2c14; --dove:#1b5e8a; --hold:#5b6b7c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);background:var(--bg);font:15px system-ui,-apple-system,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;line-height:1.55}
+  header{background:linear-gradient(120deg,var(--navy),var(--teal));color:#fff;padding:30px max(20px,calc((100vw - 1180px)/2))}
+  header h1{margin:0 0 6px;font-size:27px}
+  header .sub{opacity:.92;max-width:820px}
+  main{max-width:1180px;margin:22px auto;padding:0 20px}
+  h2{font-size:19px;margin:0 0 12px}
+  h3{font-size:15px;margin:18px 0 7px}
+  p{margin:7px 0}
+  .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 1px 2px #102a4310;margin-bottom:18px}
+  .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  label{display:block;font-weight:650;font-size:13px}
+  input,select,textarea{width:100%;margin-top:4px;padding:8px;border:1px solid #bcccdc;border-radius:7px;color:var(--ink);background:#fff;font:inherit}
+  textarea{min-height:66px;resize:vertical}
+  .hint,.source{color:var(--muted);font-size:12.5px}
+  button{border:0;background:var(--teal);color:#fff;padding:10px 16px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer}
+  button:hover{background:#0d6577}
+  button.ghost{background:#fff;color:var(--teal);border:1px solid var(--teal)}
+  button.ghost:hover{background:#eef8fa}
+  button[disabled]{opacity:.55;cursor:progress}
+  .card.scene{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .btnlink{flex:none;background:var(--teal);color:#fff;padding:10px 16px;border-radius:8px;
+           font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;display:inline-block}
+  .btnlink:hover{background:#0d6577;color:#fff}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+  .metric{border:1px solid var(--line);border-radius:8px;padding:10px;background:#fbfdff}
+  .metric b{display:block;font-size:20px;color:var(--navy);line-height:1.25}
+  .metric span{color:var(--muted);font-size:12px}
+  .bars{margin:10px 0}
+  .bar{display:grid;grid-template-columns:78px 1fr 108px;gap:9px;align-items:center;margin:5px 0;font-size:13px}
+  .bar .track{background:#e6edf3;border-radius:5px;height:15px;overflow:hidden;position:relative}
+  .bar .fill{height:100%;border-radius:5px}
+  .bar .fill.model{background:#9fb3c8}
+  .bar .fill.rag{background:#5fa8b8}
+  .bar .fill.final{background:var(--teal)}
+  .bar .val{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:left;padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-size:12px;font-weight:650;white-space:nowrap}
+  tr.against{background:#fdf5f2}
+  .pill{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700;white-space:nowrap}
+  .pill.for{background:#e3f4ec;color:var(--green)}
+  .pill.against{background:#fbe6df;color:var(--warn)}
+  .pill.hawk{background:#fbe6df;color:var(--hawk)}
+  .pill.dove{background:#e4eff8;color:var(--dove)}
+  .pill.neutral{background:#eceff2;color:var(--hold)}
+  .ev{border-left:4px solid var(--teal);background:#f7fbfc;border-radius:0 6px 6px 0;padding:9px 12px;margin:9px 0}
+  tr.mem{cursor:pointer;transition:background .15s}
+  tr.mem:hover{background:#f0f7fa}
+  tr.mem.open{background:#eaf4f7}
+  tr.mem td:first-child{position:relative;padding-left:22px}
+  .caret{position:absolute;left:6px;top:9px;color:var(--teal);font-size:11px;transition:transform .25s ease;display:inline-block}
+  tr.mem.open .caret{transform:rotate(90deg)}
+  tr.detail>td{padding:0;border-bottom:0}
+  .evwrap{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease,padding .3s ease;padding:0 0 0 22px}
+  .evwrap.open{max-height:2600px;opacity:1;padding:2px 0 14px 22px}
+  .evwrap .ev{margin:7px 0}
+  .nocite{color:var(--muted);font-size:12.5px;padding:8px 0}
+  .evhead{position:relative;padding:8px 0 8px 22px;cursor:pointer;user-select:none;border-radius:6px;transition:background .15s}
+  .evhead:hover{background:#f0f7fa}
+  .evhead .caret{top:11px}
+  .evhead.open .caret{transform:rotate(90deg)}
+  .ev .meta{font-size:12px;color:var(--muted);margin-bottom:3px;display:flex;gap:9px;flex-wrap:wrap}
+  .ev q{font-size:13.5px;color:#334e68}
+  .result{border-left:5px solid var(--teal);padding:12px 15px;background:#f0fbfc;border-radius:4px;margin:12px 0}
+  details{margin-top:10px}
+  summary{cursor:pointer;font-weight:650;color:var(--teal);font-size:14px}
+  code{background:#eef2f6;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  ul{padding-left:19px;margin:7px 0}
+  li{margin:3px 0}
+  .warnbox{border-left:5px solid var(--amber);background:#fff9ec;padding:11px 14px;border-radius:4px;font-size:13.5px}
+  footer{max-width:1180px;margin:6px auto 40px;padding:0 20px;color:var(--muted);font-size:12px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tagline{font-size:12px;color:var(--muted)}
+  mark{background:#fdf0c3;padding:0 1px}
+  @media (max-width:820px){.grid,.split{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏦 FOMC 決策記憶 RAG 投票模擬</h1>
+  <div class="sub">離線展示：輸入會前的總體經濟與金融市場情境，系統以 <b>檢索增強（RAG）</b> 從歷年 FOMC 會議紀要與聲明中找出條件相近的會議，推論委員會的政策方向、逐一委員的投票，以及每個判斷所依據的原文出處。</div>
+</header>
+
+<main>
+  <div class="grid">
+    <section class="card">
+      <h2>1. 會前經濟與市場情境</h2>
+      <p class="hint">數值為年增率（%）、利率（%）或利差（百分點）。與原 R5 pooled ordered-logit 使用完全相同的七項特徵。</p>
+      <div class="fields">
+        <label>CPI 年增率<input id="cpi_yoy" type="number" step="0.1" value="3.4"></label>
+        <label>失業率<input id="unemployment_level" type="number" step="0.1" value="4.2"></label>
+        <label>失業率 12 個月變化<input id="unemployment_12m_change" type="number" step="0.1" value="0.2"></label>
+        <label>非農就業年增率<input id="payroll_yoy" type="number" step="0.1" value="1.0"></label>
+        <label>BAA–10 年期公債利差<input id="credit_spread_baa10y" type="number" step="0.1" value="1.8"></label>
+        <label>10 年–2 年期殖利率曲線<input id="yield_curve_10y_2y" type="number" step="0.1" value="0.3"></label>
+        <label>目前聯邦基金利率中點<input id="policy_midpoint" type="number" step="0.125" value="3.625"></label>
+      </div>
+      <h3>近期變化（動量）</h3>
+      <p class="hint">上面七欄是<b>水準</b>，這三欄是<b>方向</b>。政策轉折往往由變化速度觸發而非水準本身——
+      2008 年 10 月降息的理由是「油價大跌、通膨壓力開始緩解」，而當時 CPI 仍有 4.9%。
+      留 0 代表無明顯變化。這三欄只影響檢索，不進入 R5 計量模型（它是凍結的七特徵模型）。</p>
+      <div class="fields">
+        <label>CPI 年增率 3 個月變化（pp）<input id="cpi_3m" type="number" step="0.1" value="0"></label>
+        <label>信用利差 3 個月變化（pp）<input id="spread_3m" type="number" step="0.1" value="0"></label>
+        <label>失業率 3 個月變化（pp）<input id="u_3m" type="number" step="0.1" value="0"></label>
+      </div>
+      <h3>補充市場情勢敘述（可選，直接進入檢索查詢）</h3>
+      <textarea id="notes" placeholder="例：Oil prices have declined markedly and inflationary pressures have started to moderate; the intensification of financial market turmoil has augmented the downside risks to growth."></textarea>
+      <p class="hint"><b>建議寫「正在怎麼變」而不只是「現在是什麼」。</b>上面七個欄位只描述當下水準，
+      不描述變化方向；遇到轉折點（油價崩跌、利差急擴、市場失序）時，這一欄是唯一能把方向資訊帶進檢索的地方，
+      對找到正確的類比會議影響很大。用英文寫效果最好，因為語料是英文。</p>
+      <div class="row">
+        <button id="run">執行 RAG 情境預測</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. 委員會名單</h2>
+      <div id="rosterLabel" style="font-weight:650"></div>
+      <div id="rosterBox" style="margin-top:10px;max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:9px"></div>
+      <p class="hint">取消勾選即可把該委員排除在本次模擬之外。檢索與計分的參數已固定為回測調校後的數值，說明見 <code>README_RAG_VOTE_SIMULATOR_zh-TW.md</code>。</p>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>3. 政策方向推論</h2>
+    <div id="direction"><p class="hint">按「執行 RAG 情境預測」開始。首次執行會先建立倒排索引（約 1 秒）。</p></div>
+  </section>
+
+  <section class="card" id="proposalCard" hidden>
+    <h2>4. 主席提案與委員逐一投票</h2>
+    <div id="proposal"></div>
+  </section>
+
+  <section class="card" id="evidenceCard" hidden>
+    <h2>5. 委員會層級的原文證據</h2>
+    <div id="evidence"></div>
+  </section>
+
+  <section class="card scene">
+    <div>
+      <h2 style="margin-bottom:6px">會議現場</h2>
+      <p class="hint" style="margin:0">把這次的結果演成一場會議：12 位委員圍桌，投反對票的舉手說明理由，
+      後牆是十年的 CPI 與失業率走勢。點任一位委員可以看他為什麼這樣投。</p>
+    </div>
+    <a class="btnlink" href="05_Design_Canvas/fomc-meeting-scene.html" target="_blank" rel="noopener">開啟會議現場</a>
+  </section>
+
+</main>
+
+<footer>
+  語料：<code>communications.csv</code>（FOMC 聲明與會議紀要）。計量模型：R5 封存
+  <code>02_Application/artifacts/reaction/pooled_ordered_logit_v1.json</code>。
+  預設名單：<code>artifacts/forecast/fomc_2026_09_15_ensemble_v1</code> 的 FOMC-2026-09-15 名單。
+  全部運算在瀏覽器離線完成，不連網、不需 API 金鑰。僅供研究／展示，不構成投資或政策建議。
+</footer>
+
+<script>
+"use strict";
+const IDX = __INDEX_JSON__;
+const MODEL = __MODEL_JSON__;
+const ROSTERS = __ROSTER_JSON__;
+
+const $ = id => document.getElementById(id);
+const FEATURES = Object.keys(MODEL.means);
+const MOMENTUM = ['cpi_3m', 'spread_3m', 'u_3m'];
+const LABEL = {
+  cpi_yoy:'CPI 年增率', unemployment_level:'失業率', unemployment_12m_change:'失業率一年變化',
+  payroll_yoy:'非農就業年增率', credit_spread_baa10y:'信用利差', yield_curve_10y_2y:'殖利率曲線',
+  policy_midpoint:'目前利率中點'
+};
+const ACTION_NAME = {'-1':'降息','0':'維持','1':'升息'};
+const SRC_NAME = ['會後聲明','會議紀要・與會者觀點','會議紀要・委員會決議','聲明・異議紀錄'];
+const TAG_NAME = {
+  infl_high:'通膨偏高', infl_low:'通膨偏低', labor_tight:'勞動市場緊俏', labor_soft:'勞動市場轉弱',
+  fin_stress:'金融條件緊縮', growth_weak:'成長走弱', growth_solid:'成長穩健',
+  infl_moderating:'通膨回落中', infl_accelerating:'通膨加速中',
+  stress_intensifying:'金融壓力升高中', stress_easing:'金融壓力緩解中',
+  labor_deteriorating:'勞動市場急速惡化'
+};
+/* 檢索與計分參數。這些值是留一法回測選出來的（見
+   README_RAG_VOTE_SIMULATOR_zh-TW.md 的「模型權重與參數」一節），介面上不再開放
+   調整，避免展示時被無意間調到未經驗證的組合。 */
+const PARAMS = {
+  topk: 400,       // 檢索取回的段落數（重排的候選池；證據面板只顯示前 12 段）
+  topM: 8,         // 採計的類比會議數
+  beta: 0,         // 類別稀有度校正
+  // 相同標籤加分測過後關閉：標籤描述的是「水準」而非「衝擊」。2020-03 的情境
+  // 標籤是「勞動市場緊俏＋成長穩健＋金融條件緊縮」，加分會讓前兩個常見標籤蓋過
+  // 後一個關鍵標籤，把 2016／2023 的升息會議拱上來，結論翻成升息。它能改善
+  // 2008 的檢索，但代價是這類誤判，且留一法回測也偏好 0。
+  gamma: 0,        // 相同條件標籤加分（已停用，見上）
+  delta: 1.5,      // 矛盾條件標籤扣分
+  w: 0.45,         // 證據權重：計量模型 1-w / 檢索類比 w
+  threshold: 0.2,  // 異議判定門檻
+  yearMin: 2000    // 語料年份下限
+};
+const ROSTER_KEY = 'r5_2026';
+
+const CLASS_COUNTS = { '-1':0, '0':0, '1':0 };
+const pct = v => (v*100).toFixed(1) + '%';
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------------------------------------------------------------- 檢索引擎 */
+const STOP = new Set(('the a an of to in and or for on at by with that this it as is are was were be been from '+
+  'has have had not but their they its would will which more than also these those such over under about into '+
+  'committee federal open market reserve percent participants members meeting policy other some most many few '+
+  'noted said continued remained however while although there here what when who whom been being can could should').split(' '));
+
+function stem(w){
+  if (w.length > 5 && w.endsWith('ing')) return w.slice(0, -3);
+  if (w.length > 5 && w.endsWith('ed')) return w.slice(0, -2);
+  if (w.length > 4 && w.endsWith('es')) return w.slice(0, -2);
+  if (w.length > 4 && w.endsWith('s') && !w.endsWith('ss')) return w.slice(0, -1);
+  return w;
+}
+function tokenize(text){
+  const raw = text.toLowerCase().match(/[a-z]+/g) || [];
+  const out = [];
+  for (const w of raw){ if (w.length < 3 || STOP.has(w)) continue; out.push(stem(w)); }
+  return out;
+}
+
+/* BM25 over the chunk corpus, built once on first use. */
+const RAG = { built:false, df:new Map(), tf:[], len:[], avg:0, N:0, postings:new Map() };
+
+function buildIndex(){
+  if (RAG.built) return;
+  const t0 = performance.now();
+  RAG.N = IDX.chunks.length;
+  let total = 0;
+  for (let i = 0; i < RAG.N; i++){
+    const terms = tokenize(IDX.chunks[i].t);
+    const counts = new Map();
+    for (const w of terms) counts.set(w, (counts.get(w) || 0) + 1);
+    RAG.tf.push(counts);
+    RAG.len.push(terms.length);
+    total += terms.length;
+    for (const w of counts.keys()){
+      RAG.df.set(w, (RAG.df.get(w) || 0) + 1);
+      let p = RAG.postings.get(w);
+      if (!p){ p = []; RAG.postings.set(w, p); }
+      p.push(i);
+    }
+  }
+  RAG.avg = total / RAG.N;
+  RAG.built = true;
+  RAG.ms = Math.round(performance.now() - t0);
+}
+
+const K1 = 1.2, B = 0.75;
+
+function queryCounts(text){
+  const qCount = new Map();
+  for (const w of tokenize(text)) qCount.set(w, (qCount.get(w) || 0) + 1);
+  return qCount;
+}
+
+/** BM25 of one chunk against a prepared query, for scoring a fixed shortlist. */
+function scoreChunk(qCount, i){
+  let s = 0, hit = [];
+  for (const [w, qf] of qCount){
+    const df = RAG.df.get(w);
+    if (!df) continue;
+    const f = RAG.tf[i].get(w);
+    if (!f) continue;
+    const idf = Math.log(1 + (RAG.N - df + 0.5) / (df + 0.5));
+    if (idf <= 0) continue;
+    const qw = qf > 1 ? 1 + Math.log(qf) : 1;
+    s += idf * qw * (f * (K1 + 1)) / (f + K1 * (1 - B + B * RAG.len[i] / RAG.avg));
+    if (hit.length < 8) hit.push(w);
+  }
+  return { i, s, terms:hit };
+}
+
+/** BM25 search. opts: {yearMin, exclude:Set(meetingIdx), limit} */
+function search(queryText, opts){
+  buildIndex();
+  const o = opts || {};
+  const qCount = queryCounts(queryText);
+  const k1 = K1, b = B;
+  const scores = new Map();
+  const matched = new Map();
+  for (const [w, qf] of qCount){
+    const posting = RAG.postings.get(w);
+    if (!posting) continue;
+    const df = RAG.df.get(w);
+    const idf = Math.log(1 + (RAG.N - df + 0.5) / (df + 0.5));
+    if (idf <= 0) continue;
+    const qw = qf > 1 ? 1 + Math.log(qf) : 1;
+    for (const i of posting){
+      const mi = IDX.chunks[i].m;
+      if (o.exclude && o.exclude.has(mi)) continue;
+      if (o.yearMin && +IDX.meetings[mi].d.slice(0, 4) < o.yearMin) continue;
+      const f = RAG.tf[i].get(w);
+      const s = idf * qw * (f * (k1 + 1)) / (f + k1 * (1 - b + b * RAG.len[i] / RAG.avg));
+      scores.set(i, (scores.get(i) || 0) + s);
+      let m = matched.get(i);
+      if (!m){ m = new Set(); matched.set(i, m); }
+      if (m.size < 8) m.add(w);
+    }
+  }
+  const hits = [...scores.entries()].map(([i, s]) => ({ i, s, terms:[...(matched.get(i) || [])] }));
+  hits.sort((a, b2) => b2.s - a.s);
+  return hits.slice(0, o.limit || 24);
+}
+
+/* --------------------------------------------------- 情境 → 檢索查詢字串 */
+function scenarioQuery(x){
+  const p = [];
+  if (x.cpi_yoy >= 3.5) p.push("inflation remains elevated well above the Committee's 2 percent longer-run objective, price pressures are broad based, upside risks to inflation, inflation expectations");
+  else if (x.cpi_yoy >= 2.5) p.push("inflation remains somewhat elevated relative to the Committee's 2 percent objective, inflation has moderated but remains above goal");
+  else if (x.cpi_yoy >= 1.6) p.push("inflation is running close to the Committee's 2 percent longer-run objective, price stability");
+  else p.push("inflation has continued to run below the Committee's longer-run objective, disinflation, subdued price pressures, inflation compensation declined");
+
+  if (x.unemployment_level >= 6.5) p.push("unemployment rate is elevated, substantial slack, underutilization of labor resources, weak labor market conditions");
+  else if (x.unemployment_level >= 5) p.push("unemployment rate remains somewhat above its longer-run normal level, labor market slack remains");
+  else p.push("unemployment rate is low, labor market conditions remain tight, maximum employment");
+
+  if (x.unemployment_12m_change >= 0.5) p.push("unemployment rate has moved up notably, job gains have slowed, deterioration in labor market conditions, rising layoffs");
+  else if (x.unemployment_12m_change >= 0.2) p.push("unemployment rate has edged up, job gains have moderated");
+  else if (x.unemployment_12m_change <= -0.3) p.push("unemployment rate has declined further, labor market has strengthened");
+
+  if (x.payroll_yoy <= -0.5) p.push("payroll employment has declined, job losses, contraction in economic activity, recession");
+  else if (x.payroll_yoy <= 0.5) p.push("job gains have slowed, employment growth has been modest");
+  else if (x.payroll_yoy >= 2) p.push("job gains have been strong, robust payroll growth, solid expansion");
+
+  if (x.credit_spread_baa10y >= 4.5) p.push("severe strains in financial markets, credit markets are not functioning normally, extraordinary liquidity measures, acute financial market stress, sharply wider risk spreads, impaired credit availability for households and businesses");
+  else if (x.credit_spread_baa10y >= 3.2) p.push("strains in financial markets, credit spreads have widened substantially, tighter credit conditions, financial market stress, disruptions in credit markets");
+  else if (x.credit_spread_baa10y >= 2.3) p.push("credit spreads have widened somewhat, financial conditions have tightened");
+  else p.push("financial conditions remain accommodative, credit spreads are narrow, risk appetite");
+
+  if (x.yield_curve_10y_2y <= -0.3) p.push("the yield curve is inverted, market participants expect policy easing, term premium, restrictive policy stance");
+  else if (x.yield_curve_10y_2y >= 1.5) p.push("the yield curve has steepened, longer-term yields have risen");
+
+  const mid = MODEL.means.policy_midpoint;
+  if (x.policy_midpoint >= mid + 1.5) p.push("the current stance of monetary policy is restrictive, policy is well into restrictive territory, cumulative tightening");
+  else if (x.policy_midpoint <= 0.5) p.push("the federal funds rate is at the effective lower bound, policy accommodation, balance sheet");
+
+  // 動量句：語料裡真正解釋政策轉向的語言幾乎都是變化式的
+  // （"inflationary pressures have started to moderate"、"the intensification of
+  // financial market turmoil"）。只有水準句時，「通膨遠高於目標」會把 2008 年
+  // 10 月那種「通膨仍高但正在崩」的降息會議推得更遠。
+  if (x.cpi_3m <= -0.8) p.push("inflationary pressures have started to moderate, energy and other commodity prices have declined markedly, inflation expectations are diminishing, the upside risks to price stability have diminished, the Committee expects inflation to moderate in coming quarters");
+  else if (x.cpi_3m <= -0.3) p.push("inflation has moderated somewhat in recent months, price pressures have eased");
+  else if (x.cpi_3m >= 0.8) p.push("inflation has picked up sharply, price pressures have intensified and broadened, upside risks to inflation have increased");
+  else if (x.cpi_3m >= 0.3) p.push("inflation has moved up in recent months");
+
+  if (x.spread_3m >= 1.0) p.push("the intensification of financial market turmoil, strains in financial markets have increased significantly, conditions in financial markets have deteriorated, disruptions in credit markets are likely to exert additional restraint on spending, downside risks to growth have increased");
+  else if (x.spread_3m >= 0.4) p.push("financial conditions have tightened somewhat, credit spreads have widened in recent months");
+  else if (x.spread_3m <= -0.6) p.push("strains in financial markets have eased, functioning of credit markets has improved, financial conditions have become more supportive");
+
+  if (x.u_3m >= 0.4) p.push("labor market conditions have deteriorated rapidly, job losses have mounted, payroll employment has declined further");
+  else if (x.u_3m <= -0.3) p.push("labor market conditions have improved further, the unemployment rate has declined in recent months");
+  return p.join(' ');
+}
+
+/* 情境的條件標籤，門檻與上面產生查詢句子的門檻一致。用於懲罰描述相反狀況的
+   會議：BM25 沒有方向概念，「通膨遠高於目標」的查詢會照樣命中大談通膨「低於」
+   目標的 ZIRP 時期紀要。 */
+function scenarioTags(x){
+  const t = [];
+  if (x.cpi_yoy >= 2.5) t.push('infl_high');
+  else if (x.cpi_yoy < 1.6) t.push('infl_low');
+  if (x.unemployment_level < 5 && x.unemployment_12m_change <= 0.2) t.push('labor_tight');
+  if (x.unemployment_12m_change >= 0.3 || x.payroll_yoy <= 0) t.push('labor_soft');
+  if (x.payroll_yoy <= -0.5) t.push('growth_weak');
+  else if (x.payroll_yoy >= 1.0) t.push('growth_solid');
+  if (x.credit_spread_baa10y >= 2.6) t.push('fin_stress');
+  if (x.cpi_3m <= -0.5) t.push('infl_moderating');
+  else if (x.cpi_3m >= 0.5) t.push('infl_accelerating');
+  if (x.spread_3m >= 0.8) t.push('stress_intensifying');
+  else if (x.spread_3m <= -0.6) t.push('stress_easing');
+  if (x.u_3m >= 0.4) t.push('labor_deteriorating');
+  return t;
+}
+const OPPOSITE = {
+  infl_high:'infl_low', infl_low:'infl_high',
+  labor_tight:'labor_soft', labor_soft:'labor_tight',
+  growth_solid:'growth_weak', growth_weak:'growth_solid',
+  infl_moderating:'infl_accelerating', infl_accelerating:'infl_moderating',
+  stress_intensifying:'stress_easing', stress_easing:'stress_intensifying'
+};
+
+/* ------------------------------------------------- 計量模型（ordered logit） */
+const sigmoid = z => 1 / (1 + Math.exp(-z));
+function orderedLogit(x){
+  let eta = 0; const impacts = [];
+  for (const k of FEATURES){
+    const c = ((x[k] - MODEL.means[k]) / MODEL.scales[k]) * MODEL.coef[k];
+    eta += c; impacts.push([k, c]);
+  }
+  const c0 = sigmoid(MODEL.cuts[0] - eta), c1 = sigmoid(MODEL.cuts[1] - eta);
+  return { p:[c0, c1 - c0, 1 - c1], eta, impacts };
+}
+
+/* ------------------------------------------- 檢索命中 → 類比會議行動分布 */
+/**
+ * 命中段落 → 類比會議 → 三類行動分布。
+ *
+ * 只採計分數最高的 M 場會議，而不是全部命中的會議：語料中「維持」佔三分之
+ * 二，若把所有命中會議加總，光靠鄰居數量就會壓倒降息與升息。留一法回測顯示
+ * M=8 時準確率由 63.8% 升到 72.9%（多數類基準 66.5%）。
+ * beta 為類別稀有度校正：權重除以該類別在語料中的場次數的 beta 次方，
+ * beta 越大越偏向少數類（降息／升息召回率上升，整體準確率下降）。
+ */
+/**
+ * 條件標籤重排係數：相同標籤加分（γ）、相反標籤扣分（δ）。
+ *
+ * 只有扣分不夠。查詢字串是用現代 Fed 語彙寫的，BM25 會偏好詞彙相近的近期紀要；
+ * 2008 年金融危機情境曾因此檢索出一整排 2023 年的「維持」會議。加分項讓真正
+ * 共享條件（如金融條件緊縮、成長走弱）的會議浮上來。
+ *
+ * 檢索與證據呈現共用同一個係數，否則畫面上列為「證據」的段落不會是實際推論
+ * 所依據的段落。
+ */
+function tagPenalty(qTags, mi, delta, gamma){
+  const mTags = IDX.meetings[mi].tag || [];
+  let contra = 0, overlap = 0;
+  for (const t of qTags){
+    if (OPPOSITE[t] && mTags.indexOf(OPPOSITE[t]) >= 0) contra++;
+    if (mTags.indexOf(t) >= 0) overlap++;
+  }
+  const g = gamma === undefined ? 0 : gamma;
+  const penalty = qTags.length
+    ? Math.max(0.05, 1 + g * overlap / qTags.length - delta * contra / qTags.length)
+    : 1;
+  return { penalty, contra, overlap };
+}
+
+function analogPrior(hits, opts){
+  const o = opts || {};
+  const topM = o.topM || 8, beta = o.beta || 0, delta = o.delta === undefined ? 1.5 : o.delta;
+  const gamma = o.gamma === undefined ? 0 : o.gamma;
+  const qTags = o.qTags || [];
+  const best = new Map();          // meeting index -> best chunk score
+  for (const h of hits){
+    const mi = IDX.chunks[h.i].m;
+    if (!best.has(mi) || best.get(mi).s < h.s) best.set(mi, h);
+  }
+  const ranked = [...best.entries()].map(([mi, h]) => {
+    const t = tagPenalty(qTags, mi, delta, gamma);
+    return { mi, s:h.s * t.penalty, raw:h.s, contra:t.contra, overlap:t.overlap, a:IDX.meetings[mi].a };
+  })
+    .filter(u => u.a !== null)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, topM);
+  const w = { '-1':0, '0':0, '1':0 };
+  for (const u of ranked) w[String(u.a)] += u.s;
+  const raw = [-1, 0, 1].map(a => w[String(a)] / Math.pow(Math.max(1, CLASS_COUNTS[String(a)]), beta));
+  const total = raw[0] + raw[1] + raw[2];
+  const alpha = 0.12 * (total || 1);          // Laplace smoothing keeps zeros finite
+  return { p: raw.map(v => (v + alpha) / (total + 3 * alpha)), used: ranked, total, pool: best.size };
+}
+
+function blend(pModel, pRag, w){
+  const out = pModel.map((v, i) => Math.pow(Math.max(v, 1e-9), 1 - w) * Math.pow(Math.max(pRag[i], 1e-9), w));
+  const s = out.reduce((a, b) => a + b, 0);
+  return out.map(v => v / s);
+}
+
+/* ------------------------------------------------------------ 委員層級推論 */
+function memberById(id){ return IDX.membersById[id]; }
+
+const RECENT_WINDOW = 20;   // 最近 20 次具名投票；輪值制下約橫跨十餘年
+
+/** 該委員最近 N 次具名投票中的異議紀錄，逐場從會議清單重算（可稽核）。 */
+function recentRecord(id){
+  let votes = 0, diss = 0, first = '', last = '';
+  for (const mt of IDX.meetings){                 // 已由新到舊排序
+    if (!mt.roster || mt.roster.indexOf(id) < 0) continue;
+    votes++;
+    if (mt.dis.indexOf(id) >= 0) diss++;
+    if (!last) last = mt.d;
+    first = mt.d;
+    if (votes >= RECENT_WINDOW) break;
+  }
+  return { votes, diss, first, last };
+}
+
+/**
+ * 個人票預測。故意保持可逐項複算：
+ *   base   = (異議數 + 0.5) / (投票數 + 5)          歷史異議傾向（Laplace 平滑）
+ *   lean   = (鷹派異議 - 鴿派異議) / 兩者總和        歷史異議方向
+ *   tilt   = p(升息) - p(降息)                       本情境的方向張力
+ *   evid   = 該委員自身異議原文對本查詢的檢索相關度   RAG 貢獻（0–1）
+ *   p      = base * exp(1.2 * lean * tilt) * (1 + 0.6 * evid)
+ */
+function memberVote(m, ctx){
+  const votes = m ? m.votes : 0, diss = m ? m.dissents : 0;
+  const rec = m ? recentRecord(m.id) : { votes:0, diss:0 };
+  // 近期紀錄夠多就用近期異議率，否則退回生涯異議率
+  const useRec = rec.votes >= 5;
+  const bVotes = useRec ? rec.votes : votes, bDiss = useRec ? rec.diss : diss;
+  const base = (bDiss + 0.5) / (bVotes + 5);
+  const dirTotal = m ? m.hawk + m.dove : 0;
+  const lean = dirTotal ? (m.hawk - m.dove) / dirTotal : 0;
+  const tilt = ctx.p[2] - ctx.p[0];
+  const evid = m ? ctx.memberEvidence(m.id) : { rel:0, hits:[] };
+  let p = base * Math.exp(1.2 * lean * tilt) * (1 + 1.0 * evid.rel);
+  p = Math.max(0.01, Math.min(0.9, p));
+  const action = ctx.action;
+  let prefer = action;
+  if (lean > 0.15) prefer = Math.min(1, action + 1);
+  else if (lean < -0.15) prefer = Math.max(-1, action - 1);
+  const vote = (p >= ctx.threshold && prefer !== action) ? 'AGAINST' : 'FOR';
+  return { base, lean, tilt, p, prefer, vote, evid, votes, diss, rec, useRec };
+}
+
+/* --------------------------------------------------------------------- UI */
+function rosterMembers(){
+  const sel = [...document.querySelectorAll('#rosterBox input:checked')].map(i => i.value);
+  return sel;
+}
+function fillRoster(which){
+  const box = $('rosterBox');
+  const list = ROSTERS[which].ids;
+  $('rosterLabel').textContent = ROSTERS[which].label;
+  box.innerHTML = list.map(id => {
+    const m = memberById(id);
+    const nm = m ? m.name : id;
+    const meta = m ? `${m.dissents}/${m.votes} 異議` : '語料無投票紀錄';
+    return `<label style="font-weight:500;display:flex;gap:7px;align-items:center;margin:2px 0">
+      <input type="checkbox" value="${id}" checked style="width:auto;margin:0">
+      <span>${esc(nm)} <span class="tagline">· ${meta}</span></span></label>`;
+  }).join('');
+}
+
+function barRow(name, cls, v){
+  return `<div class="bar"><div>${name}</div><div class="track"><div class="fill ${cls}" style="width:${(v*100).toFixed(1)}%"></div></div><div class="val">${pct(v)}</div></div>`;
+}
+
+function rateLabel(mt){
+  if (mt.r) return '（' + mt.r + '）';
+  if (mt.mid_c !== null && mt.mid_c !== undefined) return '（中點約 ' + mt.mid_c.toFixed(3).replace(/0+$/, '').replace(/\.$/, '') + '%，沿用前次）';
+  return '';
+}
+
+function evidenceHTML(h, extra){
+  const c = IDX.chunks[h.i], mt = IDX.meetings[c.m];
+  const act = mt.a === null ? '無利率決策紀錄' : ACTION_NAME[String(mt.a)];
+  const tags = (mt.tag || []).map(t => TAG_NAME[t] || t).join('、');
+  const terms = (h.terms || []).slice(0, 6).join(', ');
+  return `<div class="ev">
+    <div class="meta"><b>${mt.d}</b><span>${SRC_NAME[c.s]}</span><span>實際決策：${act}${rateLabel(mt)}</span>
+      ${tags ? `<span>${tags}</span>` : ''}<span>BM25 ${h.s.toFixed(2)}</span>${extra || ''}</div>
+    <q>${esc(c.t.slice(0, 420))}${c.t.length > 420 ? '…' : ''}</q>
+    ${terms ? `<div class="tagline">命中詞：${esc(terms)}</div>` : ''}
+  </div>`;
+}
+
+let LAST = null;
+
+function run(){
+  const x = {};
+  for (const k of FEATURES){
+    x[k] = Number($(k).value);
+    if (!Number.isFinite(x[k])){ alert('請填入所有經濟欄位。'); return; }
+  }
+  // 動量欄位只走檢索，不進 FEATURES（R5 的 ordered logit 是凍結的七特徵模型）
+  for (const k of MOMENTUM){
+    x[k] = Number($(k).value);
+    if (!Number.isFinite(x[k])) x[k] = 0;
+  }
+  const { topk, topM, beta, gamma, delta, yearMin, w, threshold } = PARAMS;
+  const notes = $('notes').value.trim();
+
+  const qBase = scenarioQuery(x);
+  const query = notes ? qBase + ' ' + notes : qBase;
+  const hits = search(query, { yearMin, limit:topk });
+  const model = orderedLogit(x);
+  const qTags = scenarioTags(x);
+  const prior = analogPrior(hits, { topM, beta, gamma, delta, qTags });
+  const p = blend(model.p, prior.p, w);
+  const action = [-1, 0, 1][p.indexOf(Math.max(...p))];
+
+  // 每位委員自身證據對查詢的相關度：只掃該委員名下的段落（異議原文與被點名
+  // 段落）。全域 top-K 掃不到這些段落——紀要把與會者匿名為「several
+  // participants」，具名段落本來就稀少。
+  const qCount = queryCounts(query);
+  const byMember = new Map();
+  let maxRel = 0;
+  for (const m of IDX.members){
+    if (!m.ch || !m.ch.length) continue;
+    const scored = m.ch
+      .filter(i => !yearMin || +IDX.meetings[IDX.chunks[i].m].d.slice(0, 4) >= yearMin)
+      .map(i => scoreChunk(qCount, i))
+      .filter(h => h.s > 0)
+      .sort((a, b) => b.s - a.s);
+    if (!scored.length) continue;
+    // 取前三段的平均分，避免資歷長、段落多的委員單純因為數量而勝出
+    const rel = scored.slice(0, 3).reduce((a, h) => a + h.s, 0) / Math.min(3, scored.length);
+    // rel 仍只用前三段平均（計分不變）；hits 多留幾段給展開面板顯示
+    byMember.set(m.id, { rel, hits: scored.slice(0, 8) });
+    maxRel = Math.max(maxRel, rel);
+  }
+  const ctx = {
+    p, action, threshold,
+    memberEvidence(id){
+      const e = byMember.get(id);
+      if (!e) return { rel:0, hits:[] };
+      return { rel: maxRel ? e.rel / maxRel : 0, hits: e.hits };
+    }
+  };
+
+  const roster = rosterMembers();
+  const rows = roster.map(id => {
+    const m = memberById(id);
+    return { id, m, name: m ? m.name : ROSTERS[ROSTER_KEY].names[id] || id, v: memberVote(m, ctx) };
+  });
+  LAST = { x, query, hits, model, prior, p, action, rows, w, threshold, topk, topM, beta, gamma, delta, qTags, yearMin };
+
+  renderDirection();
+  renderProposal();
+  renderEvidence();
+}
+
+/** 兩個來源結論不同時明講：把分歧藏在長條圖裡，等於讓使用者誤以為有共識。 */
+function disagreeHTML(){
+  const { model, prior, p, w } = LAST;
+  const mA = model.p.indexOf(Math.max(...model.p)), rA = prior.p.indexOf(Math.max(...prior.p));
+  if (mA === rA) return '';
+  const fA = p.indexOf(Math.max(...p));
+  return `<div class="warnbox" style="margin-top:10px"><b>兩個來源結論不同。</b>
+    計量模型指向「${ACTION_NAME[String(mA - 1)]}」（${pct(model.p[mA])}），檢索到的歷史類比指向「${ACTION_NAME[String(rA - 1)]}」（${pct(prior.p[rA])}）；
+    以證據權重 w=${w.toFixed(2)}（計量模型 ${(1 - w).toFixed(2)} / 語料類比 ${w.toFixed(2)}）混合後，由「${ACTION_NAME[String(fA - 1)]}」勝出。
+    R5 的 pooled ordered-logit 訓練期為 2006-2020，其中 121 場有 96 場是「維持」，本來就偏向不動作；
+    語料類比則反映當前條件在歷史上實際導致的決策。此時上方三類機率的兩列來源值比混合結果更值得看。</div>`;
+}
+
+function renderDirection(){
+  const { model, prior, p, action, hits, query, w } = LAST;
+  const drivers = model.impacts.slice().sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, 3)
+    // p(降息) = sigmoid(cut0 - eta)，所以 eta 越大越偏升息：正貢獻推向緊縮。
+    .map(([k, v]) => `<li>${LABEL[k]}：標準化貢獻 ${v.toFixed(2)}，${v >= 0 ? '推向升息（緊縮）' : '推向降息（寬鬆）'}</li>`).join('');
+  const analogs = prior.used.slice(0, 6).map(u => {
+    const mt = IDX.meetings[u.mi];
+    const pen = u.contra ? `　<span style="color:var(--warn)">矛盾 ${u.contra} 項，${u.raw.toFixed(2)}→${u.s.toFixed(2)}</span>` : '';
+    return `<li><b>${mt.d}</b>　實際決策 <b>${ACTION_NAME[String(u.a)]}</b>${rateLabel(mt)}　相似度 ${u.s.toFixed(2)}${pen}　${(mt.tag || []).map(t => TAG_NAME[t]).join('、')}</li>`;
+  }).join('');
+  $('direction').innerHTML = `
+    <div class="metrics">
+      <div class="metric"><span>最終方向</span><b>${ACTION_NAME[String(action)]}</b>混合機率 ${pct(Math.max(...p))}</div>
+      <div class="metric"><span>採計的類比會議</span><b>${prior.used.length}</b>場（自 ${hits.length} 段原文、${prior.pool} 場命中中取分數最高者）</div>
+    </div>
+    <p class="hint">本情境的條件標籤：<b>${LAST.qTags.length ? LAST.qTags.map(t => TAG_NAME[t]).join('、') : '（無）'}</b>。描述相反狀況的會議依 δ=${LAST.delta} 扣分，重排後取前 ${LAST.topM} 場採計。</p>
+    ${disagreeHTML()}
+    <div class="split">
+      <div>
+        <h3>三類機率</h3>
+        <div class="bars">
+          ${['降息', '維持', '升息'].map((n, i) => `
+            <div style="margin-bottom:7px">
+              <div class="tagline" style="margin-bottom:2px">${n}</div>
+              ${barRow('計量模型', 'model', model.p[i])}
+              ${barRow('檢索類比', 'rag', prior.p[i])}
+              ${barRow('混合結果', 'final', p[i])}
+            </div>`).join('')}
+        </div>
+      </div>
+      <div>
+        <h3>最相似的歷史會議</h3>
+        <ul>${analogs || '<li class="hint">此年份範圍內沒有可用的類比會議。</li>'}</ul>
+        <h3>計量模型主要驅動</h3>
+        <ul>${drivers}</ul>
+        <p class="source">線性指標 η = ${model.eta.toFixed(3)}</p>
+      </div>
+    </div>
+    <details><summary>本次送入檢索器的查詢字串</summary><p class="source" style="white-space:pre-wrap">${esc(query)}</p></details>`;
+}
+
+function renderProposal(){
+  const { action, p, rows, prior, threshold } = LAST;
+  const cur = Number($('policy_midpoint').value);
+  const step = 0.25;
+  const target = action === 0 ? cur : cur + action * step;
+  const nFor = rows.filter(r => r.v.vote === 'FOR').length;
+  const nAgainst = rows.length - nFor;
+  const dissenters = rows.filter(r => r.v.vote === 'AGAINST');
+  const dirWord = { '-1':'調降', '0':'維持', '1':'調升' }[String(action)];
+
+  const proposal = `將聯邦資金利率目標區間${action === 0 ? '維持在中點約 ' + cur.toFixed(3) + '%' : dirWord + ' 1 碼至中點約 ' + target.toFixed(3) + '%'}。` +
+    `依檢索到的 ${prior.used.length} 場條件相近會議，此方向在語料中的相對權重為 ${pct(prior.p[action + 1])}；` +
+    `計量模型給出 ${pct(LAST.model.p[action + 1])}，混合後為 ${pct(p[action + 1])}。`;
+
+  const tbody = rows.map((r, i) => {
+    const v = r.v;
+    const leanPill = v.lean > 0.15 ? '<span class="pill hawk">偏鷹</span>' :
+                     v.lean < -0.15 ? '<span class="pill dove">偏鴿</span>' : '<span class="pill neutral">無方向紀錄</span>';
+    const votePill = v.vote === 'AGAINST' ? '<span class="pill against">AGAINST</span>' : '<span class="pill for">FOR</span>';
+    const prefTxt = v.vote === 'AGAINST' ? `偏好${ACTION_NAME[String(v.prefer)]}` : '同意提案';
+    const n = v.evid.hits.length;
+    const cueTxt = n ? `點此展開 ${n} 段個人佐證原文` : '語料中沒有這位委員的具名段落';
+    const cards = n
+      ? v.evid.hits.map(h => evidenceHTML(h)).join('')
+      : `<div class="nocite">本語料只在「Voting against」段落具名點出委員，因此沒有異議紀錄的委員通常沒有可引用的個人段落。這位委員的預測仍由歷史投票紀錄與情境方向張力決定，計算過程見左欄。</div>`;
+    const reason = r.m
+      ? `生涯 ${v.diss}/${v.votes} 次異議；` +
+        (v.useRec ? `近 ${v.rec.votes} 次（${v.rec.first.slice(0, 7)} 起）${v.rec.diss} 次異議，基準 ${pct(v.base)}；` : `基準 ${pct(v.base)}；`) +
+        `異議方向${v.lean > 0 ? '鷹派 ' + r.m.hawk + ' 次' : v.lean < 0 ? '鴿派 ' + r.m.dove + ' 次' : '無明確方向'}；` +
+        `情境方向張力 ${v.tilt >= 0 ? '+' : ''}${v.tilt.toFixed(2)}；自身原文相關度 ${pct(v.evid.rel)}。`
+      : '此名單成員在本語料中沒有具名投票紀錄，僅能以委員會層級結果表示。';
+    return `<tr class="mem ${v.vote === 'AGAINST' ? 'against' : ''}" data-row="${i}">
+      <td><span class="caret">&#9654;</span><b>${esc(r.name)}</b></td>
+      <td>${leanPill}</td>
+      <td>${votePill}<div class="tagline">${prefTxt}</div></td>
+      <td>${pct(v.p)}</td>
+      <td>${reason}<div class="tagline" style="margin-top:5px;color:var(--teal);font-weight:650">&#9656; ${cueTxt}</div></td>
+    </tr>
+    <tr class="detail"><td colspan="5"><div class="evwrap" data-wrap="${i}">${cards}</div></td></tr>`;
+  }).join('');
+
+  $('proposalCard').hidden = false;
+  $('proposal').innerHTML = `
+    <div class="result"><b>主席提案（依混合方向生成）：</b>${proposal}</div>
+    <div class="metrics">
+      <div class="metric"><span>預測票數</span><b>${nFor} – ${nAgainst}</b>FOR – AGAINST</div>
+      <div class="metric"><span>預測異議者</span><b>${dissenters.length ? esc(dissenters.map(d => d.name.split(' ').slice(-1)[0]).join('、')) : '無'}</b>門檻 ${pct(threshold)}</div>
+      <div class="metric"><span>方向</span><b>${ACTION_NAME[String(action)]}</b>混合機率 ${pct(p[action + 1])}</div>
+    </div>
+    <table>
+      <thead><tr><th>委員</th><th>歷史異議方向</th><th>預測投票</th><th>異議機率</th><th>理由與出處（生成說明，非委員發言）</th></tr></thead>
+      <tbody>${tbody}</tbody>
+    </table>
+    <p class="hint"><b>點任一位委員可展開他的個人佐證原文</b>——那些是該委員過去的實際異議紀錄或被點名段落，附日期、文件類型與 BM25 分數。
+    把引文與本次情境串起來的敘述則是規則生成的說明，不是委員在本情境下的發言。無法歸屬到特定委員的段落列在下方「委員會層級的原文證據」。</p>`;
+
+  for (const tr of $('proposal').querySelectorAll('tr.mem')){
+    tr.onclick = () => {
+      const wrap = $('proposal').querySelector('.evwrap[data-wrap="' + tr.dataset.row + '"]');
+      const open = wrap.classList.toggle('open');
+      tr.classList.toggle('open', open);
+    };
+  }
+}
+
+function renderEvidence(){
+  const { hits, qTags, delta, gamma, rows } = LAST;
+  // 已經掛在某位在席委員名下的段落，就不在這裡重複列出——它們在第 4 區展開看。
+  const shownPerMember = new Set();
+  for (const r of rows) for (const h of r.v.evid.hits) shownPerMember.add(h.i);
+
+  const adjusted = hits.map(h => {
+    const t = tagPenalty(qTags, IDX.chunks[h.i].m, delta, gamma);
+    return Object.assign({}, h, { s: h.s * t.penalty, raw: h.s, contra: t.contra });
+  }).sort((a, b) => b.s - a.s);
+  const committee = adjusted.filter(h => !shownPerMember.has(h.i));
+  const penalised = committee.filter(h => h.contra > 0).length;
+
+  const shown = committee.slice(0, 12);
+  const dedup = adjusted.length - committee.length;
+  $('evidenceCard').hidden = false;
+  $('evidence').innerHTML = `
+    <div class="evhead" id="evToggle"><span class="caret">&#9654;</span>
+      <b>展開 ${shown.length} 段委員會層級證據</b>
+      <span class="tagline" style="margin-left:8px">整體經濟情勢與委員會決議段落，語料未具名歸屬到任何一位在席委員</span>
+    </div>
+    <div class="evwrap" id="evWrap" style="padding-left:0">
+      ${shown.map(h => evidenceHTML(h,
+        h.contra ? `<span style="color:var(--warn)">矛盾 ${h.contra} 項，${h.raw.toFixed(2)}${'\u2192'}${h.s.toFixed(2)}</span>` : ''
+      )).join('')}
+      <p class="hint">候選池 ${hits.length} 段${dedup ? `，其中 ${dedup} 段已在上方歸屬到個別委員` : ''}，
+      ${penalised} 段因條件矛盾被扣分；此處依扣分後分數顯示最高的 ${shown.length} 段。</p>
+    </div>`;
+  $('evToggle').onclick = () => {
+    const open = $('evWrap').classList.toggle('open');
+    $('evToggle').classList.toggle('open', open);
+  };
+}
+
+/* ------------------------------------------------------------------ 啟動 */
+IDX.membersById = {};
+for (const m of IDX.members) IDX.membersById[m.id] = m;
+for (const mt of IDX.meetings) if (mt.a !== null) CLASS_COUNTS[String(mt.a)]++;
+
+
+fillRoster(ROSTER_KEY);
+$('run').onclick = run;
+</script>
+</body>
+</html>

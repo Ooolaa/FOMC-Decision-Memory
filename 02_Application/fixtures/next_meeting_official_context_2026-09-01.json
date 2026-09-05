@@ -1,0 +1,71 @@
+{
+  "schema_version": "next_meeting_official_context_v1",
+  "meeting_id": "FOMC-2026-09-15",
+  "meeting_start_date": "2026-09-15",
+  "meeting_end_date": "2026-09-16",
+  "as_of_date": "2026-09-01",
+  "meeting_calendar_source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+  "membership_source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+  "membership_source_updated_at": "2026-08-19",
+  "membership_semantics": "CURRENT_VOTING_MEMBERS_NOT_ATTENDANCE_CONFIRMATION",
+  "voting_members": [
+    {"participant_id": "kevin-m-warsh", "display_name": "Kevin M. Warsh", "role": "chair"},
+    {"participant_id": "john-c-williams", "display_name": "John C. Williams", "role": "vice_chair"},
+    {"participant_id": "michael-s-barr", "display_name": "Michael S. Barr", "role": "member"},
+    {"participant_id": "michelle-w-bowman", "display_name": "Michelle W. Bowman", "role": "member"},
+    {"participant_id": "lisa-d-cook", "display_name": "Lisa D. Cook", "role": "member"},
+    {"participant_id": "beth-m-hammack", "display_name": "Beth M. Hammack", "role": "member"},
+    {"participant_id": "philip-n-jefferson", "display_name": "Philip N. Jefferson", "role": "member"},
+    {"participant_id": "neel-kashkari", "display_name": "Neel Kashkari", "role": "member"},
+    {"participant_id": "lorie-k-logan", "display_name": "Lorie K. Logan", "role": "member"},
+    {"participant_id": "anna-paulson", "display_name": "Anna Paulson", "role": "member"},
+    {"participant_id": "jerome-h-powell", "display_name": "Jerome H. Powell", "role": "member"},
+    {"participant_id": "christopher-j-waller", "display_name": "Christopher J. Waller", "role": "member"}
+  ],
+  "supplemental_communications": [
+    {
+      "document_id": "official-philadelphia-paulson-20260804",
+      "participant_id": "anna-paulson",
+      "publication_date": "2026-08-04",
+      "title": "Monetary Policy Perspective: Keeping an Open Mind",
+      "document_type": "article",
+      "text_kind": "source_summary",
+      "text": "Paulson described inflation as elevated and the labor market as stable near full employment. She supported holding the federal funds rate while keeping an open mind about whether persistent underlying inflation could require more restrictive monetary policy.",
+      "display_summary_zh": "Paulson 認為通膨仍偏高、勞動市場接近充分就業；她支持維持利率，同時保留在核心通膨持續時採取更緊縮政策的可能。",
+      "source_url": "https://www.philadelphiafed.org/the-economy/monetary-policy/monetary-policy-perspective-keeping-an-open-mind"
+    },
+    {
+      "document_id": "official-cleveland-hammack-20260731",
+      "participant_id": "beth-m-hammack",
+      "publication_date": "2026-07-31",
+      "title": "Statement regarding the July 28–29 FOMC meeting vote",
+      "document_type": "speech",
+      "text_kind": "source_summary",
+      "text": "Hammack said she dissented in favor of raising the federal funds rate. She viewed inflation as persistently too high, demand-side price pressure as broadening, and the labor market as stable near maximum employment.",
+      "display_summary_zh": "Hammack 說明她主張升息並投下異議票；她關注通膨長期高於目標、需求面價格壓力擴散，而勞動市場仍接近充分就業。",
+      "source_url": "https://www.clevelandfed.org/collections/speeches/2026/sp-20260731-statement-regarding-july-fomc-meeting-vote"
+    },
+    {
+      "document_id": "official-newyork-williams-20260803",
+      "participant_id": "john-c-williams",
+      "publication_date": "2026-08-03",
+      "title": "Key Takeaways from President Williams's Interview with Reuters",
+      "document_type": "interview",
+      "text_kind": "source_summary",
+      "text": "Williams discussed inflation, monetary policy, and price stability. He expected underlying disinflation to continue, described current monetary policy as well positioned, and said action would be appropriate if inflation were not returning toward 2 percent.",
+      "display_summary_zh": "Williams 預期基礎通膨放緩趨勢延續，認為當前政策位置適當；若通膨未朝 2% 目標回落，則應採取行動。",
+      "source_url": "https://tellerwindow.newyorkfed.org/2026/08/03/key-takeaways-president-williams-interview-reuters/"
+    },
+    {
+      "document_id": "official-minneapolis-kashkari-20260731",
+      "participant_id": "neel-kashkari",
+      "publication_date": "2026-07-31",
+      "title": "Statement on My FOMC Dissent",
+      "document_type": "article",
+      "text_kind": "source_summary",
+      "text": "Kashkari said he dissented because he preferred a 0.25 percentage point increase in the federal funds rate target range. He focused on persistent inflation, successive supply shocks, data-center demand, and the risk that higher inflation could become entrenched.",
+      "display_summary_zh": "Kashkari 表示他偏好升息 0.25 個百分點並投下異議票；他關注持續通膨、連續供給衝擊、資料中心需求，以及高通膨固化風險。",
+      "source_url": "https://www.minneapolisfed.org/article/2026/statement-on-my-fomc-dissent"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "spec_id": "inflation_transitory_v1",
+  "status": "pre_registered",
+  "freeze_on": "2026-09-03",
+  "claim": "Elevated inflation is largely explained by transitory factors.",
+  "assumption_adopted_at": "2021-04-28",
+  "contradiction_rule": {
+    "series_id": "CPIAUCSL",
+    "transformation": "YEAR_OVER_YEAR_PERCENT",
+    "operator": "GT",
+    "threshold_value": 3.0,
+    "vintage_policy": "FIRST_RELEASE_WITH_LAG_VALUE_VISIBLE_THAT_DAY",
+    "first_contradiction_at": "The first release date after assumption_adopted_at whose point-in-time year-over-year value is above the threshold."
+  },
+  "phrase_set": {
+    "version": "inflation_transitory_phrase_v1",
+    "support_patterns": [
+      "inflation (?:has risen|is elevated), largely reflecting (?:factors that are expected to be )?transitory factors"
+    ],
+    "flip_patterns": [
+      "supply and demand imbalances.*continued to contribute to elevated levels of inflation",
+      "inflation remains elevated",
+      "inflation (?:is|was|remains) well above 2 percent",
+      "broader price pressures"
+    ],
+    "flip_rule": "The first statement on or after first_contradiction_at that matches a flip pattern and no support pattern."
+  },
+  "policy_direction": "HAWKISH",
+  "policy_response_rule_version": "rate_only_response_v1",
+  "disclosures": [
+    "statement_flip_at is an observable language proxy, not a claim about unobserved internal recognition or causality.",
+    "action lag can reflect deliberate policy pacing and is not classified as organizational forgetting.",
+    "Only DFEDTAR or DFEDTARL/DFEDTARU changes close the policy response event."
+  ],
+  "golden_case": {
+    "first_contradiction_at": "2021-05-12",
+    "statement_flip_at": "2021-12-15",
+    "policy_response_at": "2022-03-16"
+  }
+}

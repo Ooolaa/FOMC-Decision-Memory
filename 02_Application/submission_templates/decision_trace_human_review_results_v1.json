@@ -1,0 +1,201 @@
+{
+  "schema_version": "decision_trace_human_review_results_v1",
+  "sample_manifest": "artifacts/codex_subscription/decision_trace_50_v4/human_review_sample_v1.json",
+  "sample_manifest_sha256": "e54ca8b01b5b1661867dd091a0083ddd42d83b86c037e45c13a782ea2bbe10d0",
+  "human_reviewer_attestation": "__FILL_AFTER_REAL_HUMAN_REVIEW__",
+  "review_status": "__FILL_APPROVED_SAMPLE_OR_COMPLETE_WITH_FINDINGS__",
+  "reviews": [
+    {
+      "meeting_id": "FOMC-2006-01-31",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2006-01-31_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2006-09-20",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2006-09-20_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2009-09-22",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2009-09-22_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2010-01-26",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2010-01-26_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2010-09-21",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2010-09-21_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2011-08-09",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2011-08-09_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2012-06-19",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2012-06-19_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2015-07-28",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2015-07-28_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2017-06-13",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2017-06-13_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2018-01-30",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2018-01-30_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2019-07-30",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2019-07-30_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    },
+    {
+      "meeting_id": "FOMC-2020-04-28",
+      "review_source_artifact": "artifacts/codex_subscription/decision_trace_50_v4/runs/FOMC-2020-04-28_gpt-5-6-terra.json",
+      "reviewer": "__FILL_HUMAN_REVIEWER__",
+      "reviewed_at": "__FILL_ISO8601_WITH_TIMEZONE__",
+      "case_decision": "__FILL_PASS_FAIL_OR_NEEDS_CORRECTION__",
+      "checklist_results": {
+        "context_summary_supported": "__FILL_TRUE_OR_FALSE__",
+        "options_and_debate_supported": "__FILL_TRUE_OR_FALSE__",
+        "participant_attribution_supported": "__FILL_TRUE_OR_FALSE__",
+        "decision_and_vote_match_labels": "__FILL_TRUE_OR_FALSE__",
+        "assumption_is_falsifiable_and_monitorable": "__FILL_TRUE_OR_FALSE__",
+        "no_post_cutoff_or_synthetic_source_leakage": "__FILL_TRUE_OR_FALSE__"
+      },
+      "notes": "__FILL_SPECIFIC_EVIDENCE_OR_FINDINGS__"
+    }
+  ]
+}

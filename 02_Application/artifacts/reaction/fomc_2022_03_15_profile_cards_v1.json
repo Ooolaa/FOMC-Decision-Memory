@@ -1,0 +1,348 @@
+{
+  "cards": [
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Jerome H. Powell",
+      "individual_model_estimated": false,
+      "is_chair": true,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "jerome-h-powell",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 79,
+      "role": "chair"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Christopher J. Waller",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "christopher-j-waller",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 9,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Esther L. George",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "esther-l-george",
+      "prior_dissent_count": 14,
+      "prior_dissent_rate": 0.5384615384615384,
+      "prior_vote_count": 26,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "James Bullard",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "james-bullard",
+      "prior_dissent_count": 3,
+      "prior_dissent_rate": 0.09090909090909091,
+      "prior_vote_count": 33,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "John C. Williams",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "john-c-williams",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 50,
+      "role": "vice_chair"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Lael Brainard",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "lael-brainard",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 63,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Loretta J. Mester",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "loretta-j-mester",
+      "prior_dissent_count": 3,
+      "prior_dissent_rate": 0.0967741935483871,
+      "prior_vote_count": 31,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Michelle W. Bowman",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "michelle-w-bowman",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 27,
+      "role": "member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Patrick Harker",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": true,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "patrick-harker",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 18,
+      "role": "alternate_member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Charles L. Evans",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "charles-l-evans",
+      "prior_dissent_count": 3,
+      "prior_dissent_rate": 0.05084745762711865,
+      "prior_vote_count": 59,
+      "role": "alternate_member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Mary C. Daly",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "mary-c-daly",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 11,
+      "role": "reserve_bank_president"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Meredith Black",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "meredith-black",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": null,
+      "prior_vote_count": 0,
+      "role": "alternate_member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Naureen Hassan",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "naureen-hassan",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": null,
+      "prior_vote_count": 0,
+      "role": "alternate_member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Neel Kashkari",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "neel-kashkari",
+      "prior_dissent_count": 4,
+      "prior_dissent_rate": 0.25,
+      "prior_vote_count": 16,
+      "role": "alternate_member"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Raphael W. Bostic",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "raphael-w-bostic",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 16,
+      "role": "reserve_bank_president"
+    },
+    {
+      "coefficient_scope": "pooled_across_training_meetings",
+      "display_name": "Thomas I. Barkin",
+      "individual_model_estimated": false,
+      "is_chair": false,
+      "is_voter": false,
+      "macro_coefficients": {
+        "cpi_yoy": -0.0796154093635643,
+        "credit_spread_baa10y": -0.818342831040082,
+        "payroll_yoy": 0.21502434380496738,
+        "policy_midpoint": -0.975724818407913,
+        "unemployment_12m_change": -0.20194300914591592,
+        "unemployment_level": 0.6330958152061447,
+        "yield_curve_10y_2y": -1.0519749511433156
+      },
+      "participant_id": "thomas-i-barkin",
+      "prior_dissent_count": 0,
+      "prior_dissent_rate": 0.0,
+      "prior_vote_count": 16,
+      "role": "reserve_bank_president"
+    }
+  ],
+  "disclosure": "Each card combines that participant's pre-meeting vote/dissent history with coefficients from one pooled macro reaction model. No participant-specific coefficient model was estimated.",
+  "individual_models_estimated": false,
+  "meeting_id": "FOMC-2022-03-15",
+  "model_id": "reaction-4e24ed5f780bd2dcdc9fe439",
+  "participant_count": 16,
+  "schema_version": "pooled_reaction_profile_cards_v1",
+  "training_meeting_count": 121,
+  "voter_count": 9
+}

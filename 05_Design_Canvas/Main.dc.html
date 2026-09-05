@@ -1,0 +1,500 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #071626; color: #eaf1f6;
+           font-family: "Space Grotesk", system-ui, -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
+    a { color: #2fa8c0; } a:hover { color: #5cc3d8; }
+
+    .wrap { display: flex; width: 1600px; height: 900px; overflow: hidden; }
+
+    /* ---- 會議室 ---- */
+    .room { position: relative; width: 1160px; height: 900px; flex: none; overflow: hidden;
+            background: radial-gradient(760px 420px at 50% 60%, #16344c 0%, #0d2338 46%, #071626 100%); }
+    .room::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+                   background: radial-gradient(900px 620px at 50% 52%, rgba(0,0,0,0) 52%, rgba(3,10,18,.72) 100%); }
+
+    .topbar { position: absolute; left: 40px; right: 40px; top: 22px; height: 24px;
+              display: flex; align-items: center; justify-content: space-between;
+              opacity: 0; transition: opacity .6s ease; }
+    .stage.p1 .topbar { opacity: 1; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500;
+             letter-spacing: .04em; color: #cfe1ee; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #2fa8c0;
+           box-shadow: 0 0 12px 2px rgba(47,168,192,.65); }
+    .meta { font-size: 12.5px; color: #6b8399; letter-spacing: .03em; }
+
+    /* ---- 後牆投影 ---- */
+    .wall { position: absolute; left: 40px; top: 58px; width: 1080px; height: 238px;
+            opacity: 0; transform: translateY(-8px);
+            transition: opacity .8s ease .15s, transform .8s ease .15s; }
+    .stage.p1 .wall { opacity: 1; transform: translateY(0); }
+    .wallInner { position: relative; height: 100%; border-radius: 10px; padding: 15px 20px;
+                 background: linear-gradient(180deg, rgba(28,66,94,.5), rgba(12,32,50,.28));
+                 border: 1px solid rgba(94,150,180,.2);
+                 box-shadow: 0 0 60px -18px rgba(47,168,192,.4), inset 0 1px 0 rgba(255,255,255,.05); }
+    .wallHead { display: flex; align-items: baseline; gap: 11px; margin-bottom: 4px; }
+    .wallHead b { font-size: 12px; letter-spacing: .16em; color: #7fa3ba; font-weight: 500; }
+    .wallHead span { font-size: 11.5px; color: #55738c; }
+    .legend { margin-left: auto; display: flex; gap: 16px; }
+    .lg { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: #a8c2d4; }
+    .lg i { width: 16px; height: 3px; border-radius: 2px; }
+    .wallBody { display: flex; gap: 26px; align-items: flex-start; }
+
+    .probs { width: 268px; flex: none; padding-top: 4px; }
+    .probRow { display: grid; grid-template-columns: 34px 1fr 48px; gap: 10px; align-items: center; margin-bottom: 9px; }
+    .probRow .pl { font-size: 12px; color: #8fadc2; }
+    .probRow .pt { height: 8px; border-radius: 4px; background: rgba(143,173,194,.16); overflow: hidden; }
+    .probRow .pf { display: block; height: 8px; border-radius: 4px; }
+    .probRow .pv { font-size: 12.5px; font-weight: 500; color: #dce8f1; text-align: right;
+                   font-variant-numeric: tabular-nums; }
+
+    /* ---- 桌子 ---- */
+    .pool { position: absolute; left: 50%; top: 530px; width: 780px; height: 400px;
+            transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+            background: radial-gradient(closest-side, rgba(47,168,192,.16), rgba(47,168,192,0) 72%);
+            opacity: 0; transition: opacity 1s ease .2s; }
+    .stage.p1 .pool { opacity: 1; }
+    .table { position: absolute; left: 50%; top: 530px; width: 460px; height: 196px;
+             transform: translate(-50%, -50%) scale(.92); border-radius: 50%;
+             background: linear-gradient(158deg, #17384f 0%, #1d5068 62%, #16344a 100%);
+             border: 1px solid rgba(120,190,210,.24);
+             box-shadow: 0 30px 60px -22px rgba(0,0,0,.7),
+                         0 0 70px -22px rgba(47,168,192,.5),
+                         inset 0 1px 0 rgba(255,255,255,.1);
+             opacity: 0; transition: opacity .7s ease, transform .8s cubic-bezier(.34,1.12,.5,1); }
+    .stage.p1 .table { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .tableCap { position: absolute; left: 50%; top: 530px; width: 420px;
+                transform: translate(-50%, -50%); text-align: center; pointer-events: none;
+                opacity: 0; transition: opacity .6s ease .4s; }
+    .stage.p1 .tableCap { opacity: 1; }
+    .tableCap .k { font-size: 10.5px; letter-spacing: .26em; color: #7fc3d4; margin-bottom: 9px; }
+    .tableCap .v { font-size: 31px; font-weight: 700; letter-spacing: -.015em; color: #f2f8fb;
+                   text-shadow: 0 2px 18px rgba(0,0,0,.5); }
+    .tableCap .s { font-size: 12.5px; color: #9dc4d4; margin-top: 8px; }
+    .tally { display: inline-flex; align-items: center; gap: 8px; margin-top: 13px;
+             background: rgba(6,20,32,.5); border: 1px solid rgba(127,195,212,.3);
+             border-radius: 999px; padding: 5px 15px; font-size: 12.5px; color: #dcecf3; }
+
+    /* ---- 委員 ---- */
+    .seat { position: absolute; width: 116px; margin-left: -58px; margin-top: -40px;
+            text-align: center; cursor: pointer; opacity: 0;
+            transform: translateY(10px) scale(.84);
+            transition: opacity .55s ease, transform .6s cubic-bezier(.34,1.42,.5,1); }
+    .stage.p1 .seat { opacity: 1; transform: translateY(0) scale(1); }
+    .av { width: 60px; height: 60px; margin: 0 auto; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 16.5px; font-weight: 700; letter-spacing: .03em;
+          transition: transform .22s ease, box-shadow .22s ease; }
+    .seat:hover .av { transform: translateY(-4px); }
+    .seat.sel .av { transform: translateY(-4px) scale(1.08); }
+    .nm { margin-top: 9px; font-size: 12.5px; font-weight: 500; color: #d3e3ee; line-height: 1.25; }
+    .chip { display: inline-block; margin-top: 5px; font-size: 10px; font-weight: 700;
+            border-radius: 999px; padding: 2px 9px; letter-spacing: .07em; }
+    .chip.for { background: rgba(60,185,138,.14); color: #4fcf9d; }
+    .chip.against { background: rgba(224,113,79,.16); color: #f08a66; }
+    .chip.chair { background: rgba(212,161,63,.15); color: #e0b45f; }
+
+    /* ---- 舉手 ---- */
+    .hand { position: absolute; left: 50%; top: -22px; margin-left: -14px;
+            width: 28px; height: 28px; opacity: 0; transform: translateY(10px) scale(.55);
+            transition: opacity .4s ease, transform .5s cubic-bezier(.34,1.72,.5,1); }
+    .stage.p2 .seat.dis .hand { opacity: 1; transform: translateY(0) scale(1);
+                                animation: wave 2.8s ease-in-out .6s infinite; }
+    @keyframes wave { 0%,74%,100% { transform: translateY(0) rotate(0deg); }
+                      80% { transform: translateY(-4px) rotate(-12deg); }
+                      88% { transform: translateY(-4px) rotate(12deg); } }
+
+    /* ---- 發言泡泡 ---- */
+    .bub { position: absolute; width: 230px; border-radius: 4px 12px 12px 4px;
+           background: linear-gradient(180deg, rgba(24,50,70,.97), rgba(16,38,55,.97));
+           border: 1px solid rgba(124,170,196,.22); border-left: 3px solid #e0714f;
+           padding: 12px 14px; box-shadow: 0 18px 40px -16px rgba(0,0,0,.8);
+           opacity: 0; transform: translateY(8px) scale(.95);
+           transition: opacity .45s ease, transform .55s cubic-bezier(.34,1.4,.5,1); }
+    .stage.p3 .bub { opacity: 1; transform: translateY(0) scale(1); }
+    .bub .who { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700;
+                color: #f08a66; margin-bottom: 6px; letter-spacing: .02em; }
+    .bub .qt { font-size: 12.5px; line-height: 1.62; color: #cddeea; }
+    .bub .tag { margin-top: 8px; font-size: 10.5px; color: #63819a; }
+    .bub .tail { position: absolute; width: 11px; height: 11px; transform: rotate(45deg);
+                 background: #17324a; border: 1px solid rgba(124,170,196,.22); }
+
+    /* ---- 右欄 ---- */
+    .panel { width: 440px; flex: none; height: 900px; padding: 28px 28px 24px;
+             background: linear-gradient(180deg, #0b1e30, #081726);
+             border-left: 1px solid rgba(94,150,180,.18);
+             display: flex; flex-direction: column; gap: 15px; overflow: hidden; }
+    .pHead { font-size: 10.5px; letter-spacing: .22em; color: #5c7d95; font-weight: 500; }
+    .pName { font-size: 25px; font-weight: 700; color: #f2f8fb; letter-spacing: -.015em;
+             line-height: 1.2; margin-top: 7px; }
+    .pRow { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 11px; }
+    .pill { display: inline-block; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 700; }
+    .pill.for { background: rgba(60,185,138,.14); color: #4fcf9d; }
+    .pill.against { background: rgba(224,113,79,.16); color: #f08a66; }
+    .pill.hawk { background: rgba(224,113,79,.16); color: #f08a66; }
+    .pill.dove { background: rgba(90,164,216,.16); color: #7cbdea; }
+    .pill.flat { background: rgba(143,173,194,.12); color: #9db4c6; }
+    .stat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .stat > div { border: 1px solid rgba(94,150,180,.18); border-radius: 9px; padding: 11px 12px;
+                  background: rgba(20,45,66,.5); }
+    .stat b { display: block; font-size: 19px; color: #f2f8fb; line-height: 1.3;
+              font-variant-numeric: tabular-nums; }
+    .stat span { font-size: 11px; color: #7c98ac; }
+    .why { font-size: 13.5px; line-height: 1.72; color: #c2d6e4; }
+    .cite { border-left: 3px solid #2fa8c0; border-radius: 0 8px 8px 0; padding: 12px 14px;
+            background: rgba(20,45,66,.5); }
+    .cite .m { font-size: 11.5px; color: #7fa3ba; margin-bottom: 6px; display: flex; gap: 9px; flex-wrap: wrap; }
+    .cite .q { font-size: 12.5px; line-height: 1.6; color: #b6cddd; }
+    .hintbox { border-left: 3px solid #d4a13f; border-radius: 0 8px 8px 0; padding: 12px 14px;
+               background: rgba(70,53,18,.36); font-size: 12.5px; line-height: 1.68; color: #e2cc9a; }
+    .empty { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 15px;
+             color: #8aa5b9; font-size: 13.5px; line-height: 1.78; }
+    .spacer { flex: 1; }
+    .foot { border-top: 1px solid rgba(94,150,180,.16); padding-top: 13px;
+            font-size: 11.5px; color: #5c7d95; line-height: 1.65; }
+    .replay { align-self: flex-start; border: 1px solid rgba(47,168,192,.5); background: rgba(47,168,192,.1);
+              color: #6fd0e3; border-radius: 9px; padding: 9px 16px; font-size: 13px; font-weight: 500;
+              cursor: pointer; transition: background .18s ease, border-color .18s ease; }
+    .replay:hover { background: rgba(47,168,192,.2); border-color: rgba(47,168,192,.8); }
+  </style>
+</helmet>
+
+<div class="wrap">
+  <div class="{{stageCls}}">
+
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span>FOMC 決策記憶 · 情境投票模擬</div>
+      <div class="meta">FOMC-2026-09-15 · 12 位投票委員 · 語料 244 場會議</div>
+    </div>
+
+    <div class="wall">
+      <div class="wallInner">
+        <div class="wallHead">
+          <b>會前情境資料</b><span>2016-2026 月頻・FRED UNRATE / CPIAUCSL</span>
+          <div class="legend">
+            <span class="lg"><i style="background:#e0714f"></i>CPI 年增率</span>
+            <span class="lg"><i style="background:#5aa4d8"></i>失業率</span>
+          </div>
+        </div>
+        <div class="wallBody">
+          <svg width="740" height="176" viewBox="0 0 740 176" fill="none">
+            <g stroke="rgba(143,173,194,.13)" stroke-width="1">
+              <line x1="32" y1="16" x2="732" y2="16"/>
+              <line x1="32" y1="60.7" x2="732" y2="60.7"/>
+              <line x1="32" y1="105.3" x2="732" y2="105.3"/>
+              <line x1="32" y1="150" x2="732" y2="150"/>
+            </g>
+            <g font-size="10" fill="#55738c" text-anchor="end">
+              <text x="24" y="20">15%</text><text x="24" y="64">10%</text>
+              <text x="24" y="109">5%</text><text x="24" y="154">0%</text>
+            </g>
+
+            <polyline points="32.0,107.1 37.5,106.2 43.0,105.3 48.5,104.4 54.0,107.1 59.6,106.2 65.1,107.1 70.6,106.2 76.1,105.3 81.6,106.2 87.1,108.0 92.6,108.0 98.1,108.0 103.7,108.9 109.2,110.7 114.7,110.7 120.2,110.7 125.7,111.6 131.2,111.6 136.7,110.7 142.2,111.6 147.7,112.5 153.3,112.5 158.8,113.4 164.3,114.3 169.8,113.4 175.3,114.3 180.8,114.3 186.3,116.1 191.8,114.3 197.4,116.1 202.9,116.1 208.4,116.9 213.9,116.1 219.4,116.1 224.9,115.2 230.4,114.3 235.9,116.1 241.4,116.1 247.0,116.9 252.5,117.8 258.0,117.8 263.5,116.9 269.0,117.8 274.5,118.7 280.0,117.8 285.5,117.8 291.1,117.8 296.6,117.8 302.1,118.7 307.6,110.7 313.1,17.8 318.6,32.1 324.1,51.7 329.6,58.9 335.1,75.0 340.7,80.3 346.2,88.4 351.7,90.1 357.2,90.1 362.7,92.8 368.2,94.6 373.7,95.5 379.2,95.5 384.8,98.2 390.3,97.3 395.8,101.8 401.3,104.4 406.8,108.0 412.3,109.8 417.8,113.4 423.3,115.2 428.9,114.3 434.4,115.2 439.9,116.9 445.4,116.9 450.9,117.8 456.4,117.8 461.9,118.7 467.4,117.8 472.9,118.7 478.5,117.8 484.0,117.8 489.5,118.7 495.0,118.7 500.5,117.8 506.0,118.7 511.5,119.6 517.0,117.8 522.6,117.8 528.1,118.7 533.6,116.9 539.1,116.9 544.6,115.2 550.1,116.9 555.6,116.1 561.1,116.9 566.6,115.2 572.2,115.2 577.7,115.2 583.2,115.2 588.7,113.4 594.2,112.5 599.7,112.5 605.2,113.4 610.7,113.4 616.3,112.5 621.8,113.4 627.3,114.3 632.8,112.5 638.3,112.5 643.8,112.5 649.3,111.6 654.8,113.4 660.3,111.6 665.9,111.6 671.4,110.7 682.4,109.8 687.9,110.7 693.4,111.6 698.9,110.7 704.4,111.6 710.0,111.6 715.5,111.6 721.0,112.5 726.5,113.4 732.0,113.4"
+                      stroke="#5aa4d8" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="32.0,138.9 37.5,142.4 43.0,142.0 48.5,139.5 54.0,140.4 59.6,140.4 65.1,142.2 70.6,140.6 76.1,136.2 81.6,134.9 87.1,135.0 92.6,131.7 98.1,127.6 103.7,124.9 109.2,128.2 114.7,130.6 120.2,133.4 125.7,135.3 131.2,134.6 136.7,132.8 142.2,130.5 147.7,131.9 153.3,130.6 158.8,131.0 164.3,130.8 169.8,129.8 175.3,129.2 180.8,127.9 186.3,125.1 191.8,124.9 197.4,124.5 202.9,126.4 208.4,129.2 213.9,127.7 219.4,130.8 224.9,132.1 230.4,136.7 235.9,136.4 241.4,133.2 247.0,132.1 252.5,134.0 258.0,135.1 263.5,133.7 269.0,134.5 274.5,135.0 280.0,134.5 285.5,131.3 291.1,129.3 296.6,126.8 302.1,129.1 307.6,136.7 313.1,147.2 318.6,148.2 324.1,143.6 329.6,141.1 335.1,138.6 340.7,137.6 346.2,139.0 351.7,139.5 357.2,138.2 362.7,137.7 368.2,135.1 373.7,126.2 379.2,113.1 384.8,106.1 390.3,102.7 395.8,103.1 401.3,104.0 406.8,102.2 412.3,94.3 417.8,88.3 423.3,85.9 428.9,82.5 434.4,79.1 439.9,73.4 445.4,76.5 450.9,73.7 456.4,69.8 461.9,74.4 467.4,76.5 472.9,76.8 478.5,80.7 484.0,86.4 489.5,92.8 495.0,93.5 500.5,96.8 506.0,106.1 511.5,105.8 517.0,113.1 522.6,122.6 528.1,120.6 533.6,116.7 539.1,117.1 544.6,121.0 550.1,122.0 555.6,120.4 561.1,122.4 566.6,121.8 572.2,118.9 577.7,120.0 583.2,121.0 588.7,123.5 594.2,123.7 599.7,126.7 605.2,128.3 610.7,127.0 616.3,125.7 621.8,124.4 627.3,123.3 632.8,125.0 638.3,128.7 643.8,129.2 649.3,128.8 654.8,126.1 660.3,125.5 665.9,123.7 671.4,123.0 682.4,123.3 687.9,123.2 693.4,124.7 698.9,126.2 704.4,120.3 710.0,114.7 715.5,111.9 721.0,116.7 726.5,118.4"
+                      stroke="#e0714f" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <text x="322" y="22" font-size="10.5" fill="#5aa4d8" font-weight="500">14.8%</text>
+            <text x="456" y="62" font-size="10.5" fill="#e0714f" font-weight="500" text-anchor="middle">9.0%</text>
+
+            <circle cx="732.0" cy="113.4" r="4" fill="#0d2338" stroke="#5aa4d8" stroke-width="2.4"/>
+            <circle cx="726.5" cy="118.4" r="4" fill="#0d2338" stroke="#e0714f" stroke-width="2.4"/>
+
+            <g font-size="10" fill="#55738c" text-anchor="middle">
+              <text x="32" y="170">2016</text><text x="164" y="170">2018</text>
+              <text x="297" y="170">2020</text><text x="429" y="170">2022</text>
+              <text x="561" y="170">2024</text><text x="740" y="170" text-anchor="end">2026</text>
+            </g>
+          </svg>
+          <div class="probs">
+            <sc-for list="{{probs}}" as="pr" hint-placeholder-count="3">
+              <div class="probRow">
+                <span class="pl">{{pr.label}}</span>
+                <span class="pt"><span class="pf" style="{{pr.barStyle}}"></span></span>
+                <span class="pv">{{pr.pct}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pool"></div>
+    <div class="table"></div>
+    <div class="tableCap">
+      <div class="k">主席提案</div>
+      <div class="v">{{proposal}}</div>
+      <div class="s">{{proposalSub}}</div>
+      <div class="tally">{{tally}}</div>
+    </div>
+
+    <sc-for list="{{seats}}" as="s" hint-placeholder-count="12">
+      <div class="{{s.cls}}" style="{{s.style}}" onClick="{{s.pick}}">
+        <div class="hand">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="#f08a66" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11V5.2a1.4 1.4 0 0 1 2.8 0V11"/>
+            <path d="M11.8 10.6V4.1a1.4 1.4 0 0 1 2.8 0v6.5"/>
+            <path d="M14.6 11V6.4a1.4 1.4 0 0 1 2.8 0V14"/>
+            <path d="M9 11V9.4a1.4 1.4 0 0 0-2.8 0v4.9c0 3.1 2.3 5.5 5.4 5.5h1.1c3 0 5.1-2 5.1-5"/>
+          </svg>
+        </div>
+        <div class="av" style="{{s.avStyle}}">{{s.initials}}</div>
+        <div class="nm">{{s.short}}</div>
+        <div class="{{s.chipCls}}">{{s.chip}}</div>
+      </div>
+    </sc-for>
+
+    <sc-for list="{{bubbles}}" as="b" hint-placeholder-count="3">
+      <div class="bub" style="{{b.style}}">
+        <div class="tail" style="{{b.tail}}"></div>
+        <div class="who">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f08a66" stroke-width="2.2" stroke-linejoin="round">
+            <path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 0 1 11 4h2a8 8 0 0 1 8 8Z"/>
+          </svg>
+          {{b.name}}
+        </div>
+        <div class="qt">{{b.text}}</div>
+        <div class="tag">{{b.tag}}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div class="panel">
+    <sc-if value="{{hasPick}}" hint-placeholder-val="{{true}}">
+      <div>
+        <div class="pHead">委員判斷</div>
+        <div class="pName">{{pick.name}}</div>
+        <div class="pRow">
+          <span class="{{pick.votePill}}">{{pick.vote}}</span>
+          <span class="{{pick.leanPill}}">{{pick.leanTxt}}</span>
+          <span class="pill flat">{{pick.role}}</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div><b>{{pick.record}}</b><span>生涯異議</span></div>
+        <div><b>{{pick.pTxt}}</b><span>異議機率</span></div>
+        <div><b>{{pick.baseTxt}}</b><span>基準率</span></div>
+      </div>
+      <div class="why">{{pick.why}}</div>
+      <div class="cite">
+        <div class="m">{{pick.citeMeta}}</div>
+        <div class="q">{{pick.citeText}}</div>
+      </div>
+      <sc-if value="{{pick.isDis}}" hint-placeholder-val="{{true}}">
+        <div class="hintbox">{{pick.note}}</div>
+      </sc-if>
+      <div class="spacer"></div>
+      <button class="replay" onClick="{{replay}}">重播會議</button>
+      <div class="foot">引文取自語料原文（日期＋文件類型）；把引文與本情境串起來的敘述是規則生成的說明，不是委員在本情境下的發言。</div>
+    </sc-if>
+
+    <sc-if value="{{noPick}}" hint-placeholder-val="{{false}}">
+      <div>
+        <div class="pHead">委員判斷</div>
+        <div class="pName">點任一位委員</div>
+      </div>
+      <div class="empty">
+        <div>桌邊 12 位是 FOMC-2026-09-15 的投票名單。舉手的三位對主席提案投下反對票，發言泡泡是他們的異議理由。</div>
+        <div>點任何一位——包含投贊成票的——就會在這裡展開他為什麼這樣投：歷史異議紀錄、方向傾向、本情境的方向張力，以及語料裡的原文引文。</div>
+      </div>
+      <div class="stat">
+        <div><b>9 – 3</b><span>FOR – AGAINST</span></div>
+        <div><b>維持</b><span>方向</span></div>
+        <div><b>74.3%</b><span>混合機率</span></div>
+      </div>
+      <div class="spacer"></div>
+      <button class="replay" onClick="{{replay}}">重播會議</button>
+      <div class="foot">後牆是會前的情境輸入與檢索出的方向機率；桌面中央是主席提案。</div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{
+  "speed": {"editor":"range","default":1,"min":0.4,"max":2,"step":0.1,"unit":"x","section":"動畫"},
+  "accent": {"editor":"color","default":"#2fa8c0","options":["#2fa8c0","#5aa4d8","#d4a13f","#e0714f"],"section":"場景"}
+}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: null, phase: 0 };
+  }
+
+  componentDidMount() { this.play(); }
+  componentWillUnmount() { this.clear(); }
+
+  clear() { (this.timers || []).forEach(clearTimeout); this.timers = []; }
+
+  play() {
+    this.clear();
+    const k = 1 / (this.props.speed || 1);
+    this.setState({ phase: 0 });
+    this.timers = [
+      setTimeout(() => this.setState({ phase: 1 }), 280 * k),
+      setTimeout(() => this.setState({ phase: 2 }), 1620 * k),
+      setTimeout(() => this.setState({ phase: 3 }), 2340 * k)
+    ];
+  }
+
+  // 名單與異議紀錄取自語料：FOMC-2026-09-15 的 12 人名單，
+  // 異議次數／方向由 build_rag_index.py 從歷年「Voting against」段落抽出。
+  roster() {
+    return [
+      { id:'warsh',    seat:0,  name:'Kevin M. Warsh',      short:'Warsh',     init:'KW', role:'主席',
+        vote:'FOR', lean:0, votes:41, diss:0, p:.020, base:.020,
+        why:'主席提出本次提案，語料中 41 次具名投票、0 次異議。基準異議率 2.0%，且沒有可辨識的鷹／鴿方向紀錄，因此規則不會把他標為反對。',
+        cite:['2008-10-29・聲明・投票紀錄','Voting for the FOMC monetary policy action were: Ben S. Bernanke, Chairman; ... and Kevin M. Warsh.'] },
+      { id:'williams', seat:1,  name:'John C. Williams',    short:'Williams',  init:'JW', role:'副主席',
+        vote:'FOR', lean:0, votes:84, diss:0, p:.020, base:.020,
+        why:'語料中 84 次具名投票、0 次異議，是名單裡紀錄最一致的成員之一。近 20 次投票同樣沒有異議，基準率壓在 2.0%，遠低於 20% 門檻。',
+        cite:['2025-09-17・會後聲明','Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; ...'] },
+      { id:'cook',     seat:2,  name:'Lisa D. Cook',        short:'Cook',      init:'LC', role:'理事',
+        vote:'FOR', lean:0, votes:32, diss:0, p:.020, base:.020,
+        why:'32 次具名投票、0 次異議。語料只在「Voting against」段落具名點出委員，因此沒有可引用的個人段落；判斷完全由投票紀錄與情境方向張力決定。',
+        cite:['2022-06-15・會後聲明','Voting for the monetary policy action were ... Lisa D. Cook; Patrick Harker; Philip N. Jefferson; ...'] },
+      { id:'hammack',  seat:3,  name:'Beth M. Hammack',     short:'Hammack',   init:'BH', role:'區域聯準銀行總裁',
+        vote:'AGAINST', lean:1, votes:6, diss:2, p:.298, base:.227,
+        why:'生涯 6 次投票中 2 次異議，兩次都是鷹派方向。近 6 次（2024-09 起）基準異議率 22.7%，乘上本情境的方向張力後為 29.8%，越過 20% 門檻；偏好方向與提案不同，因此判為 AGAINST。',
+        cite:['2024-12-18・聲明・異議紀錄','Voting against the action was Beth M. Hammack, who preferred to maintain the target range for the federal funds rate at 4-1/2 to 4-3/4 percent.'],
+        bubble:'通膨仍明顯高於 2% 目標，活動與就業都撐得住。現在不動，之後要補的幅度更大。',
+        note:'泡泡裡的話是依規則生成的說明，不是這位委員在本情境下的實際發言。可稽核的是上方的異議紀錄與下方的原文引文。' },
+      { id:'jefferson',seat:4,  name:'Philip N. Jefferson', short:'Jefferson', init:'PJ', role:'理事',
+        vote:'FOR', lean:0, votes:32, diss:0, p:.020, base:.020,
+        why:'32 次具名投票、0 次異議，基準率 2.0%。本情境的方向張力偏向緊縮，但缺乏個人方向紀錄，規則不會把中性紀錄推成反對。',
+        cite:['2022-06-15・會後聲明','Voting for the monetary policy action were ... Philip N. Jefferson; Loretta J. Mester; and Christopher J. Waller.'] },
+      { id:'barr',     seat:5,  name:'Michael S. Barr',     short:'Barr',      init:'MB', role:'理事',
+        vote:'FOR', lean:0, votes:31, diss:0, p:.020, base:.020,
+        why:'31 次具名投票、0 次異議。基準率 2.0%，無方向紀錄，判為贊成。',
+        cite:['2025-09-17・會後聲明','Voting for the monetary policy action were ... Michael S. Barr; Michelle W. Bowman; Susan M. Collins; ...'] },
+      { id:'kashkari', seat:6,  name:'Neel Kashkari',       short:'Kashkari',  init:'NK', role:'區域聯準銀行總裁',
+        vote:'AGAINST', lean:1, votes:28, diss:5, p:.151, base:.100,
+        why:'生涯 28 次投票中 5 次異議，5 次全部是鷹派方向——名單裡方向最一致的異議者。近 20 次（2020-01 起）2 次異議，基準 10.0%；自身原文對本情境的相關度 41.6%，是全體最高，把機率推到 15.1%。',
+        cite:['2017-06-14・聲明・異議紀錄','Voting against the action was Neel Kashkari, who preferred at this meeting to maintain the existing target range for the federal funds rate.'],
+        bubble:'連幾次供給衝擊後通膨都沒回到目標。就業穩得住時多做一點，才守得住可信度。',
+        note:'2017 那兩次異議方向與這裡相反（當時他反對升息）。規則取的是「他會與多數不同」的傾向強度，不是把當年的立場搬到今天。' },
+      { id:'bowman',   seat:7,  name:'Michelle W. Bowman',  short:'Bowman',    init:'MW', role:'理事',
+        vote:'FOR', lean:-1, votes:61, diss:2, p:.106, base:.100,
+        why:'生涯 61 次投票中 2 次異議，兩次都是鴿派方向（偏好降息）。異議機率 10.6%，未達 20% 門檻；更關鍵的是她的偏好方向偏鴿，而提案本身就是維持——方向不衝突，因此投贊成。',
+        cite:['2024-09-18・聲明・異議紀錄','Voting against this action was Michelle W. Bowman, who preferred to lower the target range for the federal funds rate by 1/4 percentage point at this meeting.'] },
+      { id:'paulson',  seat:8,  name:'Anna Paulson',        short:'Paulson',   init:'AP', role:'區域聯準銀行總裁',
+        vote:'FOR', lean:0, votes:3, diss:0, p:.063, base:.063,
+        why:'語料中只有 3 次具名投票，樣本太小；規則以 Laplace 平滑後的 6.3% 作為基準，避免用 0/3 直接推論成「絕不異議」。',
+        cite:['2026-04-29・會後聲明','Voting for the monetary policy action were ... Anna Paulson; and Christopher J. Waller.'] },
+      { id:'logan',    seat:9,  name:'Lorie K. Logan',      short:'Logan',     init:'LL', role:'區域聯準銀行總裁',
+        vote:'AGAINST', lean:1, votes:11, diss:1, p:.219, base:.094,
+        why:'11 次具名投票中 1 次異議，方向為鷹派。基準率 9.4% 本身不高，但自身原文對本情境的相關度 21.1%，加上方向張力後推到 21.9%，剛好越過門檻。這是名單裡最接近臨界的一位。',
+        cite:['2026-07-29・聲明・異議紀錄','Voting against the monetary policy action were Beth M. Hammack, Neel Kashkari, and Lorie K. Logan, who preferred to raise the target range for the federal funds rate by 1/4 percentage point at this meeting.'],
+        bubble:'金融條件其實沒有想像中緊。趁勞動市場還穩，把限制性再往上帶一點比較安全。',
+        note:'21.9% 對 20% 門檻——這位委員的判斷對門檻設定很敏感。門檻調到 25% 她就會翻成贊成，適合用來檢查結論的穩健度。' },
+      { id:'waller',   seat:10, name:'Christopher J. Waller', short:'Waller',  init:'CW', role:'理事',
+        vote:'FOR', lean:-1, votes:39, diss:3, p:.156, base:.140,
+        why:'生涯 39 次投票中 3 次異議，其中 2 次是鴿派方向。異議機率 15.6% 未達門檻；且偏好方向偏鴿、提案為維持，方向不衝突，因此投贊成。',
+        cite:['2025-03-19・聲明・異議紀錄','Voting against this action was Christopher J. Waller, who supported no change for the federal funds target range but preferred to continue the current pace of decline in securities holdings.'] },
+      { id:'powell',   seat:11, name:'Jerome H. Powell',    short:'Powell',    init:'JP', role:'理事',
+        vote:'FOR', lean:0, votes:106, diss:0, p:.020, base:.020,
+        why:'語料中 106 次具名投票、0 次異議，是全名單樣本最多的一位。基準異議率壓到 2.0%，任何情境張力都很難把他推過門檻。',
+        cite:['2020-03-23・會後聲明','Voting (by notation) for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; ...'] }
+    ];
+  }
+
+  renderVals() {
+    const st = this.state;
+    const accent = this.props.accent || '#2fa8c0';
+    const R = this.roster();
+
+    // 橢圓座位：主席在 12 點鐘方向，順時針排；三位異議者刻意排在
+    // 右／下／左三個外側有空間的位置，泡泡才不會互相擠。
+    const cx = 580, cy = 530, rx = 290, ry = 165;
+    const seats = R.map((m, i) => {
+      const a = (-90 + m.seat * 30) * Math.PI / 180;
+      const x = cx + rx * Math.cos(a), y = cy + ry * Math.sin(a);
+      const dis = m.vote === 'AGAINST';
+      const chair = m.role === '主席';
+      const sel = st.picked === m.id;
+
+      // 暗場裡的委員一律做成發光的圓盤：異議者鷹派紅並帶光暈，主席以金色環
+      // 標示，其餘用鋼藍。色相沿用 app 的 hawk/navy/amber，只為暗底提高明度。
+      let av;
+      if (dis) {
+        av = 'background:linear-gradient(160deg,#9c3a22,#6f2312); color:#ffe6dc;'
+           + ' border:2px solid #f08a66;'
+           + ' box-shadow:0 0 0 5px rgba(224,113,79,.14), 0 0 26px -2px rgba(224,113,79,.55), 0 10px 22px -8px rgba(0,0,0,.7);';
+      } else if (chair) {
+        av = 'background:linear-gradient(160deg,#2a5573,#173851); color:#f6ecd6;'
+           + ' border:2px solid #d4a13f;'
+           + ' box-shadow:0 0 0 5px rgba(212,161,63,.12), 0 0 24px -4px rgba(212,161,63,.45), 0 10px 22px -8px rgba(0,0,0,.7);';
+      } else {
+        av = 'background:linear-gradient(160deg,#2a5573,#173851); color:#dbeaf4;'
+           + ' border:2px solid rgba(126,176,205,.45);'
+           + ' box-shadow:0 10px 22px -8px rgba(0,0,0,.7);';
+      }
+      if (sel) {
+        av += ' box-shadow:0 0 0 6px ' + accent + '3d, 0 0 34px -2px ' + accent + '99,'
+            + ' 0 12px 26px -8px rgba(0,0,0,.75); border-color:' + accent + ';';
+      }
+
+      return {
+        cls: 'seat' + (dis ? ' dis' : '') + (sel ? ' sel' : ''),
+        style: 'left:' + Math.round(x) + 'px; top:' + Math.round(y) + 'px; transition-delay:' + (i * 58) + 'ms',
+        avStyle: av,
+        initials: m.init, short: m.short,
+        chip: chair ? '主席' : (dis ? 'AGAINST' : 'FOR'),
+        chipCls: 'chip ' + (chair ? 'chair' : (dis ? 'against' : 'for')),
+        pick: () => this.setState({ picked: sel ? null : m.id })
+      };
+    });
+
+    // 泡泡貼在異議者外側：右側往右、底部往下、左側往左。
+    const place = {
+      3:  { s: 'left:916px; top:466px', t: 'left:-7px; top:44px; border-right:0; border-top:0' },
+      6:  { s: 'left:465px; top:764px', t: 'left:106px; top:-7px; border-right:0; border-bottom:0' },
+      9:  { s: 'left:14px;  top:466px', t: 'right:-7px; top:44px; border-left:0; border-bottom:0' }
+    };
+    const bubbles = R.filter(m => m.bubble).map(m => ({
+      style: place[m.seat].s, tail: place[m.seat].t,
+      name: m.short, text: m.bubble, tag: '偏好升息 1 碼・規則生成說明'
+    }));
+
+    const probs = [
+      { label: '降息', pct: '9.4%',  barStyle: 'width:9.4%; background:#5aa4d8' },
+      { label: '維持', pct: '74.3%', barStyle: 'width:74.3%; background:' + accent },
+      { label: '升息', pct: '16.3%', barStyle: 'width:16.3%; background:#e0714f' }
+    ];
+
+    const m = R.find(z => z.id === st.picked);
+    const pick = m ? {
+      name: m.name, role: m.role, vote: m.vote,
+      votePill: 'pill ' + (m.vote === 'AGAINST' ? 'against' : 'for'),
+      leanPill: 'pill ' + (m.lean > 0 ? 'hawk' : m.lean < 0 ? 'dove' : 'flat'),
+      leanTxt: m.lean > 0 ? '歷史偏鷹' : m.lean < 0 ? '歷史偏鴿' : '無方向紀錄',
+      record: m.diss + ' / ' + m.votes,
+      pTxt: (m.p * 100).toFixed(1) + '%',
+      baseTxt: (m.base * 100).toFixed(1) + '%',
+      why: m.why, citeMeta: m.cite[0], citeText: m.cite[1],
+      isDis: !!m.note, note: m.note || ''
+    } : null;
+
+    return {
+      stageCls: 'room stage' + (st.phase >= 1 ? ' p1' : '') + (st.phase >= 2 ? ' p2' : '') + (st.phase >= 3 ? ' p3' : ''),
+      seats, bubbles, probs,
+      proposal: '維持 3-1/2 至 3-3/4%',
+      proposalSub: '混合方向機率 74.3%・語料類比 8 場',
+      tally: '9 票贊成・3 票反對',
+      hasPick: !!pick, noPick: !pick, pick: pick || {},
+      replay: () => { this.setState({ picked: null }); this.play(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

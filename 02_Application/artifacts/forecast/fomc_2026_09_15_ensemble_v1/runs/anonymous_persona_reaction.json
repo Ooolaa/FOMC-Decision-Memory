@@ -1,0 +1,284 @@
+{
+  "billing_route": "chatgpt_subscription",
+  "execution_provider": "codex_subscription",
+  "forecast_as_of": "2026-09-01",
+  "meeting_id": "FOMC-2026-09-15",
+  "model_bundle_hash": "f42e21e1456dfa6c248c9a6c66f33218b3e456d644bda7f8b7831bc7b127a9f0",
+  "model_id": "gpt-5.6-terra",
+  "output": {
+    "discussion": [
+      {
+        "participant_id": "anna-paulson",
+        "synthetic_text": "I favor holding the current range while we assess whether recent inflation pressure is easing durably. Labor conditions remain orderly, so patience preserves room to respond if progress stalls."
+      },
+      {
+        "participant_id": "beth-m-hammack",
+        "synthetic_text": "I see a case for further restraint. Inflation remains well above target, activity is solid, and financial conditions do not appear to be signaling an acute loss of momentum."
+      },
+      {
+        "participant_id": "christopher-j-waller",
+        "synthetic_text": "I would keep policy unchanged for now. The combination of elevated inflation and balanced employment argues for waiting for clearer evidence on the persistence of supply-driven price pressures."
+      },
+      {
+        "participant_id": "jerome-h-powell",
+        "synthetic_text": "My baseline is to hold. Inflation requires continued vigilance, but the available information still supports a measured, meeting-by-meeting assessment rather than a precommitted adjustment."
+      },
+      {
+        "participant_id": "john-c-williams",
+        "synthetic_text": "I favor maintaining the current setting. Inflation is still elevated, yet labor-market balance and anchored longer-run expectations support gathering another interval of evidence."
+      },
+      {
+        "participant_id": "kevin-m-warsh",
+        "synthetic_text": "The Committee faces elevated inflation alongside continued expansion and a stable labor market. I am inclined to preserve the current stance while emphasizing that sustained failure of inflation to recede would require a reassessment."
+      },
+      {
+        "participant_id": "lisa-d-cook",
+        "synthetic_text": "I am concerned that inflation could prove persistent given resilient demand and recurring supply pressures. I would be prepared to favor firmer policy if incoming evidence does not show convincing disinflation."
+      },
+      {
+        "participant_id": "lorie-k-logan",
+        "synthetic_text": "I place substantial weight on restoring inflation to target and see limited evidence of labor-market slack. I therefore view an additional degree of restraint as a serious option."
+      },
+      {
+        "participant_id": "michael-s-barr",
+        "synthetic_text": "I favor holding while we distinguish a temporary inflation impulse from broader persistence. The economy remains resilient, but uncertainty warrants preserving optionality in both directions."
+      },
+      {
+        "participant_id": "michelle-w-bowman",
+        "synthetic_text": "I support maintaining the current range. The policy stance should remain guided by realized inflation, employment conditions, and the evolving balance of risks rather than a mechanical response."
+      },
+      {
+        "participant_id": "neel-kashkari",
+        "synthetic_text": "I am increasingly concerned that repeated supply shocks and strong investment demand could embed above-target inflation. With employment stable, I see a credible argument for additional restraint."
+      },
+      {
+        "participant_id": "philip-n-jefferson",
+        "synthetic_text": "I favor keeping the rate unchanged at this meeting. Inflation remains the central challenge, but a stable labor market and uncertainty around the outlook argue for a cautious, data-dependent posture."
+      }
+    ],
+    "final_proposal": {
+      "action_class": "HOLD",
+      "proposer_participant_id": "kevin-m-warsh",
+      "rationale": "I propose maintaining the current target range. Inflation remains above the Committee's objective, but labor-market conditions are stable and longer-run expectations remain anchored; another interval of evidence will better distinguish temporary supply effects from persistent price pressure while preserving scope to respond if disinflation stalls."
+    },
+    "meeting_id": "FOMC-2026-09-15",
+    "profiles": [
+      {
+        "display_name": "Participant 01",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "anna-paulson"
+      },
+      {
+        "display_name": "Participant 02",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "display_name": "Participant 03",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "display_name": "Participant 04",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "display_name": "Participant 05",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "john-c-williams"
+      },
+      {
+        "display_name": "Chair",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": true,
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "display_name": "Participant 07",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "display_name": "Participant 08",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "display_name": "Participant 09",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "display_name": "Participant 10",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "display_name": "Participant 11",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "display_name": "Participant 12",
+        "evidence_ids": [
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "philip-n-jefferson"
+      }
+    ],
+    "schema_version": "simulation_output_v1",
+    "synthetic": true,
+    "votes": [
+      {
+        "choice": "FOR",
+        "participant_id": "anna-paulson"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "john-c-williams"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "philip-n-jefferson"
+      }
+    ]
+  },
+  "platform_api_cost_usd": 0.0,
+  "schema_version": "forward_variant_run_v1",
+  "status": "SUBSCRIPTION_FORWARD_COMPLETED",
+  "usage": [
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 63166,
+      "latency_seconds": 17.197961,
+      "output_tokens": 603,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 48,
+      "stage": "profiles",
+      "thread_id": "01a05fbb-7c86-7eb3-8787-e56658ddb7cb"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 63704,
+      "latency_seconds": 23.192774,
+      "output_tokens": 934,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 94,
+      "stage": "openings",
+      "thread_id": "01a05fbb-bfb8-75a3-a9a6-d3c7071ab79f"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 64538,
+      "latency_seconds": 12.283961,
+      "output_tokens": 330,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 53,
+      "stage": "options",
+      "thread_id": "01a05fbc-1aa0-74c3-8640-ee51eacf3dc1"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 64805,
+      "latency_seconds": 9.249831,
+      "output_tokens": 156,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 48,
+      "stage": "chair",
+      "thread_id": "01a05fbc-4ac4-7270-a1bc-493945f5e1f6"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 64938,
+      "latency_seconds": 18.551919,
+      "output_tokens": 562,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 93,
+      "stage": "votes",
+      "thread_id": "01a05fbc-6f17-7fd3-be65-68d0cebad5b9"
+    }
+  ],
+  "usage_totals": {
+    "cached_input_tokens": 42496,
+    "input_tokens": 321151,
+    "output_tokens": 2585,
+    "reasoning_output_tokens": 336
+  },
+  "variant_id": "anonymous_persona_reaction"
+}

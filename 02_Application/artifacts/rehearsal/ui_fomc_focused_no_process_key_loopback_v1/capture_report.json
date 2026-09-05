@@ -1,0 +1,20 @@
+[
+  {
+    "page": "下次會議預測",
+    "screenshot": "next_meeting_forecast.png",
+    "body_text_chars": 1903,
+    "body_text_sha256": "d44c3aa50ef51dde7fcff59213a3a0f7ca0456da3cc7b2af2d9b3d185b6624af"
+  },
+  {
+    "page": "決策重播",
+    "screenshot": "decision_replay.png",
+    "body_text_chars": 623,
+    "body_text_sha256": "c8e85b566338e3d46468192de23d81e502bab7b94cb16cf1f7474cc8646c6207"
+  },
+  {
+    "page": "歷史測試結果",
+    "screenshot": "historical_results.png",
+    "body_text_chars": 430,
+    "body_text_sha256": "a0ae7987bb8a4d3416c59bdf58edf3c92eea4d01fb754c00950d7c1c16890137"
+  }
+]

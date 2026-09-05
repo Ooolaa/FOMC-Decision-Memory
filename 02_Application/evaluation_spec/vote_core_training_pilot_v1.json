@@ -1,0 +1,14 @@
+{
+  "schema_version": "vote_core_training_pilot_v1",
+  "status": "DEVELOPMENT_ONLY_NOT_PROMOTION_EVIDENCE",
+  "selection_rule": "Six preregistered 2006-2020 training cases: four with historical dissent diversity and two unanimous guardrails.",
+  "current_meeting_outcomes_exposed_to_model": false,
+  "per_case": [
+    {"meeting_id": "FOMC-2010-03-16"},
+    {"meeting_id": "FOMC-2011-08-09"},
+    {"meeting_id": "FOMC-2016-09-20"},
+    {"meeting_id": "FOMC-2019-09-17"},
+    {"meeting_id": "FOMC-2020-06-09"},
+    {"meeting_id": "FOMC-2020-12-15"}
+  ]
+}

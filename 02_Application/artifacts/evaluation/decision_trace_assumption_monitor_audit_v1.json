@@ -1,0 +1,1102 @@
+{
+  "assumption_count": 51,
+  "case_count": 50,
+  "cases": [
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment_rate_remains_at_or_below_5_percent",
+          "claim": "The outlook assumed that the civilian unemployment rate would remain in a 4.5 to 5 percent range through 2006 and 2007.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 5,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2006-01-31",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2006-01-31_gpt-5-6-terra.json",
+      "run_artifact_sha256": "918daf4f8d761aae224e8bbab98213c17c8f81c7a4d10b2213eac1b2c3497ec2",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment_moves_toward_five_percent",
+          "claim": "The outlook assumed that unemployment would move up toward 5 percent as growth moderated.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 5,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2006-05-10",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2006-05-10_gpt-5-6-terra.json",
+      "run_artifact_sha256": "03dc8712c2433406a663c1c1e53b1e5dfefbaa4f6deda2e4de02756388fbb410",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "core_inflation_moderates",
+          "claim": "Core inflation would ebb gradually from its elevated level as energy-price impetus waned and growth ran modestly below potential.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "CPILFESL",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2006-09-20",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2006-09-20_gpt-5-6-terra.json",
+      "run_artifact_sha256": "c478cb40698be26939fe5615d1ffc932fea574a85c75d20cefa5e422b43708b1",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "current_stance_supports_disinflation",
+          "claim": "Maintaining the current federal funds target was expected to foster moderate growth and a gradual ebbing of elevated core inflation.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "decision_trace_monitor_rule_v1",
+          "monitor_series_id": "DFEDTAR",
+          "threshold_value": 5.25,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2006-12-12",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2006-12-12_gpt-5-6-terra.json",
+      "run_artifact_sha256": "a5ba1129416dc7ce12a75fa8ecbce074e0e5e5413f862f00bb003d4dfb0ec6a5",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "resource-utilization-remains-tight",
+          "claim": "The inflation outlook assumed that high resource utilization could continue to sustain inflation pressures; an unemployment rate at or below 4.5 percent serves as a monitor for that tight-labor-market condition.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 4.5,
+          "valid": false,
+          "violations": [
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2007-05-09",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2007-05-09_gpt-5-6-terra.json",
+      "run_artifact_sha256": "bae9c89142d1e1e7b3d8b4291025287074b4926e8bd1fdd0a817402b67a62840",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "core_pce_converges_to_two_percent",
+          "claim": "Core inflation was expected to converge toward 2 percent under the unchanged policy stance.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "decision_trace_monitor_rule_v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2007-08-07",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2007-08-07_gpt-5-6-terra.json",
+      "run_artifact_sha256": "840e62b394590dce98a946afa661552c0934ebb4c040ca4a99f45f2cb37c4140",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "resource_slack_limits_inflation",
+          "claim": "The forecast assumed unemployment would rise to about 5 percent, opening an output gap that would help lower inflation pressures.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 5,
+          "valid": false,
+          "violations": [
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2007-12-11",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2007-12-11_gpt-5-6-terra.json",
+      "run_artifact_sha256": "22078b866d370ecc229b4d2b12795cc53e826c1bcc5241a696073f1be9c5edcd",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_expectations_remain_anchored",
+          "claim": "Inflation should moderate if commodity-price pressures level out and resource utilization eases, but elevated inflation expectations remain a risk requiring monitoring.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "threshold-v1",
+          "monitor_series_id": "T5YIFR",
+          "threshold_value": 3,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2008-03-18",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2008-03-18_gpt-5-6-terra.json",
+      "run_artifact_sha256": "4a2815b5b3ee0eca59acb426d0aa603a2227a04c0fe3782d5e39b35e86ae20a4",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "core_inflation_moderates",
+          "claim": "Inflation would moderate later in 2008 and in 2009.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "decision_trace_v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2.5,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2008-08-05",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2008-08-05_gpt-5-6-terra.json",
+      "run_artifact_sha256": "a1036af205a0566076f7550bbe9e3a2d1e9f07792203ca5e56a95b42aefc7f77",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor_market_weakness_above_6pct",
+          "claim": "Labor-market weakness persisted, with the unemployment rate remaining above 6 percent.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "decision_trace_monitor_rule_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2008-10-28",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2008-10-28_gpt-5-6-terra.json",
+      "run_artifact_sha256": "f21474a66b8d43957974c1b4e7ac880ac1870bb21e5ebeb81733790f1efbbee3",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "subdued_inflation_expectations",
+          "claim": "Inflation pressures are expected to remain subdued in coming quarters, with a risk that inflation remains below rates consistent with longer-run price stability.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "monitor-rule-v1",
+          "monitor_series_id": "T10YIE",
+          "threshold_value": 2,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2009-01-27",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2009-01-27_gpt-5-6-terra.json",
+      "run_artifact_sha256": "c9ce66f0afd0258f7052ff4976fa22685f5d00192c8e8bf22b27fb0c07f411c4",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor-market-remains-weak",
+          "claim": "Labor market conditions would remain poor, with unemployment continuing to rise in the near term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 9.4,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2009-06-23",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2009-06-23_gpt-5-6-terra.json",
+      "run_artifact_sha256": "743c13badb46e90b6fe4a614623c262eee4e5bd6a9cb3de3b973704e6ab11438",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor_market_slack_persists",
+          "claim": "The staff projected only slow labor-market improvement, with the unemployment rate at about 9 1/4 percent at the end of 2010.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 9,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2009-09-22",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2009-09-22_gpt-5-6-terra.json",
+      "run_artifact_sha256": "19000fdc48204c160427edd7b3c5930c45d6d46e80c4303d9ee7947428911e10",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "substantial-labor-market-slack-persists",
+          "claim": "Substantial labor-market slack will persist; operationally monitor unemployment at or above 8 percent.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "monitor_rule_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 8,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2010-01-26",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2010-01-26_gpt-5-6-terra.json",
+      "run_artifact_sha256": "7e3f71102fefb25433d34efa5bf640678d268bbe4608657f5de810f6170b30f7",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor_slack_remains_elevated",
+          "claim": "Labor-market slack remains substantial enough to restrain cost pressures; monitor an unemployment rate above 9 percent.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 9,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2010-04-27",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2010-04-27_gpt-5-6-terra.json",
+      "run_artifact_sha256": "9a6c9509e3248d352e42d0307c8d0adc54449a47ed065fef4eb60430492bbe1f",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "underlying_inflation_below_mandate_consistent_level",
+          "claim": "Underlying inflation is below the Committee's longer-run mandate-consistent level; a core PCE reading below 2 percent would support this condition.",
+          "monitor_operator": "LT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2010-09-21",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2010-09-21_gpt-5-6-terra.json",
+      "run_artifact_sha256": "80f887ea981d11297e71f0f0c92fb19f8590759ce8fc07438a7f6ce37515e184",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "elevated_unemployment_warrants_low_rates",
+          "claim": "If unemployment remains at or above 9.8 percent, labor-market slack is consistent with maintaining exceptionally low policy rates.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "threshold_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 9.8,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2010-12-14",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2010-12-14_gpt-5-6-terra.json",
+      "run_artifact_sha256": "70a754750398661ad10195d74bcc1107317d3c027114f582a837f2516617477f",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "elevated_unemployment_persists",
+          "claim": "Economic conditions would continue to include elevated unemployment, supporting exceptionally low policy rates.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 8.8,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2011-04-26",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2011-04-26_gpt-5-6-terra.json",
+      "run_artifact_sha256": "9a046dbf1dea8e34e91b6eb773d4587dbf1cd5a4d4f07fd7a0f0f579026504d7",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "forward-guidance-unemployment-condition",
+          "claim": "The proposed state-contingent formulation treated unemployment above 7.5 percent, with a subdued medium-term inflation outlook, as a condition warranting exceptionally low federal funds rates.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 7.5,
+          "valid": false,
+          "violations": [
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2011-08-09",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2011-08-09_gpt-5-6-terra.json",
+      "run_artifact_sha256": "c56fbdee51e29e82bb690108c7031f1570f56febaa1a37454955b141cea2dd77",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment_remains_elevated",
+          "claim": "The baseline outlook cited in the policy discussion had the unemployment rate at 8.4 percent by mid-2013, supporting the assessment that labor-market conditions would remain weak.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 8.4,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2011-12-13",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2011-12-13_gpt-5-6-terra.json",
+      "run_artifact_sha256": "b899f17886bea4157ea46e3b50ccf7e01d00d0d3018ac0172be10bd4168acbee",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment-remains-elevated",
+          "claim": "The decision assumed that unemployment remained elevated and would decline only gradually toward mandate-consistent levels.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 8.3,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2012-03-13",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2012-03-13_gpt-5-6-terra.json",
+      "run_artifact_sha256": "aff45110291863b102d123733d9ef0d3e777d806194538201e177bf8061e602b",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "elevated_unemployment_persists",
+          "claim": "Elevated unemployment supports maintaining exceptionally low policy rates; monitor the unemployment rate at or above its then-current 8.2 percent level.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 8.2,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2012-06-19",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2012-06-19_gpt-5-6-terra.json",
+      "run_artifact_sha256": "0578398b62ba2fcfa4095e81a717f78bb30491092d534ba228903542002bd4ac",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor_market_remains_elevated",
+          "claim": "The unemployment rate remains elevated, supporting continued accommodation unless labor-market conditions improve substantially.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 7.8,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2012-10-23",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2012-10-23_gpt-5-6-terra.json",
+      "run_artifact_sha256": "2134f01caae20310d9991c2359874a210280754d1323c13ef886cf1c44b382da",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "funds-rate-guidance-unemployment-threshold",
+          "claim": "The exceptionally low federal funds target range was expected to remain appropriate at least while unemployment remained above 6-1/2 percent, subject to the inflation and inflation-expectations conditions in the guidance.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6.5,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite",
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2013-01-29",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2013-01-29_gpt-5-6-terra.json",
+      "run_artifact_sha256": "7c94656795d8381bb3e40ba854c2d8fbe1a1e01e9176dd035afda05b9f5af8fc",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "funds_rate_guidance_unemployment_threshold",
+          "claim": "The exceptionally low federal funds target range was expected to remain appropriate at least while unemployment remained above 6-1/2 percent, subject to the stated inflation and expectations conditions.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6.5,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite",
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2013-06-18",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2013-06-18_gpt-5-6-terra.json",
+      "run_artifact_sha256": "a2e0dae7fe13424c72569d379c7dc7918d9b2f879e26c928228e250380cc299d",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "forward_guidance_unemployment_threshold",
+          "claim": "The exceptionally low federal funds target range was anticipated to remain appropriate at least as long as unemployment remained above 6.5 percent, conditional on the stated inflation and inflation-expectations criteria.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "monitor_rule_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6.5,
+          "valid": false,
+          "violations": [
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2013-09-17",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2013-09-17_gpt-5-6-terra.json",
+      "run_artifact_sha256": "279839f195ef0c96c3bcefc29fb39bfbcb6ad5e58787228f458dc0452a992c51",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment_threshold_condition",
+          "claim": "The exceptionally low federal-funds target range was expected to remain appropriate at least while unemployment remained above 6-1/2 percent, subject to the accompanying inflation and expectations conditions.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "decision_trace_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6.5,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite",
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2014-01-28",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2014-01-28_gpt-5-6-terra.json",
+      "run_artifact_sha256": "f317bdde56136329cdeaf888fea1d9f27b149cd6145246c90aad97a689c030dc",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "unemployment_remains_elevated",
+          "claim": "Labor-market slack remained material because the unemployment rate was still elevated at 6.7 percent; continued improvement was expected before normalization.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6.7,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2014-04-29",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2014-04-29_gpt-5-6-terra.json",
+      "run_artifact_sha256": "a56d4698f44d1090b374ad04f64ed9d7a49ea1f8b0f86ecfb4f7726e0533b792",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor-underutilization-remained-material",
+          "claim": "Labor-market underutilization remained material enough to support continued accommodation; monitor the unemployment rate remaining at or above 6.0 percent.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 6,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2014-09-16",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2014-09-16_gpt-5-6-terra.json",
+      "run_artifact_sha256": "691ab9baa400155684d99c1e251e0e82480e13237c5ecf6ed1a7c412b6026533",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "longer_term_inflation_expectations_remain_anchored",
+          "claim": "Longer-term inflation expectations remain well anchored, supporting an eventual return of inflation toward the 2 percent objective.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "decision_trace_monitor_rule_v1",
+          "monitor_series_id": "T5YIFR",
+          "threshold_value": 2,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2014-12-16",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2014-12-16_gpt-5-6-terra.json",
+      "run_artifact_sha256": "504366a366a25a50495f41bc294866092a0eaef96a38929b84b792887cc61269",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_returns_to_target",
+          "claim": "Inflation was expected to rise gradually toward the Committee's 2 percent objective over the medium term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2015-03-17",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2015-03-17_gpt-5-6-terra.json",
+      "run_artifact_sha256": "1795577a8f5d42f65c7df490bea487a07af3b1c17c812750163b9d33a943d5f4",
+      "valid": false
+    },
+    {
+      "assumption_count": 2,
+      "assumptions": [
+        {
+          "assumption_id": "labor_market_continues_to_improve",
+          "claim": "Labor-market conditions will continue to improve, supporting progress toward maximum employment and eventual policy normalization.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "fomc_monitor_rule_v1",
+          "monitor_series_id": "PAYEMS",
+          "threshold_value": 0,
+          "valid": false,
+          "violations": [
+            "nonnegative_level_threshold_is_tautological",
+            "temporal_path_requires_atomic_rewrite"
+          ]
+        },
+        {
+          "assumption_id": "inflation_returns_to_objective",
+          "claim": "Inflation will rise gradually back to the Committee's 2 percent objective as labor conditions improve and transitory energy and import-price effects dissipate.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "fomc_monitor_rule_v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform",
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 2,
+      "meeting_id": "FOMC-2015-07-28",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2015-07-28_gpt-5-6-terra.json",
+      "run_artifact_sha256": "297f5bfb93db70cf25014572fb2b478a781e16f29a88d1352349c6810360d5c5",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_returns_to_target",
+          "claim": "Inflation was expected to rise gradually back to the 2 percent objective over the medium term as transitory energy and import-price effects dissipated.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPI",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2015-10-27",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2015-10-27_gpt-5-6-terra.json",
+      "run_artifact_sha256": "0c7223d425af0f0fc69869acb76d722db40858b3f26625bd804a9b7eaccb0260",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "market_inflation_compensation_floor",
+          "claim": "Market-based five-year, five-year-forward inflation compensation should remain at or above 1.5 percent to avoid a concerning deterioration in inflation-expectations credibility.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "T5YIFR",
+          "threshold_value": 1.5,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2016-03-15",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2016-03-15_gpt-5-6-terra.json",
+      "run_artifact_sha256": "e6d1cff6bec2d45dafe83d03a72be1ee625415e065d9a14aef11eeb93c1bb2b6",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_progress_to_target",
+          "claim": "Inflation was expected to rise to 2 percent over the medium term as transitory energy and import-price effects dissipated and labor markets strengthened further.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "T5YIFR",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "compound_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2016-06-14",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2016-06-14_gpt-5-6-terra.json",
+      "run_artifact_sha256": "63af003895cf8d8a2f50b707bbc1bf2e9356677c59841cbd180b9850a54e4ae6",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_below_target_requires_monitoring",
+          "claim": "Inflation remained below the 2 percent objective and required careful monitoring of progress toward the goal.",
+          "monitor_operator": "LT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2016-11-01",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2016-11-01_gpt-5-6-terra.json",
+      "run_artifact_sha256": "53253707ab80eaa9395e4f48e5e47ea78c109b3de7c2fe9cf41df4515ec2d473",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor-market-overshoot-monitor",
+          "claim": "A decline in unemployment below 4.5 percent would signal heightened risk of overshooting maximum employment and support consideration of further policy tightening.",
+          "monitor_operator": "LT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 4.5,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2017-01-31",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2017-01-31_gpt-5-6-terra.json",
+      "run_artifact_sha256": "e8e8103bf74c0ac8155b871f2a7643e5f0cee11fdeca5612f1b70aed1a7c6a12",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_returns_to_target",
+          "claim": "Inflation is expected to stabilize around the Committee's 2 percent objective over the medium term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform",
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2017-06-13",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2017-06-13_gpt-5-6-terra.json",
+      "run_artifact_sha256": "5b625fd0cf83ccac3a094c8271b506fd46546bcf4d0af5050cd9abcd58048c50",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "hurricane-effects-temporary-labor-market-resilience",
+          "claim": "Hurricane-related disruptions were expected not to materially alter the medium-term national economic course, with labor conditions expected to strengthen further; monitor whether unemployment remains at or below 4.5 percent.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "level_threshold_v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 4.5,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2017-09-19",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2017-09-19_gpt-5-6-terra.json",
+      "run_artifact_sha256": "6d487f1227ae7836b92a9a37066a162861ad010c60fa900f67deb9ce42a8c05e",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_returns_to_objective",
+          "claim": "Twelve-month inflation is expected to move up and stabilize around the Committee's 2 percent objective over the medium term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPI",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform",
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2018-01-30",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2018-01-30_gpt-5-6-terra.json",
+      "run_artifact_sha256": "374ce48a099f023b61959a8a0ce9a2ee97305a27cecc5748d08296743ecad3b2",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_near_symmetric_target",
+          "claim": "Inflation on a 12-month basis is expected to run near the Committee's symmetric 2 percent objective over the medium term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPI",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform",
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2018-05-01",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2018-05-01_gpt-5-6-terra.json",
+      "run_artifact_sha256": "fb27c10ef2da4aa8fe6cea861a79363d028b7852402e5d3322fb2b3e97dc4591",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_near_objective_supports_gradual_path",
+          "claim": "Inflation remaining at or above the 2 percent objective supports the expectation that further gradual increases will be consistent with the Committee's objectives.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2018-07-31",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2018-07-31_gpt-5-6-terra.json",
+      "run_artifact_sha256": "8fb9769aa54b01ed24efc3532eb171881eae92839e1fdc4ebfd895f268397f3e",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "labor_market_remains_low_unemployment",
+          "claim": "The unemployment rate would remain low, consistent with continued strong labor-market conditions.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 4,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2018-12-18",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2018-12-18_gpt-5-6-terra.json",
+      "run_artifact_sha256": "354c105af13211286a505b8d3cb677d73e8774608912eb45989d4fc241bbffef",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "core_pce_inflation_2019_remains_1_9",
+          "claim": "Core PCE price inflation was expected to remain at 1.9 percent over 2019.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 1.9,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2019-03-19",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2019-03-19_gpt-5-6-terra.json",
+      "run_artifact_sha256": "85757d5457abd6757f3353f344c680f4635490689b17b85dbbc2b7807bbdc5e6",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_expectations_at_objective",
+          "claim": "With appropriate policy, inflation expectations will remain consistent with the Committee's symmetric 2 percent objective over the medium term.",
+          "monitor_operator": "GTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "T5YIFR",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2019-07-30",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2019-07-30_gpt-5-6-terra.json",
+      "run_artifact_sha256": "e772a057a816752ac52e815d6c090d49c4889e864ddc23618e61b61ef384a302",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "core_inflation_below_target",
+          "claim": "Core PCE inflation was expected to remain below the 2 percent objective through 2022, supporting the case for additional accommodation.",
+          "monitor_operator": "LT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2019-10-29",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2019-10-29_gpt-5-6-terra.json",
+      "run_artifact_sha256": "9232b8620d1707cb05ac07209f97e13615884b84c02115c132bf40fb33f4cb22",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "pandemic_downside_unemployment",
+          "claim": "A more severe coronavirus scenario would raise unemployment above the baseline level.",
+          "monitor_operator": "GT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 3.6,
+          "valid": true,
+          "violations": []
+        }
+      ],
+      "invalid_assumption_count": 0,
+      "meeting_id": "FOMC-2020-03-02",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2020-03-02_gpt-5-6-terra.json",
+      "run_artifact_sha256": "d60805be389979058d15bb37393b8a7fae8c60d3d49c7d2f8ae26d5897b3525c",
+      "valid": true
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "baseline-unemployment-peak",
+          "claim": "The staff baseline assumed that the economy would begin reopening in June, with the unemployment rate peaking at 18 percent in May and then declining.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 18,
+          "valid": false,
+          "violations": [
+            "temporal_path_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2020-04-28",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2020-04-28_gpt-5-6-terra.json",
+      "run_artifact_sha256": "89479959b79ac9b00be1a0af8f4d5f4b4808188722ca7bfc44e52a39ae0b368a",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "inflation_not_yet_at_liftoff_condition",
+          "claim": "The accommodative target range was expected to remain appropriate until inflation had risen to 2 percent and was on track to moderately exceed 2 percent for some time.",
+          "monitor_operator": "LT",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "PCEPILFE",
+          "threshold_value": 2,
+          "valid": false,
+          "violations": [
+            "index_percent_threshold_requires_yoy_transform"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2020-09-15",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2020-09-15_gpt-5-6-terra.json",
+      "run_artifact_sha256": "447e903534e3fb198defd3fc3f6d947b6607b5e213b1a0a394a9f7879c928aab",
+      "valid": false
+    },
+    {
+      "assumption_count": 1,
+      "assumptions": [
+        {
+          "assumption_id": "substantial-progress-unemployment",
+          "claim": "A decline in unemployment to around 5 percent by the end of 2021 would represent substantial progress toward the Committee's goals.",
+          "monitor_operator": "LTE",
+          "monitor_rule_version": "v1",
+          "monitor_series_id": "UNRATE",
+          "threshold_value": 5,
+          "valid": false,
+          "violations": [
+            "range_or_symmetric_claim_requires_atomic_rewrite"
+          ]
+        }
+      ],
+      "invalid_assumption_count": 1,
+      "meeting_id": "FOMC-2020-12-15",
+      "run_artifact": "artifacts\\codex_subscription\\decision_trace_50_v4\\runs\\FOMC-2020-12-15_gpt-5-6-terra.json",
+      "run_artifact_sha256": "f706eaf4bc67a9218a0ef056e9dee229da33ae5997af126ea771682dfaed9107",
+      "valid": false
+    }
+  ],
+  "execution_provider": "local_deterministic",
+  "invalid_assumption_count": 28,
+  "invalid_case_count": 27,
+  "platform_api_calls": 0,
+  "platform_api_cost_usd": 0.0,
+  "schema_version": "decision_trace_assumption_monitor_audit_v1",
+  "semantic_contract_version": "atomic_one_clause_monitor_v1",
+  "series_metadata_sha256": "172b3413276106317185a62ec5d478bf847628f0d242cd7738d3036165d017f4",
+  "source_batch_status": "artifacts\\codex_subscription\\decision_trace_50_v4\\batch_status.json",
+  "source_batch_status_sha256": "0a1def08548ad3ce9d0ad07ae41f3af2863482ba791ee31aec815158bb7883d1",
+  "source_database": "fred_fomc_real.sqlite",
+  "source_database_sha256": "a7fd78ff8cb52eca2a81ea6b9777bdf048711f2ed6c0a0a660d6d3a777527960",
+  "status": "COMPLETE_WITH_BLOCKING_DEFECTS",
+  "valid_assumption_count": 23,
+  "valid_case_count": 23,
+  "violation_counts": {
+    "compound_claim_requires_atomic_rewrite": 9,
+    "index_percent_threshold_requires_yoy_transform": 15,
+    "nonnegative_level_threshold_is_tautological": 1,
+    "range_or_symmetric_claim_requires_atomic_rewrite": 9,
+    "temporal_path_requires_atomic_rewrite": 2
+  }
+}

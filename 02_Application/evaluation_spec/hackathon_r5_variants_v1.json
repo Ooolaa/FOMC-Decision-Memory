@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "spec_id": "hackathon_r5_variants_v1",
+  "frozen_at": "2026-08-28",
+  "split_manifest_hash": "0f15dda445112ec637e85b8cfe99f195ac0ed9e1d5a8f79e1be375b0420cee14",
+  "evaluator_version": "simulation_policy_vote_v1",
+  "final_test_policy": "one allowed run after prompts, schemas and this spec are frozen",
+  "variants": [
+    {
+      "variant_id": "majority_deterministic",
+      "kind": "deterministic_baseline",
+      "participant_names": false,
+      "persona_evidence": false,
+      "reaction_model": false,
+      "economic_snapshot": false,
+      "meeting_date": false,
+      "execution_status": "COMPLETED"
+    },
+    {
+      "variant_id": "persistence_deterministic",
+      "kind": "deterministic_baseline",
+      "participant_names": false,
+      "persona_evidence": false,
+      "reaction_model": false,
+      "economic_snapshot": false,
+      "meeting_date": false,
+      "execution_status": "COMPLETED"
+    },
+    {
+      "variant_id": "pooled_reaction_deterministic",
+      "kind": "deterministic_baseline",
+      "participant_names": false,
+      "persona_evidence": false,
+      "reaction_model": true,
+      "economic_snapshot": true,
+      "meeting_date": false,
+      "execution_status": "COMPLETED"
+    },
+    {
+      "variant_id": "naked_frozen_llm",
+      "kind": "paid_llm",
+      "participant_names": false,
+      "persona_evidence": false,
+      "reaction_model": false,
+      "economic_snapshot": true,
+      "meeting_date": false,
+      "execution_status": "NOT_EXECUTED_CAP_REQUIRED"
+    },
+    {
+      "variant_id": "named_persona_reaction",
+      "kind": "paid_llm",
+      "participant_names": true,
+      "persona_evidence": true,
+      "reaction_model": true,
+      "economic_snapshot": true,
+      "meeting_date": false,
+      "execution_status": "NOT_EXECUTED_CAP_REQUIRED"
+    },
+    {
+      "variant_id": "anonymous_persona_reaction",
+      "kind": "paid_llm",
+      "participant_names": false,
+      "persona_evidence": true,
+      "reaction_model": true,
+      "economic_snapshot": true,
+      "meeting_date": false,
+      "execution_status": "NOT_EXECUTED_CAP_REQUIRED"
+    },
+    {
+      "variant_id": "named_persona_no_reaction",
+      "kind": "paid_llm",
+      "participant_names": true,
+      "persona_evidence": true,
+      "reaction_model": false,
+      "economic_snapshot": true,
+      "meeting_date": false,
+      "execution_status": "NOT_EXECUTED_CAP_REQUIRED"
+    },
+    {
+      "variant_id": "date_only_memorization_probe",
+      "kind": "paid_llm_probe",
+      "participant_names": false,
+      "persona_evidence": false,
+      "reaction_model": false,
+      "economic_snapshot": false,
+      "meeting_date": true,
+      "execution_status": "NOT_EXECUTED_CAP_REQUIRED"
+    }
+  ],
+  "required_metrics": [
+    "policy_accuracy",
+    "policy_action_mae",
+    "false_action_on_hold",
+    "dissent_base_rate",
+    "dissent_precision",
+    "dissent_recall",
+    "dissent_f1"
+  ],
+  "disclosures": [
+    "No current-meeting statement, minutes, outcome or vote label may enter model input.",
+    "Dissent metrics must be shown beside proposal_action_matches_label.",
+    "Paid variants remain unavailable until the five-document usage sample and self-funded cap are approved."
+  ]
+}

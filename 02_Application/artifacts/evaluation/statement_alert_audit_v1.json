@@ -1,0 +1,1510 @@
+{
+  "active_claim_statement_count": 43,
+  "alert_event_count": 1,
+  "as_of_date": "2026-08-27",
+  "assumption_adopted_at": "2021-04-28",
+  "cooccurrence_false_alarm_count": 0,
+  "cooccurrence_false_alarm_rate": null,
+  "first_alert_at": "2021-12-15",
+  "first_contradiction_at": "2021-05-12",
+  "interpretation": "False-alarm rates cover deterministic temporal and support/flip cooccurrence controls only. They are not human semantic labels and must not be presented as an overall real-world false-positive rate.",
+  "phrase_set_version": "inflation_transitory_phrase_v1",
+  "post_alert_repeat_count": 16,
+  "pre_contradiction_flip_only_count": 0,
+  "pre_contradiction_statement_count": 1,
+  "registered_statement_flip_at": "2021-12-15",
+  "schema_version": 1,
+  "scope": "All locally cached official FOMC statements through as_of_date; each file hash is rechecked before classification.",
+  "spec_id": "inflation_transitory_v1",
+  "statement_count": 165,
+  "statements": [
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "d7e07c46e3591a837701c8d2e34d20a3e252381f87845aaba369ec07f3cce4cb",
+      "document_id": "doc-d7e07c46e3591a837701c8d2",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-01-31",
+      "statement_date": "2006-01-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "ba19758db2b964e03de325bf0a8869e6abb6c76055f485b48d39dd3712aa35de",
+      "document_id": "doc-ba19758db2b964e03de325bf",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-03-27",
+      "statement_date": "2006-03-28"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "0b4c52ea8b93d2300565eaaecf49617c8c24377f5429a89d55ad552ce97685f8",
+      "document_id": "doc-0b4c52ea8b93d2300565eaae",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-05-10",
+      "statement_date": "2006-05-10"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "f281975bc7261f598c10e675e72cb7f245fc0d5b4009816bc77bb6e25e6f9564",
+      "document_id": "doc-f281975bc7261f598c10e675",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-06-28",
+      "statement_date": "2006-06-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "fc16c2bcaf54dbe4977f4e80af1a4b3faa399806d2f8a5a979bc68d4fd6f1840",
+      "document_id": "doc-fc16c2bcaf54dbe4977f4e80",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-08-08",
+      "statement_date": "2006-08-08"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "34ef2db0a9a800ac99ad3f5dde964648e364ced1bafaf0fc9d4cae9f8e80423a",
+      "document_id": "doc-34ef2db0a9a800ac99ad3f5d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-09-20",
+      "statement_date": "2006-09-20"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "076aef52d61a5ae823c0c94adfa51e235621b62307d5c789f890caf85ada03cc",
+      "document_id": "doc-076aef52d61a5ae823c0c94a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-10-24",
+      "statement_date": "2006-10-25"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "b1f330c09a3a2f64e204a7f1c994fd7a8506d2bef4cf8f2269cec12785e64dac",
+      "document_id": "doc-b1f330c09a3a2f64e204a7f1",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2006-12-12",
+      "statement_date": "2006-12-12"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "b3e532e4c27c6c1d8c4cde8f5fad54236e80fcf40e77acd6ba78bf8aa541a4d6",
+      "document_id": "doc-b3e532e4c27c6c1d8c4cde8f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-01-30",
+      "statement_date": "2007-01-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c8debc26f42f08a770467a50aed4706138b6fcd886264ba5ddc7d94df04f0f85",
+      "document_id": "doc-c8debc26f42f08a770467a50",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-03-20",
+      "statement_date": "2007-03-21"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "599ab482c258199bb79873c4feeffd6070b72dde058255587c22725aec9439a3",
+      "document_id": "doc-599ab482c258199bb79873c4",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-05-09",
+      "statement_date": "2007-05-09"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "ba5878482a5f0f5a20bab8a274f0962a53bced120d9d6ec465831640a9b9ffaa",
+      "document_id": "doc-ba5878482a5f0f5a20bab8a2",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-08-07",
+      "statement_date": "2007-08-07"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "45f21833dc867e7697ce5fa66726522406ba2fde95a4cea0ef159ab8e5b53b6f",
+      "document_id": "doc-45f21833dc867e7697ce5fa6",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-09-18",
+      "statement_date": "2007-09-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "298a176dec671322a8bcca75977d37d252cdec1f731d6aa109e324005297b229",
+      "document_id": "doc-298a176dec671322a8bcca75",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-10-30",
+      "statement_date": "2007-10-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "888cdac54ca405a95a5d4505bbce83e752de56a9e8731212e3a0793c0285e63d",
+      "document_id": "doc-888cdac54ca405a95a5d4505",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2007-12-11",
+      "statement_date": "2007-12-11"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "2cd03361a0064c58ffdbe4fdfba071c7aa1196a59aa620fdc88e90e683d95530",
+      "document_id": "doc-2cd03361a0064c58ffdbe4fd",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-01-29",
+      "statement_date": "2008-01-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c2b34ffb5f69c5ce7a83214c4c07904fa167fb645588e9cda3c4e84f568968a0",
+      "document_id": "doc-c2b34ffb5f69c5ce7a83214c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-03-18",
+      "statement_date": "2008-03-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "d38b1ff86f73f32faec547b7c2a0f7822c8383326fa3cded8bc415e1b4c89a57",
+      "document_id": "doc-d38b1ff86f73f32faec547b7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-04-29",
+      "statement_date": "2008-04-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c2b325cd002e70bfe1b0585ffcf28a6ba4884c850969f9dff23e541a662a2aec",
+      "document_id": "doc-c2b325cd002e70bfe1b0585f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-06-24",
+      "statement_date": "2008-06-25"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "91401d384ad3fcd87cb7d903de170373c68f7b3ec7f0564bcbbd61f4f3ce5883",
+      "document_id": "doc-91401d384ad3fcd87cb7d903",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-08-05",
+      "statement_date": "2008-08-05"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "e1a65992b101b2c54db6a774c0a11a6b927a3dc1155eb2aec1ef9ac5a1cd899c",
+      "document_id": "doc-e1a65992b101b2c54db6a774",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-09-16",
+      "statement_date": "2008-09-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "cbf8488ca05e8444ab90ba1e0a0a21c2074fbc249685413addcb7f5ac792ee7a",
+      "document_id": "doc-cbf8488ca05e8444ab90ba1e",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-10-28",
+      "statement_date": "2008-10-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c7b711ea38ab42c4b8652c2ca8aa337dc1bcd9533bd5f4cb694385ab06646704",
+      "document_id": "doc-c7b711ea38ab42c4b8652c2c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2008-12-15",
+      "statement_date": "2008-12-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "54ecf010805c59a1c63deaacc9fc4542ea26e50b09c55db29b12b962ca88fab8",
+      "document_id": "doc-54ecf010805c59a1c63deaac",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-01-27",
+      "statement_date": "2009-01-28"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "aef12b08d81853b85b6b2fab138991ad6f7f6c45ed044fb212373776139f9c6b",
+      "document_id": "doc-aef12b08d81853b85b6b2fab",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-03-17",
+      "statement_date": "2009-03-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "286a070760264a743d23b6c15ad0f9110855a501d2974cbea801c33c1498bc03",
+      "document_id": "doc-286a070760264a743d23b6c1",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-04-28",
+      "statement_date": "2009-04-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "a582776a67b48304d2ead7b8d4b563102cbe002e2ea07dc15c7a08b69122ca5e",
+      "document_id": "doc-a582776a67b48304d2ead7b8",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-06-23",
+      "statement_date": "2009-06-24"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "47d6d76c26a89087d05c44eb17226ff73e46192d04e67cd446a90414ce719b55",
+      "document_id": "doc-47d6d76c26a89087d05c44eb",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-08-11",
+      "statement_date": "2009-08-12"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "e142dd845c7ea1e96b4e2957d7d868a106e9c276810d0b60981ccff550cdb72a",
+      "document_id": "doc-e142dd845c7ea1e96b4e2957",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-09-22",
+      "statement_date": "2009-09-23"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "223b006778d3208499216d36258688f4b4c8ff467ad8f8da0d1ec9d87eeaaeee",
+      "document_id": "doc-223b006778d3208499216d36",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-11-03",
+      "statement_date": "2009-11-04"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "4247bd3422625745c7b30ebde0d09ec53450426cc1bbb885a060057c04263ea3",
+      "document_id": "doc-4247bd3422625745c7b30ebd",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2009-12-15",
+      "statement_date": "2009-12-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "5a5ad7f42cedcd68313dc505ed61a311052eb1010db624ae82cbd3c92bf6e36c",
+      "document_id": "doc-5a5ad7f42cedcd68313dc505",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-01-26",
+      "statement_date": "2010-01-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c43430a193075bd9173a2fb77fb9635b93186c24d1b54ea042222038463ddaf4",
+      "document_id": "doc-c43430a193075bd9173a2fb7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-03-16",
+      "statement_date": "2010-03-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "825df1d7358c0d0f4435880ab01dc56768d566ff78e94ad485e71a9d550345ec",
+      "document_id": "doc-825df1d7358c0d0f4435880a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-04-27",
+      "statement_date": "2010-04-28"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "ade5c993191e6c5cfd6c65c9e3e0c22e7c3ed2264f6eed6c81897eaea9436592",
+      "document_id": "doc-ade5c993191e6c5cfd6c65c9",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-06-22",
+      "statement_date": "2010-06-23"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "a8adc3122f6674f5df6b4a5798909085a5b533588e5dc967818f706c788bded5",
+      "document_id": "doc-a8adc3122f6674f5df6b4a57",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-08-10",
+      "statement_date": "2010-08-10"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "9e991d06fe583e34f39d7512beddfc804bd2b71962dc52e89e5f35a93d5d9fe1",
+      "document_id": "doc-9e991d06fe583e34f39d7512",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-09-21",
+      "statement_date": "2010-09-21"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "79cf632df4af6ab580786238dd3a690797daca423beb6b849f4d54d867f67056",
+      "document_id": "doc-79cf632df4af6ab580786238",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-11-02",
+      "statement_date": "2010-11-03"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "f056abc07a00de15cb6e9b35fe2f98a1bb53cb9a50fe7fb5e662f4ae99fc4243",
+      "document_id": "doc-f056abc07a00de15cb6e9b35",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2010-12-14",
+      "statement_date": "2010-12-14"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "627a4d543c7420004d5bf9c13db0c0cc142312831fd8f11d03ab6eb589169a1e",
+      "document_id": "doc-627a4d543c7420004d5bf9c1",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-01-25",
+      "statement_date": "2011-01-26"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "375b91ff42ab25dbe0e1f872946912033ddf9d7eef790e90ffd0c7b90c2deeee",
+      "document_id": "doc-375b91ff42ab25dbe0e1f872",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-03-15",
+      "statement_date": "2011-03-15"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "012f20694ea29700a6a253d986960de3713173224f370b5744b081aceb77bea5",
+      "document_id": "doc-012f20694ea29700a6a253d9",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-04-26",
+      "statement_date": "2011-04-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "3b4ef4bcaf90f1d6f5772b8915fb585d7597b42b2dc90dae8f6cf5cfde5d9867",
+      "document_id": "doc-3b4ef4bcaf90f1d6f5772b89",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-06-21",
+      "statement_date": "2011-06-22"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "bc69f0a5f52bbea1cdad074cbf6dfb4d53b444df2531e1c8cca9d55b7adb77ad",
+      "document_id": "doc-bc69f0a5f52bbea1cdad074c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-08-09",
+      "statement_date": "2011-08-09"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "507bcffe12d3efc7e4a6a893ecb8a334be50494c38ea3a75b31324cd3cabd566",
+      "document_id": "doc-507bcffe12d3efc7e4a6a893",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-09-20",
+      "statement_date": "2011-09-21"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "0c96183bec6d4009adb953918c5a21b7a80d200ec979751f73aaf6e78cdd5726",
+      "document_id": "doc-0c96183bec6d4009adb95391",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-11-01",
+      "statement_date": "2011-11-02"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "f2b16745255477510587a1094a1abca6287f55243b3dbc30461519d38986527e",
+      "document_id": "doc-f2b16745255477510587a109",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2011-12-13",
+      "statement_date": "2011-12-13"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "efa5e9d88c56bf2dee643d53eadf849d3b2426ec24c6b8a05d7b74c5bea637e9",
+      "document_id": "doc-efa5e9d88c56bf2dee643d53",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-01-24",
+      "statement_date": "2012-01-25"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "59c90df2a1bc23b2ce311c6f3eb4fa8e245b9ad9aa0a4fed019a9e614320a078",
+      "document_id": "doc-59c90df2a1bc23b2ce311c6f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-03-13",
+      "statement_date": "2012-03-13"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "2cc3e3d7e7a54bd99f06c85627f41976e537d4368227c6bed0829ec1534e2d58",
+      "document_id": "doc-2cc3e3d7e7a54bd99f06c856",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-04-24",
+      "statement_date": "2012-04-25"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "533852124ddf1363877980d7c44f701bfa7624fb4abf073496fc70d3216288a5",
+      "document_id": "doc-533852124ddf1363877980d7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-06-19",
+      "statement_date": "2012-06-20"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "833d07a3d5ac93b1e4369dd8b617c9b9d94b8b150753f80377c51c97e6a34ad8",
+      "document_id": "doc-833d07a3d5ac93b1e4369dd8",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-07-31",
+      "statement_date": "2012-08-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "1be910c26624bc6d61e96189366b9213080c8113590b406274b581bae5d92a06",
+      "document_id": "doc-1be910c26624bc6d61e96189",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-09-12",
+      "statement_date": "2012-09-13"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c13f2bcf759b1f29f51d14fa530b7af3379ca4e0ef69cb2510914840cccac905",
+      "document_id": "doc-c13f2bcf759b1f29f51d14fa",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-10-23",
+      "statement_date": "2012-10-24"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "dff04609425a3bf350646552e9a60cf14945ecc7ba8b5b58fb42cf8f4c681646",
+      "document_id": "doc-dff04609425a3bf350646552",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2012-12-11",
+      "statement_date": "2012-12-12"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "93b1d913105102cbfff8ba28c8273c03d08ce0bc87bb0d5eaff636ce63faf84c",
+      "document_id": "doc-93b1d913105102cbfff8ba28",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-01-29",
+      "statement_date": "2013-01-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "9cb2d7016c3e607885f616b770c1d1d3939ceeee7a388d2f3d16dfbeaf2b18b2",
+      "document_id": "doc-9cb2d7016c3e607885f616b7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-03-19",
+      "statement_date": "2013-03-20"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "41623a5732e9f2570ced813efb75dd9c60c5231dc56e57d95555a774bf4f5e50",
+      "document_id": "doc-41623a5732e9f2570ced813e",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-04-30",
+      "statement_date": "2013-05-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c74308e6369bac2d8e4efd99f8ed4ffb6cf6f2f4dfed3d12073eb88d4a7701d0",
+      "document_id": "doc-c74308e6369bac2d8e4efd99",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-06-18",
+      "statement_date": "2013-06-19"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "135c8e2239f765dc47c22786485eee2eb0a14da9364aa1c868be2d060c5c33c7",
+      "document_id": "doc-135c8e2239f765dc47c22786",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-07-30",
+      "statement_date": "2013-07-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "a85b607b6261940d8fd8f1e73bc2a1504344aed31b886c607b555a7af6f4d34a",
+      "document_id": "doc-a85b607b6261940d8fd8f1e7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-09-17",
+      "statement_date": "2013-09-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "d62dc8d6abdc7da8b201932df67838d06d1b2b81b98d4a458ae2008e67137d2b",
+      "document_id": "doc-d62dc8d6abdc7da8b201932d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-10-29",
+      "statement_date": "2013-10-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "f870dd412946a01f73ae7fb05b42c375175261dae0f1c074ad78990d5d19dc69",
+      "document_id": "doc-f870dd412946a01f73ae7fb0",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2013-12-17",
+      "statement_date": "2013-12-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c03da3b7ed2cc911c411a57a679bb68a42d4d6a00a276599cfeb96099cd0b95e",
+      "document_id": "doc-c03da3b7ed2cc911c411a57a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-01-28",
+      "statement_date": "2014-01-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "657e98c66df9a36cbc169594ba297c67d246c07ffd441c011a82de907f105714",
+      "document_id": "doc-657e98c66df9a36cbc169594",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-03-18",
+      "statement_date": "2014-03-19"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "4b2bda2c738bf0eed838f00eccf51e7586b8370f490b96a29205254d62fdc6a3",
+      "document_id": "doc-4b2bda2c738bf0eed838f00e",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-04-29",
+      "statement_date": "2014-04-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "e4836ffe778b1eeceaccbd282cd53d00b1a37b9ace1adfdd4395f97da7d3aeee",
+      "document_id": "doc-e4836ffe778b1eeceaccbd28",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-06-17",
+      "statement_date": "2014-06-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "9f1e5e7bb63e57261ca4fd5418027da385955a2d0591390e788651be8c91da26",
+      "document_id": "doc-9f1e5e7bb63e57261ca4fd54",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-07-29",
+      "statement_date": "2014-07-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "97b430a393b51bcfa47946ca77bb83a7d6465aa770e57390fc23e939290682ea",
+      "document_id": "doc-97b430a393b51bcfa47946ca",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-09-16",
+      "statement_date": "2014-09-17"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "9d12dbb6228d984047c88ff296b83848b01dfe9dc965de0ad8a9b89de984bc54",
+      "document_id": "doc-9d12dbb6228d984047c88ff2",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-10-28",
+      "statement_date": "2014-10-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "fca325e9a4a8cd72b2ad1c3c433888830b58fdd3495656bc67a73feedadabd92",
+      "document_id": "doc-fca325e9a4a8cd72b2ad1c3c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2014-12-16",
+      "statement_date": "2014-12-17"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "e8529450ceb012330d572ebd22ae201f23b81df518851e9af2f4ea74d85a60fc",
+      "document_id": "doc-e8529450ceb012330d572ebd",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-01-27",
+      "statement_date": "2015-01-28"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "d0828b258765c7a23fd805642b9bb5071f07aea865329361f733398a14f4c431",
+      "document_id": "doc-d0828b258765c7a23fd80564",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-03-17",
+      "statement_date": "2015-03-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "8356f34e0ef699d1d75c6636bcd6f1366a298e725594f52f5542847e5a6d3d16",
+      "document_id": "doc-8356f34e0ef699d1d75c6636",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-04-28",
+      "statement_date": "2015-04-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "ceb0c7d7dbceee086d6fa9be188c20c0bd1984c6b783f789d78cf0e3576cd699",
+      "document_id": "doc-ceb0c7d7dbceee086d6fa9be",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-06-16",
+      "statement_date": "2015-06-17"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "47473bfedd4f68d85f053941ab80f662b646aef19bef874555b2452ce9922280",
+      "document_id": "doc-47473bfedd4f68d85f053941",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-07-28",
+      "statement_date": "2015-07-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "5c990a1996d07c7aaf5ad98a07a4b670499b26fca2f683fab72481d70429204b",
+      "document_id": "doc-5c990a1996d07c7aaf5ad98a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-09-16",
+      "statement_date": "2015-09-17"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "dc81db3975fa3baa14e304508a984675b2484e0e3b00dcc816fead42c98cbba8",
+      "document_id": "doc-dc81db3975fa3baa14e30450",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-10-27",
+      "statement_date": "2015-10-28"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "dbada64487dc196cacba9f3a48a2d13947232a3aab973512465fbd1bed901c73",
+      "document_id": "doc-dbada64487dc196cacba9f3a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2015-12-15",
+      "statement_date": "2015-12-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "466d728164015edcb9f86f919cb5ea352f1198fddc1bd0b842c90671900b5a94",
+      "document_id": "doc-466d728164015edcb9f86f91",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-01-26",
+      "statement_date": "2016-01-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "49eb2dfe87b058d4391acf7ff7e7cf4a643aecb096bee4cb606b0cd8ab44e673",
+      "document_id": "doc-49eb2dfe87b058d4391acf7f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-03-15",
+      "statement_date": "2016-03-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "226dca2e8a9d6b33bd2a6b95c4148436711046679a9bfff63d8749a47a413eec",
+      "document_id": "doc-226dca2e8a9d6b33bd2a6b95",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-04-26",
+      "statement_date": "2016-04-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "53220cfd2fdc22f2438348824e8d8ca39715231d6ddbb0ceca94a54050def7cc",
+      "document_id": "doc-53220cfd2fdc22f243834882",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-06-14",
+      "statement_date": "2016-06-15"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "99c1f8ae0787120f5c944ce4f6d8caa09b79beeabe4e5f3cd7046f754de0609e",
+      "document_id": "doc-99c1f8ae0787120f5c944ce4",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-07-26",
+      "statement_date": "2016-07-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "ce7c397e39fc86d791a02610a34dc67cd183b22314c78ed7e329d5048bf02a78",
+      "document_id": "doc-ce7c397e39fc86d791a02610",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-09-20",
+      "statement_date": "2016-09-21"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "b7477f032eaa30fa9baae9f14a283f873ab70db17a41c56f3cf65e2b04437bb4",
+      "document_id": "doc-b7477f032eaa30fa9baae9f1",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-11-01",
+      "statement_date": "2016-11-02"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "91fb809a0ac43ebe50b647e27f79fdef8fdd7a8ec531450cf4d3000db53ae9aa",
+      "document_id": "doc-91fb809a0ac43ebe50b647e2",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2016-12-13",
+      "statement_date": "2016-12-14"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c15e8414a6e196abe3c75a4bac42f3f4471288226bd4ed8cb867e1bc58fa9b11",
+      "document_id": "doc-c15e8414a6e196abe3c75a4b",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-01-31",
+      "statement_date": "2017-02-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "83a0a1708eff680345453d3da59af7bf4ac2bf41082ce74d4384cb177f465d2a",
+      "document_id": "doc-83a0a1708eff680345453d3d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-03-14",
+      "statement_date": "2017-03-15"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "5ab04fbf3ad9646c3ec628d931189742b11207e93d4b6c3c9c469418b584b582",
+      "document_id": "doc-5ab04fbf3ad9646c3ec628d9",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-05-02",
+      "statement_date": "2017-05-03"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "845b3725c7cc94606b020f2901cd1716cbf46206e8273d347aeb369a5743397a",
+      "document_id": "doc-845b3725c7cc94606b020f29",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-06-13",
+      "statement_date": "2017-06-14"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "8046ce5c46193947ab2ca5bad4ec0328d452897777772e552ad516017a8794fd",
+      "document_id": "doc-8046ce5c46193947ab2ca5ba",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-07-25",
+      "statement_date": "2017-07-26"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "de7ec3723e7a0ec6700a4ecf7776258cfde3ff57f365b0e8e2563773f238751b",
+      "document_id": "doc-de7ec3723e7a0ec6700a4ecf",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-09-19",
+      "statement_date": "2017-09-20"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "083ae18cdc702c77efd7c10dde65179958dfd936d92bb9c5705cad3b4a4cd09a",
+      "document_id": "doc-083ae18cdc702c77efd7c10d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-10-31",
+      "statement_date": "2017-11-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "0f19b455618b50ccd627e4a771ae441fae70225fc67e7a36ae36f6e11820d228",
+      "document_id": "doc-0f19b455618b50ccd627e4a7",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2017-12-12",
+      "statement_date": "2017-12-13"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "4dc406d263a12e8bbda4bece74fc88e6f5f5353f0bdef0615f6cfe525af6bff2",
+      "document_id": "doc-4dc406d263a12e8bbda4bece",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-01-30",
+      "statement_date": "2018-01-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "96c7602c0b0998c0a843ab2aef3c88d3d754f10a8dac5181dd6ae7d6e8c44e03",
+      "document_id": "doc-96c7602c0b0998c0a843ab2a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-03-20",
+      "statement_date": "2018-03-21"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "9b4c1c3845b7c612df01502a56d12ab0642ac40459708ac7d57566a724f8ff13",
+      "document_id": "doc-9b4c1c3845b7c612df01502a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-05-01",
+      "statement_date": "2018-05-02"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "4bbeb0e25999e42bad077080da1b0fbf3acbdc3eed2b0b76aaec3ae30b0eb303",
+      "document_id": "doc-4bbeb0e25999e42bad077080",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-06-12",
+      "statement_date": "2018-06-13"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "bdccf068101b61bc736774e40c501a59a37d32e4fd713980bc3249f2452d9c9a",
+      "document_id": "doc-bdccf068101b61bc736774e4",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-07-31",
+      "statement_date": "2018-08-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "11907ecfe1e112c006495895975627e2e987fd7a167d91a098fd02c663881630",
+      "document_id": "doc-11907ecfe1e112c006495895",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-09-25",
+      "statement_date": "2018-09-26"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "321cfeea76cd241730f7502e5c7fd71dab4698e1e00d4512605b7573fe178f0b",
+      "document_id": "doc-321cfeea76cd241730f7502e",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-11-07",
+      "statement_date": "2018-11-08"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "027c161556213b1ee231e3e6a3df389e84d4e6585410d98ba00d3795e40074c2",
+      "document_id": "doc-027c161556213b1ee231e3e6",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2018-12-18",
+      "statement_date": "2018-12-19"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "97d8aae4ebfd920b86625c0c50518a8a52abf8c3f556ae1d67748b100dd90acf",
+      "document_id": "doc-97d8aae4ebfd920b86625c0c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-01-29",
+      "statement_date": "2019-01-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "656f5b2a77bb93f3ab0a38e49eab482f3916fd4b056274a8beb10bba2e0fd69a",
+      "document_id": "doc-656f5b2a77bb93f3ab0a38e4",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-03-19",
+      "statement_date": "2019-03-20"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "0b2c2cd24ae75fccde059258921fcb06add575dd0465254eda8bf1454760134d",
+      "document_id": "doc-0b2c2cd24ae75fccde059258",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-04-30",
+      "statement_date": "2019-05-01"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "a116e1c24bd01c803f5d658c204c61be54ff607b424c502423bf24b1a962e3fc",
+      "document_id": "doc-a116e1c24bd01c803f5d658c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-06-18",
+      "statement_date": "2019-06-19"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "f715d024c047f5edf109ce0f41e1c9eb82829857b8e2a0a4ad2eaa80c61e24ea",
+      "document_id": "doc-f715d024c047f5edf109ce0f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-07-30",
+      "statement_date": "2019-07-31"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "6213592f20e49f57ee63f94ff8ceb6738fce65034f73564361d4925af22afeec",
+      "document_id": "doc-6213592f20e49f57ee63f94f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-09-17",
+      "statement_date": "2019-09-18"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "2ce9cbbbedbeaf457a0f89140e1679886cd7d7bdced5ea523988348d5d05403a",
+      "document_id": "doc-2ce9cbbbedbeaf457a0f8914",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-10-29",
+      "statement_date": "2019-10-30"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "07a7f2639c6f724b295ed89abe8e9ec91add5cdb19ce2c247ab812c5f9b58f96",
+      "document_id": "doc-07a7f2639c6f724b295ed89a",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2019-12-10",
+      "statement_date": "2019-12-11"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "efbbf94b959cee0c9d965d19ac6013507b61f6a17965a7056ce3ac2a50374f62",
+      "document_id": "doc-efbbf94b959cee0c9d965d19",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-01-28",
+      "statement_date": "2020-01-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "b74ce073226da9bc913a5c699de10091b00fb327844be579cebc216702c540ff",
+      "document_id": "doc-b74ce073226da9bc913a5c69",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-03-02",
+      "statement_date": "2020-03-03"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "c33c2eddaae3dd5c8251b984d6063a4563796e0dc4192d3c01cfa7852e34adfe",
+      "document_id": "doc-c33c2eddaae3dd5c8251b984",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-03-15",
+      "statement_date": "2020-03-15"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "284532132702a6214eef808f256cfbe9bfb3439661db3bd65b8d4aba78e05890",
+      "document_id": "doc-284532132702a6214eef808f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-04-28",
+      "statement_date": "2020-04-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "88e2300831b8c2a65644a11829330512e98bff839ddedb9b0cd6b8eb4bd670e7",
+      "document_id": "doc-88e2300831b8c2a65644a118",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-06-09",
+      "statement_date": "2020-06-10"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "6d1203783472b1d1d1769329d3a87c5dd59fcd83e76c85db2a3727844c94a5e5",
+      "document_id": "doc-6d1203783472b1d1d1769329",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-07-28",
+      "statement_date": "2020-07-29"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "5e2df3ca4c8a8d1b7eb35f316312fb2f1200214e585352ba0181e2b2f0a58e72",
+      "document_id": "doc-5e2df3ca4c8a8d1b7eb35f31",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-09-15",
+      "statement_date": "2020-09-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "884e539b5ee99f7584beb4925e27fe3cefa3f5993d471e970833211c23284875",
+      "document_id": "doc-884e539b5ee99f7584beb492",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-11-04",
+      "statement_date": "2020-11-05"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "a72aa53e365b6944e4ac236d755fa4cec5a6d23b300f6ee1f53028bdde7c3b4e",
+      "document_id": "doc-a72aa53e365b6944e4ac236d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2020-12-15",
+      "statement_date": "2020-12-16"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "e3447712f42049a43541ae95b8efe181e54119b55992581940ee0fc793f30a59",
+      "document_id": "doc-e3447712f42049a43541ae95",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2021-01-26",
+      "statement_date": "2021-01-27"
+    },
+    {
+      "classification": "PRE_ADOPTION",
+      "content_hash": "7ed434398ab3a9d99650ee7f96bc6309125856bc3eaecd5c9511750beaf34b03",
+      "document_id": "doc-7ed434398ab3a9d99650ee7f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2021-03-16",
+      "statement_date": "2021-03-17"
+    },
+    {
+      "classification": "SUPPORT",
+      "content_hash": "92ca5de0aa8731ffa86d44f973eb5bcd15f95a232da3e6c549d5b80b435944e5",
+      "document_id": "doc-92ca5de0aa8731ffa86d44f9",
+      "has_flip_pattern": false,
+      "has_support_pattern": true,
+      "meeting_id": "FOMC-2021-04-27",
+      "statement_date": "2021-04-28"
+    },
+    {
+      "classification": "SUPPORT",
+      "content_hash": "2bd869e2d0f7ffe329d0498b688baf7a9c400ce41c22a22d5b5bd2345c7d72f7",
+      "document_id": "doc-2bd869e2d0f7ffe329d0498b",
+      "has_flip_pattern": false,
+      "has_support_pattern": true,
+      "meeting_id": "FOMC-2021-06-15",
+      "statement_date": "2021-06-16"
+    },
+    {
+      "classification": "SUPPORT",
+      "content_hash": "62b12cb60599ceab0e5e65444f3cfbd25be4bbe05907677213e2d171df6a2da2",
+      "document_id": "doc-62b12cb60599ceab0e5e6544",
+      "has_flip_pattern": false,
+      "has_support_pattern": true,
+      "meeting_id": "FOMC-2021-07-27",
+      "statement_date": "2021-07-28"
+    },
+    {
+      "classification": "SUPPORT",
+      "content_hash": "ec1038b55cafc3831de5ae6a41268b43b20eadae509002390cdbf09946951500",
+      "document_id": "doc-ec1038b55cafc3831de5ae6a",
+      "has_flip_pattern": false,
+      "has_support_pattern": true,
+      "meeting_id": "FOMC-2021-09-21",
+      "statement_date": "2021-09-22"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "560d3cadfeee22c17b9344ab1a7045eab88ea9f5f683128696f73e5ee3dff258",
+      "document_id": "doc-560d3cadfeee22c17b9344ab",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2021-11-02",
+      "statement_date": "2021-11-03"
+    },
+    {
+      "classification": "ALERT",
+      "content_hash": "4f92aec6b39f19b753e2f8b24dc4749fcd826b72b68ab31497c483ccc90b10b2",
+      "document_id": "doc-4f92aec6b39f19b753e2f8b2",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2021-12-14",
+      "statement_date": "2021-12-15"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "a4eee9e23ca63addf7002dd96bc28f2246763990182b089c51cdae7b379441cf",
+      "document_id": "doc-a4eee9e23ca63addf7002dd9",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-01-25",
+      "statement_date": "2022-01-26"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "3b5946862261c1b45db4d7a8231fd6896aace4ba7276a459cf8906f736b572a4",
+      "document_id": "doc-3b5946862261c1b45db4d7a8",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-03-15",
+      "statement_date": "2022-03-16"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "bca4bc36b51b60f130452c3fb6f8b1b1d39b3bd8c5efda535d4e19e69337cf31",
+      "document_id": "doc-bca4bc36b51b60f130452c3f",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-05-03",
+      "statement_date": "2022-05-04"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "dbf180c03bba308308f6af7f53a063b397f3b0620e2d3f5e58bbbe624058f612",
+      "document_id": "doc-dbf180c03bba308308f6af7f",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-06-14",
+      "statement_date": "2022-06-15"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "fb10ecdf8d56b73a7378c0710a55854aa8b05aa3dd1d6d765d5d5fbc45276b7c",
+      "document_id": "doc-fb10ecdf8d56b73a7378c071",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-07-26",
+      "statement_date": "2022-07-27"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "c24c5bc81f60b5d6fa69c5d907e635c7c4f697cd27fa1cfa77c86e7fc06b462f",
+      "document_id": "doc-c24c5bc81f60b5d6fa69c5d9",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-09-20",
+      "statement_date": "2022-09-21"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "ccf681c0d8f16e89d33cf3fb9acb296ef1eb5763ec227a43d43ceffba9083aca",
+      "document_id": "doc-ccf681c0d8f16e89d33cf3fb",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-11-01",
+      "statement_date": "2022-11-02"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "54fab4362dcad43b75f1840f35e31d1772ee52f7ae58b88bdf80e37dcca4d214",
+      "document_id": "doc-54fab4362dcad43b75f1840f",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2022-12-13",
+      "statement_date": "2022-12-14"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "04570febc84585dd8f582fce4eda7cf8261b6e160bc5b229a0b37e6f02ba89bf",
+      "document_id": "doc-04570febc84585dd8f582fce",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-01-31",
+      "statement_date": "2023-02-01"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "daac46aa16136d63510eb9286a4ea451b414dbf9336060e68af2dc43abb81336",
+      "document_id": "doc-daac46aa16136d63510eb928",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-03-21",
+      "statement_date": "2023-03-22"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "a7c9308e164f26d1267a8e7a632d477c5370b2564ac10c6651c5d3e58a6ccf6a",
+      "document_id": "doc-a7c9308e164f26d1267a8e7a",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-05-02",
+      "statement_date": "2023-05-03"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "7044da8dc5ed813d1fd023befbbb339b909c6ea1c341dc090779a5408c6005d6",
+      "document_id": "doc-7044da8dc5ed813d1fd023be",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-06-13",
+      "statement_date": "2023-06-14"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "f36c262ce20b2896c1ac066d8af2678d9836a97b0d9bacddeb8aa92a6bd4adff",
+      "document_id": "doc-f36c262ce20b2896c1ac066d",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-07-25",
+      "statement_date": "2023-07-26"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "3dc585160c97506159fb017005586f6c981b0503a8aae49b2ca966b23f5ac175",
+      "document_id": "doc-3dc585160c97506159fb0170",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-09-19",
+      "statement_date": "2023-09-20"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "b96eb7cc0907bc53c7f89620a22bb4bcda76b1b50ca05db91f7e15226a4a8141",
+      "document_id": "doc-b96eb7cc0907bc53c7f89620",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-10-31",
+      "statement_date": "2023-11-01"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "aab53b073739a0fade5c234ecf7697d7af60ded25e1e79f1c4ae515b1efabfeb",
+      "document_id": "doc-aab53b073739a0fade5c234e",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2023-12-12",
+      "statement_date": "2023-12-13"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "3112fdbf458c387d167695c90a6e613d1e9ea26a2189127b5386a0ee11163f8f",
+      "document_id": "doc-3112fdbf458c387d167695c9",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-01-30",
+      "statement_date": "2024-01-31"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "33d9858f7ea5266e9c82334da4310f9a366190d98fa5417afc55f29c3fc7f571",
+      "document_id": "doc-33d9858f7ea5266e9c82334d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-03-19",
+      "statement_date": "2024-03-20"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "7b07b3748c4a3ea5b8cfec6dc5c665fd072ec064f3e4c7b25ce37c85ef689926",
+      "document_id": "doc-7b07b3748c4a3ea5b8cfec6d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-04-30",
+      "statement_date": "2024-05-01"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "9b01ee444f680e1da0d71feda81ba60a1d2856065a9a6aceeb6a10c97c9a900d",
+      "document_id": "doc-9b01ee444f680e1da0d71fed",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-06-11",
+      "statement_date": "2024-06-12"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "9598a846f6b767ee12ce9706c936ced0baf3764fb9f1bf312313c98baf3c2bb7",
+      "document_id": "doc-9598a846f6b767ee12ce9706",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-07-30",
+      "statement_date": "2024-07-31"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "1680e6aedd2deea3b94c6bdd0bc0da8c07992004a4d0fe7863394773934947ea",
+      "document_id": "doc-1680e6aedd2deea3b94c6bdd",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-09-17",
+      "statement_date": "2024-09-18"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "a3439cb516570a982bdcb7a625011ab40582cd362a1b5e07fe14e739f9871abc",
+      "document_id": "doc-a3439cb516570a982bdcb7a6",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-11-06",
+      "statement_date": "2024-11-07"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "ccd43ce231a5d5ea6f087998d66762a3c756266e10adf47daed51c5b040f8d76",
+      "document_id": "doc-ccd43ce231a5d5ea6f087998",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2024-12-17",
+      "statement_date": "2024-12-18"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "a9a5a11f69061233d0bccdf4cf595d2e55c13b14a61671ea1a5466f1ff40f919",
+      "document_id": "doc-a9a5a11f69061233d0bccdf4",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-01-28",
+      "statement_date": "2025-01-29"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "1b62c0e32d0587368c60d63c14150aa0f751580d0e4fdfe9c6f9016482b42826",
+      "document_id": "doc-1b62c0e32d0587368c60d63c",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-03-18",
+      "statement_date": "2025-03-19"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "6569d5bd103c4d8ced86d9663a50bf499a6d2d116f912ee6947e272699f35683",
+      "document_id": "doc-6569d5bd103c4d8ced86d966",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-05-06",
+      "statement_date": "2025-05-07"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "4a513b6cc3db48eaf2482678e6ddb5a4ff33c4f8e8a3a5756fa35375430a53ed",
+      "document_id": "doc-4a513b6cc3db48eaf2482678",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-06-17",
+      "statement_date": "2025-06-18"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "9490237e5b5537ac3c91f84697bbfe61e3d7753ad62afaeb0810d1dc6a9b9249",
+      "document_id": "doc-9490237e5b5537ac3c91f846",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-07-29",
+      "statement_date": "2025-07-30"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "232eb2400f4c72a1255c1c6d1360f77eeb69479bd2f218b4f5f1c6efd9c042e1",
+      "document_id": "doc-232eb2400f4c72a1255c1c6d",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-09-16",
+      "statement_date": "2025-09-17"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "9b4613174419cdf42150a6d620bf68eecbf85a8d5c403746b13e289275dcb5c1",
+      "document_id": "doc-9b4613174419cdf42150a6d6",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-10-28",
+      "statement_date": "2025-10-29"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "1fc516a5f3e12092f19e98bf86c4504edaef9ea7d487760a4b2cb04666f97f5f",
+      "document_id": "doc-1fc516a5f3e12092f19e98bf",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2025-12-09",
+      "statement_date": "2025-12-10"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "7c45d5e5a499c74408504f1fb313e42e1b783080ad86fbc2a2255867c95d29ea",
+      "document_id": "doc-7c45d5e5a499c74408504f1f",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2026-01-27",
+      "statement_date": "2026-01-28"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "355006f55c1ebfe9838cab8401842d5ca3f9fd0aee7bcde89658d545124bec42",
+      "document_id": "doc-355006f55c1ebfe9838cab84",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2026-03-17",
+      "statement_date": "2026-03-18"
+    },
+    {
+      "classification": "NO_MATCH",
+      "content_hash": "4a6f17c7b7ebaaa177af4fbef4808e397e9bbf6a76b9643be9b684635a803692",
+      "document_id": "doc-4a6f17c7b7ebaaa177af4fbe",
+      "has_flip_pattern": false,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2026-04-28",
+      "statement_date": "2026-04-29"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "543dbe22df93ca41f70003a1f4de556ad63062a1fc2060097369fc0d9156726e",
+      "document_id": "doc-543dbe22df93ca41f70003a1",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2026-06-16",
+      "statement_date": "2026-06-17"
+    },
+    {
+      "classification": "POST_ALERT_REPEAT",
+      "content_hash": "05444dd8467e4fb0825342986a03d6139d4f4a2af3404e6c15dd091f97b6d7aa",
+      "document_id": "doc-05444dd8467e4fb082534298",
+      "has_flip_pattern": true,
+      "has_support_pattern": false,
+      "meeting_id": "FOMC-2026-07-28",
+      "statement_date": "2026-07-29"
+    }
+  ],
+  "support_flip_cooccurrence_count": 0,
+  "temporal_false_alarm_count": 0,
+  "temporal_false_alarm_rate": 0.0
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "authorization_id": "terra_luna_votes_only_3case_v1_authorization_1",
+  "authorized_at_utc": "2026-08-28T03:46:06Z",
+  "experiment_id": "terra_luna_votes_only_3case_v1",
+  "experiment_spec_path": "evaluation_spec/terra_luna_votes_only_3case_v1.json",
+  "experiment_spec_sha256": "4b168e55e371fcec5b4fc61301ccea62b9b2953289d0015a7b5f6a54c67f3c18",
+  "authorization_status": "EXPLICITLY_AUTHORIZED",
+  "aggregate_hard_cap_usd": 6.5,
+  "authorized_paid_requests": 6,
+  "authorized_scope": [
+    "FOMC-2022-03-15:gpt-5.6-terra:votes-only:one-attempt-plus-at-most-one-semantic-repair",
+    "FOMC-2022-03-15:gpt-5.6-luna:votes-only:one-attempt-plus-at-most-one-semantic-repair",
+    "FOMC-2023-09-19:gpt-5.6-terra:votes-only:one-attempt-plus-at-most-one-semantic-repair",
+    "FOMC-2023-09-19:gpt-5.6-luna:votes-only:one-attempt-plus-at-most-one-semantic-repair",
+    "FOMC-2024-09-17:gpt-5.6-terra:votes-only:one-attempt-plus-at-most-one-semantic-repair",
+    "FOMC-2024-09-17:gpt-5.6-luna:votes-only:one-attempt-plus-at-most-one-semantic-repair"
+  ],
+  "prohibited_reallocation": [
+    "repeats",
+    "other stages",
+    "Frozen 45",
+    "other meetings",
+    "replacement requests"
+  ],
+  "execution_rule": "Run sequentially in the preregistered order, subtract each completed run's actual cost from the aggregate cap, pass only the remaining cap to the next run, and stop the batch on the first failure without retry or substitution.",
+  "user_authorization_verbatim": "我核准執行 Terra–Luna votes-only 三場六個 requests，跨全部 runs 總硬上限 US$6.50；僅限 FOMC-2022-03-15、FOMC-2023-09-19、FOMC-2024-09-17，每場 Terra 與 Luna 各一次，不得挪用於 repeats、其他 stages 或 Frozen 45。"
+}

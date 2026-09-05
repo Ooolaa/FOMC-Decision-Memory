@@ -1,0 +1,33 @@
+[theme]
+base = "light"
+primaryColor = "#1B7F93"
+backgroundColor = "#F4F6F9"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1C2733"
+linkColor = "#1B7F93"
+borderColor = "#DFE5EC"
+dataframeBorderColor = "#DFE5EC"
+showWidgetBorder = true
+baseRadius = "10px"
+buttonRadius = "8px"
+baseFontSize = 15
+font = "'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', 'Segoe UI', sans-serif"
+headingFont = "'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', 'Segoe UI', sans-serif"
+headingFontSizes = ["2rem", "1.5rem", "1.2rem"]
+headingFontWeights = [700, 700, 600]
+codeBackgroundColor = "#EEF2F6"
+
+[theme.sidebar]
+backgroundColor = "#0E2540"
+secondaryBackgroundColor = "#16375C"
+textColor = "#E8EFF7"
+primaryColor = "#54B5C6"
+borderColor = "#22466F"
+linkColor = "#8FD3DF"
+
+[server]
+headless = true
+address = "127.0.0.1"
+
+[browser]
+gatherUsageStats = false

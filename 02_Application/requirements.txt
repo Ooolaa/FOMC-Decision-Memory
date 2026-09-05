@@ -1,0 +1,8 @@
+jsonschema==4.23.0
+numpy==1.26.4
+openai==2.32.0
+pandas==2.2.3
+pypdf==3.14.0
+statsmodels==0.13.5
+streamlit==1.55.0
+websocket-client==1.8.0

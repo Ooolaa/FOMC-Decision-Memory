@@ -1,0 +1,294 @@
+{
+  "billing_route": "chatgpt_subscription",
+  "execution_provider": "codex_subscription",
+  "forecast_as_of": "2026-09-01",
+  "meeting_id": "FOMC-2026-09-15",
+  "model_bundle_hash": "14517d6151422208fa534c9ca47dc80d0ea397b2676932fe6e2f28d2d7d403a1",
+  "model_id": "gpt-5.6-terra",
+  "output": {
+    "discussion": [
+      {
+        "participant_id": "anna-paulson",
+        "synthetic_text": "Inflation remains above goal, but the latest snapshot also shows a stable labor market and no evident financial-stress signal. I would begin from a position of patience while watching whether disinflation resumes convincingly."
+      },
+      {
+        "participant_id": "beth-m-hammack",
+        "synthetic_text": "The combination of inflation above target, solid activity, and accommodative credit conditions argues against assuming that current restraint is sufficient. I would place substantial weight on the risk that persistent price pressures become more broad based."
+      },
+      {
+        "participant_id": "christopher-j-waller",
+        "synthetic_text": "The evidence calls for separating temporary supply effects from persistent inflation. With labor conditions stable and activity resilient, I would want policy to remain responsive to incoming evidence rather than pre-commit to a path."
+      },
+      {
+        "participant_id": "jerome-h-powell",
+        "synthetic_text": "Our task is to balance continued inflation progress against maintaining maximum employment. Given elevated inflation, a stable labor market, and material uncertainty, I favor a careful, data-dependent discussion focused on the evolution of the outlook."
+      },
+      {
+        "participant_id": "john-c-williams",
+        "synthetic_text": "The economy appears to be expanding solidly and labor conditions remain balanced, while inflation is still too high. I would assess whether recent inflation improvement is durable before concluding that the present stance needs adjustment."
+      },
+      {
+        "participant_id": "kevin-m-warsh",
+        "synthetic_text": "Price stability remains essential to sustaining full employment. With inflation materially above objective, positive yield-curve slope, and little sign of broad credit impairment, the Committee should evaluate whether its present stance is sufficiently restrictive while preserving optionality."
+      },
+      {
+        "participant_id": "lisa-d-cook",
+        "synthetic_text": "Persistently elevated inflation burdens households, but uncertainty around supply conditions and future activity remains high. I would weigh the current inflation reading against signs that labor-market balance could change, and avoid treating either risk as settled."
+      },
+      {
+        "participant_id": "lorie-k-logan",
+        "synthetic_text": "Inflation risks remain tilted upward when demand is resilient and financial conditions do not appear broadly impaired. I would focus on preventing inflation from becoming entrenched, while testing that judgment against forthcoming evidence on activity and prices."
+      },
+      {
+        "participant_id": "michael-s-barr",
+        "synthetic_text": "The snapshot is consistent with a labor market near balance and inflation still above objective. I would emphasize risk management: preserve progress on price stability while remaining alert to the possibility that uncertainty or tighter conditions could affect employment."
+      },
+      {
+        "participant_id": "michelle-w-bowman",
+        "synthetic_text": "A practical assessment should begin with the mismatch between above-target inflation and an economy that remains resilient. I would look closely for evidence that policy is producing sustained disinflation rather than relying on an expectation that it will occur."
+      },
+      {
+        "participant_id": "neel-kashkari",
+        "synthetic_text": "Repeated supply shocks and durable demand pressures can make elevated inflation more persistent than expected. With unemployment low and credit spreads contained, I would put particular emphasis on guarding against a drift in inflation expectations."
+      },
+      {
+        "participant_id": "philip-n-jefferson",
+        "synthetic_text": "The dual mandate requires an assessment of both inflation persistence and labor-market resilience. I would favor a measured discussion that uses the current above-target inflation reading, stable unemployment, and evolving financial conditions to judge the appropriate degree of restraint."
+      }
+    ],
+    "final_proposal": {
+      "action_class": "HOLD",
+      "proposer_participant_id": "kevin-m-warsh",
+      "rationale": "Maintain the current target range. Inflation remains materially above the objective, but the recent snapshot shows stable unemployment, contained credit spreads, and no broad financial stress. Holding preserves a restrictive posture while allowing additional evidence to distinguish persistent inflation from transitory supply effects and to assess whether disinflation is resuming durably."
+    },
+    "meeting_id": "FOMC-2026-09-15",
+    "profiles": [
+      {
+        "display_name": "Anna Paulson",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6"
+        ],
+        "is_chair": false,
+        "participant_id": "anna-paulson"
+      },
+      {
+        "display_name": "Beth M. Hammack",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": false,
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "display_name": "Christopher J. Waller",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "display_name": "Jerome H. Powell",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "display_name": "John C. Williams",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "john-c-williams"
+      },
+      {
+        "display_name": "Kevin M. Warsh",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": true,
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "display_name": "Lisa D. Cook",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "display_name": "Lorie K. Logan",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": false,
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "display_name": "Michael S. Barr",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "display_name": "Michelle W. Bowman",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "display_name": "Neel Kashkari",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-05444dd8467e4fb082534298"
+        ],
+        "is_chair": false,
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "display_name": "Philip N. Jefferson",
+        "evidence_ids": [
+          "doc-dd8a657b2a9c1b47deb301b6",
+          "doc-c6cb52cc79b9579ed49d628f"
+        ],
+        "is_chair": false,
+        "participant_id": "philip-n-jefferson"
+      }
+    ],
+    "schema_version": "simulation_output_v1",
+    "synthetic": true,
+    "votes": [
+      {
+        "choice": "FOR",
+        "participant_id": "anna-paulson"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "beth-m-hammack"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "christopher-j-waller"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "jerome-h-powell"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "john-c-williams"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "kevin-m-warsh"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "lisa-d-cook"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "lorie-k-logan"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michael-s-barr"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "michelle-w-bowman"
+      },
+      {
+        "choice": "AGAINST",
+        "participant_id": "neel-kashkari"
+      },
+      {
+        "choice": "FOR",
+        "participant_id": "philip-n-jefferson"
+      }
+    ]
+  },
+  "platform_api_cost_usd": 0.0,
+  "schema_version": "forward_variant_run_v1",
+  "status": "SUBSCRIPTION_FORWARD_COMPLETED",
+  "usage": [
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 57093,
+      "latency_seconds": 21.56,
+      "output_tokens": 840,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 78,
+      "stage": "profiles",
+      "thread_id": "01a05fbc-b7d9-7a82-aa1f-35e758232a56"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 57838,
+      "latency_seconds": 29.31008,
+      "output_tokens": 1221,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 81,
+      "stage": "openings",
+      "thread_id": "01a05fbd-0c25-75d1-b0f2-dafaadf90868"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 0,
+      "input_tokens": 58972,
+      "latency_seconds": 13.5443,
+      "output_tokens": 369,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 49,
+      "stage": "options",
+      "thread_id": "01a05fbd-7eda-74d1-8ee9-f64e8bcc9341"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 59282,
+      "latency_seconds": 12.040402,
+      "output_tokens": 116,
+      "reasoning_effort": "high",
+      "reasoning_output_tokens": 0,
+      "stage": "chair",
+      "thread_id": "01a05fbd-b3ec-7b33-933a-3a071839ab17"
+    },
+    {
+      "attempt": 1,
+      "cached_input_tokens": 21248,
+      "input_tokens": 59425,
+      "latency_seconds": 18.945766,
+      "output_tokens": 657,
+      "reasoning_effort": "medium",
+      "reasoning_output_tokens": 204,
+      "stage": "votes",
+      "thread_id": "01a05fbd-e30c-7c91-9ba1-5cd0ea10c549"
+    }
+  ],
+  "usage_totals": {
+    "cached_input_tokens": 84992,
+    "input_tokens": 292610,
+    "output_tokens": 3203,
+    "reasoning_output_tokens": 412
+  },
+  "variant_id": "named_persona_no_reaction"
+}

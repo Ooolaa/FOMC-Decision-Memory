@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "simulation_output_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "meeting_id",
+    "synthetic",
+    "profiles",
+    "discussion",
+    "final_proposal",
+    "votes"
+  ],
+  "properties": {
+    "schema_version": {"const": "simulation_output_v1"},
+    "meeting_id": {"type": "string", "pattern": "^FOMC-[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "synthetic": {"const": true},
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["participant_id", "display_name", "is_chair"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "display_name": {"type": "string", "minLength": 1},
+          "is_chair": {"type": "boolean"}
+        }
+      }
+    },
+    "discussion": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "synthetic_text"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "synthetic_text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "final_proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proposer_participant_id", "action_class", "rationale"],
+      "properties": {
+        "proposer_participant_id": {"type": "string", "minLength": 1},
+        "action_class": {"enum": ["CUT", "HOLD", "HIKE"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "votes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["participant_id", "choice"],
+        "properties": {
+          "participant_id": {"type": "string", "minLength": 1},
+          "choice": {"enum": ["FOR", "AGAINST"]}
+        }
+      }
+    }
+  }
+}
