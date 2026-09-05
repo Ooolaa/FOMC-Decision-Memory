@@ -125,41 +125,26 @@ DEFAULT_FILES = (
     "run_app.ps1",
     "scripts/capture_streamlit_ui.py",
     "scripts/run_next_meeting_ensemble.py",
-    "docs/plans/2026-08-28-terra-luna-controlled-3case-comparison.md",
-    "docs/plans/2026-08-28-terra-luna-votes-only-comparison.md",
-    "docs/plans/2026-09-01-decision-trace-display-corpus.md",
-    "docs/plans/2026-09-01-fomc-only-interface.md",
-    "tests/votes/test_votes_comparison.py",
-    "tests/votes/test_votes.py",
-    "tests/review/test_human_review_sample.py",
-    "tests/review/test_human_review_results.py",
-    "tests/audit/test_assumption_monitor_semantics.py",
-    "tests/audit/test_assumption_monitor_audit.py",
-    "tests/ui/test_capture_streamlit_ui.py",
-    "tests/ui/test_app.py",
-    "tests/decision_trace/test_materialize_decision_trace_corpus.py",
-    "tests/forecast/test_next_meeting_forecast.py",
-    "tests/forecast/test_forecast_ensemble.py",
-    "tests/forecast/test_official_forecast_context.py",
-    "tests/ui/test_ai_member_explanation.py",
-    "tests/audit/test_transcript_segmentation_v3_audit.py",
-    "tests/forecast/test_reaction_feature_contract.py",
-    "tests/audit/test_submission_gate.py",
-    "tests/decision_trace/test_subscription_variant_runner.py",
-    "tests/evaluation/test_lag_spec.py",
-    "tests/ui/test_ui_variant_artifacts.py",
-    "tests/evaluation/test_variant_matrix.py",
     "RUNBOOK.md",
     "DEMO_SCRIPT.md",
-    "DECISION_TRACE_HUMAN_REVIEW.md",
     "submission_templates/hackathon_r5_submission_signoff_v1.json",
     "submission_templates/hackathon_r5_final_ui_rehearsal_v8.json",
     "submission_templates/decision_trace_human_review_results_v5_atomic_monitor.json",
-    "R5_CORRECTION_AUDIT_2026-08-31.md",
     "HACKATHON_SUBMISSION.md",
-    "SUBMISSION_CHECKLIST.md",
     "requirements.txt",
 )
+
+# Delivered outside the repository as external frozen inputs (see
+# IT_DATA_INPUTS_zh-TW.md). They are hashed when present and skipped - not
+# treated as a build failure - when they are not.
+EXTERNAL_INPUTS = frozenset({
+    "fred_fomc_real.sqlite",
+    "fomc_simulation.sqlite",
+    "fomc_simulation.vote_core_candidate.sqlite",
+    "fomc_simulation.transcript_segmentation_v3_candidate.sqlite",
+    "fomc_simulation.decision_trace_50_display.sqlite",
+    "artifacts/cache/fomc_2022_03_15_offline_baseline.json",
+})
 
 FINAL_UI_REHEARSAL = "artifacts/rehearsal/ui_rehearsal_r5_final_v8.json"
 
@@ -245,6 +230,8 @@ def build_artifact_manifest(root: Path, files: tuple[str, ...] = DEFAULT_FILES) 
     for relative in files:
         path = resolved_root / relative
         if not path.is_file():
+            if relative in EXTERNAL_INPUTS:
+                continue
             raise FileNotFoundError(f"Required offline artifact is missing: {path}")
         entries.append(
             {

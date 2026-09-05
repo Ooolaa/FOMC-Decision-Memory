@@ -14,13 +14,6 @@
        alt="FOMC 會議現場：12 位委員的席次、3 位舉手反對，右欄展開 Neel Kashkari 的異議理由與原文引證">
 </p>
 
-<p align="center">
-  <a href="#60-秒上手">60 秒上手</a> ·
-  <a href="#這套系統是怎麼運作的">運作方式</a> ·
-  <a href="#專案結構">專案結構</a> ·
-  <a href="#團隊">團隊</a>
-</p>
-
 ---
 
 ## 這個專案在解什麼問題
@@ -47,47 +40,19 @@
 
 ---
 
-## 60 秒上手
+## 兩個入口
 
-### 最快的路：兩個離線網頁，零安裝
-
-不需要 Python、資料庫、網路或 API 金鑰——`git clone` 後用瀏覽器直接開：
-
-```sh
-git clone https://github.com/Ooolaa/FOMC-Decision-Memory.git
-cd FOMC-Decision-Memory
-open dist/FOMC_RAG_Vote_Simulator.html          # macOS
-# Windows: start dist\FOMC_RAG_Vote_Simulator.html
-# Linux:   xdg-open dist/FOMC_RAG_Vote_Simulator.html
-```
-
-| 檔案 | 內容 | 需要什麼 |
+| | 內容 | 需要什麼 |
 | --- | --- | --- |
-| **`dist/FOMC_RAG_Vote_Simulator.html`** | **主要展示**：BM25 檢索 244 場會議的 3,553 段原文，推論政策方向、逐一委員投票與出處 | 只要瀏覽器 |
-| `src/scene/fomc-meeting-scene.html` | 會議現場動畫：12 個席次、舉手反對、點任一位展開理由 | 只要瀏覽器 |
+| **`dist/FOMC_RAG_Vote_Simulator.html`** | **主要展示**：輸入會前的總體與市場情境，BM25 從 244 場會議的 3,553 段原文檢索條件最接近的會議，推論政策方向、**逐一委員的投票**與每個判斷的原文出處 | 只要瀏覽器 |
+| `src/scene/fomc-meeting-scene.html` | 同一組結果換成會議室的樣子：12 個席次、舉手的是投反對票的人，點任一位展開他為什麼這樣投 | 只要瀏覽器 |
+| `src/app/` | R5 Streamlit 應用程式：Decision Replay、Assumption Monitor、Simulation & Evidence | Python 3.11 ＋ 4 個外部資料庫 |
 
-> 頁面內含完整倒排索引，第一次按「執行 RAG 情境預測」約 1 秒建索引，之後即時。
-> **整個模擬過程不呼叫任何 LLM**，全部是瀏覽器內的確定性算術——所以離線也跑得動，
-> 而且同樣的輸入永遠得到同樣的輸出。
+離線頁面的索引已內嵌在 HTML 裡，第一次按「執行 RAG 情境預測」約 1 秒建索引，之後即時。
+**整個模擬過程不呼叫任何 LLM**，全部是瀏覽器內的確定性算術——所以離線也跑得動，
+而且同樣的輸入永遠得到同樣的輸出。
 
-### 完整的路：R5 Streamlit 應用程式
-
-三個離線頁面（Decision Replay、Assumption Monitor、Simulation & Evidence）在
-`src/app/`。**它需要 4 個 `.sqlite` 執行期資料庫，那些檔案刻意不放進版本庫**
-（見〈[資料在哪裡](#資料在哪裡)〉）。安裝與啟動步驟完整寫在
-**[`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md)**。
-
-```sh
-# 需 Python 3.11（不是 3.12，原因見 docs/SETUP_zh-TW.md）
-python3.11 -m venv .venv
-.venv/bin/python -m pip install -r src/app/requirements.txt
-
-cd src/app
-export PYTHONUTF8=1
-export FOMC_APP_DB="$PWD/fomc_simulation.decision_trace_50_display.sqlite"
-../../.venv/bin/python -m streamlit run app.py \
-  --server.headless true --server.address 127.0.0.1 --server.port 8503
-```
+Streamlit 應用程式的安裝與啟動步驟，見 **[`docs/SETUP_zh-TW.md`](docs/SETUP_zh-TW.md)**。
 
 ---
 
@@ -125,6 +90,11 @@ build_app.py  ──►  dist/FOMC_RAG_Vote_Simulator.html  （索引內嵌，�
 **行動標記的驗證**：與 R5 封存的 `pooled_ordered_logit_v1.json` 的 121 場訓練標籤
 比對，**120 場一致**。唯一差異是 2020-03 的臨時降息——R5 標為「維持」，本工具依
 聲明原文標為「降息」。
+
+**方向與逐人票分開顯示，因為它們會吵架。** 計量模型與資料檢索各給一組機率，畫面
+兩排並列；不一致時直接跳出警示，而不是給一個假裝有共識的數字。回測數字、全部參數
+與其代價寫在 [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md)，包含我們**刻意不修**的
+那一項，以及為什麼修了會更糟。
 
 ---
 
@@ -166,6 +136,26 @@ FOMC-Decision-Memory/
 | [`docs/MODEL_zh-TW.md`](docs/MODEL_zh-TW.md) | RAG 模擬的完整模型權重、全部參數、回測結果與方法邊界 |
 | [`docs/ENGINEERING_LOG_zh-TW.md`](docs/ENGINEERING_LOG_zh-TW.md) | 開發過程真正踩到的坑與修法，每項附可重跑的驗證 |
 
+### 可重跑的驗證
+
+這個 repo 的每個結構性宣稱都有對應指令，不必相信文件：
+
+```sh
+# 成品可從原始碼重建，且逐位元組相同
+cd src/retrieval && python3 build_app.py
+
+# payload 檔案清單與 manifest 完全一致（1,005 筆）
+cd src/app && find . -type f -not -name '.DS_Store' -not -path '*/__pycache__/*' \
+  | sed 's|^\./||' | LC_ALL=C sort \
+  | diff - ../../release/01_Manifests-and-Integrity/SOURCE_FILES.txt
+
+# 釋出檔案未被竄改
+cd release && shasum -a 256 -c 01_Manifests-and-Integrity/SHA256SUMS.txt
+
+# 離線建置雜湊清單與封存 manifest 相符（需先建好 .venv，見 SETUP）
+cd src/app && ../../.venv/bin/python -m decision_memory.submission_gate
+```
+
 ### 資料在哪裡
 
 4 個執行期 `.sqlite` 資料庫與 `official_documents/` **刻意不在版本庫裡**，以
@@ -176,7 +166,7 @@ external frozen inputs 另外遞交。這不是檔案損壞：`RELEASE_MANIFEST.
 
 同樣地，`artifacts/codex_subscription/` 與 `artifacts/llm_preflight/`（385 個封存的
 模型 run，共 360 MB）由 payload 自己的 `.gitignore` 排除，改由 artifact manifest
-治理。**上面兩個離線網頁不需要其中任何一項。**
+治理。**上面兩個離線頁面不需要其中任何一項。**
 
 ---
 

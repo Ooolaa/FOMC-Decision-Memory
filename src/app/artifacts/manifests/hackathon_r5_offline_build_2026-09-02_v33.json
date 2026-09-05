@@ -15,31 +15,6 @@
       "sha256": "2ca9fb0a2c522530b289835adcf338fd14f3075166bff996bacf454d8deded77"
     },
     {
-      "byte_length": 524783616,
-      "path": "fred_fomc_real.sqlite",
-      "sha256": "02f96292422ece4556e952902a4660c663652d9eaff8b470e75eec3dc7c91187"
-    },
-    {
-      "byte_length": 25239552,
-      "path": "fomc_simulation.sqlite",
-      "sha256": "83ef409125bea85f9463f2c1bf2c7a9accb46414d6e7268262b53c93a1c9732c"
-    },
-    {
-      "byte_length": 36720640,
-      "path": "fomc_simulation.vote_core_candidate.sqlite",
-      "sha256": "4bb8f919b7933186986803fb569e8e84e0ab052f6edcf148f5d58e1a959f8212"
-    },
-    {
-      "byte_length": 37453824,
-      "path": "fomc_simulation.transcript_segmentation_v3_candidate.sqlite",
-      "sha256": "9be4bcf672b2f1dcf53f31a8fc985fb1acc02e9ed55a0de505bf1d82c7ebbcb3"
-    },
-    {
-      "byte_length": 37900288,
-      "path": "fomc_simulation.decision_trace_50_display.sqlite",
-      "sha256": "d60364029cafb6e79dc8b3e6a902b06016970620b827752f09f1d3df54139186"
-    },
-    {
       "byte_length": 63606,
       "path": "document_manifests/current_45_as_of_2026-08-27_source_a7fd.json",
       "sha256": "2f504be56a347db908406ceb629eda3e653226e7a34d9ec6d4c9cd4a77244f17"
@@ -380,11 +355,6 @@
       "sha256": "68961015376d58818608f04250655aaeb989c0faac3640feb94c10940682f046"
     },
     {
-      "byte_length": 8472,
-      "path": "artifacts/cache/fomc_2022_03_15_offline_baseline.json",
-      "sha256": "af39e1f87c09c428fc4481621c6e6fcef2616978797d7c9fd805b10b4bf0d0a6"
-    },
-    {
       "byte_length": 2283,
       "path": "artifacts/forecast/fomc_2026_09_15_ensemble_v1/ensemble_forecast.json",
       "sha256": "f83687f2796e79583e48267acac1e5b967a83b76d64a618b3e1134929b7664c8"
@@ -590,126 +560,6 @@
       "sha256": "ee0acf26de2821d5098e5b9459da7a515548e46ed2f3d721b9b8f8e45ea2f7b2"
     },
     {
-      "byte_length": 4233,
-      "path": "docs/plans/2026-08-28-terra-luna-controlled-3case-comparison.md",
-      "sha256": "67806b718db2bcd4e34a5608ac3cc294f38377f4232487b0e79165b53e67706a"
-    },
-    {
-      "byte_length": 3309,
-      "path": "docs/plans/2026-08-28-terra-luna-votes-only-comparison.md",
-      "sha256": "1e9a75026d5a2d19030edda0d40145da42ccf6ad9a70d0df702e642150b747fe"
-    },
-    {
-      "byte_length": 4402,
-      "path": "docs/plans/2026-09-01-decision-trace-display-corpus.md",
-      "sha256": "2d3b6366ad32d8e4294092a46f71064680269a81503325ed9011d58e1e8719e0"
-    },
-    {
-      "byte_length": 2524,
-      "path": "docs/plans/2026-09-01-fomc-only-interface.md",
-      "sha256": "62f27f3dd0fa16c8af6b811fce5a986643e14716b052e334d7dd081be5ae3a1f"
-    },
-    {
-      "byte_length": 10293,
-      "path": "tests/test_votes_comparison.py",
-      "sha256": "5319fe05df04d180ed7aed9636ecb3df0a69c33458ef44597c1af7b670d146fc"
-    },
-    {
-      "byte_length": 14694,
-      "path": "tests/test_votes.py",
-      "sha256": "c010146e1d83e00807d392a0afd51aca87f6be6b5f648d08cd864cbc9b75f955"
-    },
-    {
-      "byte_length": 3621,
-      "path": "tests/test_human_review_sample.py",
-      "sha256": "e40e464f6d31527588e010160f741332b0361af2bcb436d5f9c59dde04706fc1"
-    },
-    {
-      "byte_length": 6133,
-      "path": "tests/test_human_review_results.py",
-      "sha256": "44f00dbfd9405044849a51336d44026f147cbe14f53625493cb9a883221614ec"
-    },
-    {
-      "byte_length": 4955,
-      "path": "tests/test_assumption_monitor_semantics.py",
-      "sha256": "649b9f2a1d3af4c65500cfc1463cb3d05720a5d4caef53b2c6d7f0b8d2c266cd"
-    },
-    {
-      "byte_length": 8203,
-      "path": "tests/test_assumption_monitor_audit.py",
-      "sha256": "c38900bdce5c5a18ad2011dc99a7d594103f2b3300b583bb44ee896a9c0677c5"
-    },
-    {
-      "byte_length": 1455,
-      "path": "tests/test_capture_streamlit_ui.py",
-      "sha256": "947685a1434df0b04e5b78c91fd248dce210cdc540c65621726da1c4ccfaf278"
-    },
-    {
-      "byte_length": 14438,
-      "path": "tests/test_app.py",
-      "sha256": "3fc20afdd29771d396a2b5deea5a43740985ff5dbe21311b87ecdff7544720b0"
-    },
-    {
-      "byte_length": 3182,
-      "path": "tests/test_materialize_decision_trace_corpus.py",
-      "sha256": "7f12145536f2046f844b92e3aa71891924cf40c288366beee6f1425a8da65f29"
-    },
-    {
-      "byte_length": 5269,
-      "path": "tests/test_next_meeting_forecast.py",
-      "sha256": "75dedb3fde4bc9d4e10c9843d52de3b673e24577e3cdfa1431f4e6e335b2a924"
-    },
-    {
-      "byte_length": 3208,
-      "path": "tests/test_forecast_ensemble.py",
-      "sha256": "5a9de0f8c6bb1a69fbf75ae98b3fd37278655b0aa165bc111029807f2a907cab"
-    },
-    {
-      "byte_length": 1659,
-      "path": "tests/test_official_forecast_context.py",
-      "sha256": "65a325af1b58e7ddfd1421927e1d3baf6a57c31b1530d2bd5cffd662b78e879b"
-    },
-    {
-      "byte_length": 4253,
-      "path": "tests/test_ai_member_explanation.py",
-      "sha256": "550b51f7161c47741dff090cf7dd7a7dcf41994ed4f55b9adbad31aef4bfeb43"
-    },
-    {
-      "byte_length": 6207,
-      "path": "tests/test_transcript_segmentation_v3_audit.py",
-      "sha256": "5014329407748304069d998893c0c156585eee96a5e50e4e9ccca67bcefafca1"
-    },
-    {
-      "byte_length": 1467,
-      "path": "tests/test_reaction_feature_contract.py",
-      "sha256": "41f903176ffd011f243bb40d5e155763401ab1c1615b9f5df9ff9337f274f08b"
-    },
-    {
-      "byte_length": 12048,
-      "path": "tests/test_submission_gate.py",
-      "sha256": "4171e8eb0c0ccbb44912fff247f672ca89be3e3797a7d03a6f8814f8b6781edf"
-    },
-    {
-      "byte_length": 10020,
-      "path": "tests/test_subscription_variant_runner.py",
-      "sha256": "c2cf8ee61b46a6ffd1fe1dc70c00312484ba42683b6494e2ff5e8ad23c41e60b"
-    },
-    {
-      "byte_length": 3080,
-      "path": "tests/test_lag_spec.py",
-      "sha256": "65b850fea72ab89d933893a9e7f8b76eb04caf09f0d0b6f6b86a72ef609834cf"
-    },
-    {
-      "byte_length": 8373,
-      "path": "tests/test_ui_variant_artifacts.py",
-      "sha256": "d0971a165a384f0728595c1981384824b2381b4a54e3e9e1f3cb338e7139e816"
-    },
-    {
-      "byte_length": 5469,
-      "path": "tests/test_variant_matrix.py",
-      "sha256": "ab7d04b2599180851002b65a99c0ab5a69b1a46e8ceebc141b3d096ab359756a"
-    },
-    {
       "byte_length": 15776,
       "path": "RUNBOOK.md",
       "sha256": "5ebdaeb2febc73a20994c80b4fad8ea686c477d30f4b2245aeb42c10dbbb3f45"
@@ -718,11 +568,6 @@
       "byte_length": 5818,
       "path": "DEMO_SCRIPT.md",
       "sha256": "c1759395ca20d3c309cd0c39161d29a74e79d2acbfbe182f8ad2f434ef931ee0"
-    },
-    {
-      "byte_length": 6303,
-      "path": "DECISION_TRACE_HUMAN_REVIEW.md",
-      "sha256": "6384aa16724ad92a98d6c628b34dd9a1f9614bcba3ead4eca152436370b6eacb"
     },
     {
       "byte_length": 1071,
@@ -740,19 +585,9 @@
       "sha256": "e6f3cd62e7fcab95ae01ad081eb6e2b6162bcdcf0cbb906d4db3b9de186afc2e"
     },
     {
-      "byte_length": 5058,
-      "path": "R5_CORRECTION_AUDIT_2026-08-31.md",
-      "sha256": "24f5758776a448dbca903bf1780af2e2c4f77f36a3d28786c55e92dc36ecbcbd"
-    },
-    {
       "byte_length": 4080,
       "path": "HACKATHON_SUBMISSION.md",
       "sha256": "f19ca39d9c4bc41b0e46bd6673f5ece67aa1f937daddbaef906f7f933de2462b"
-    },
-    {
-      "byte_length": 9173,
-      "path": "SUBMISSION_CHECKLIST.md",
-      "sha256": "29e34a463fe5daa9c02967337e884c79503d490986b50ca80a56613891200352"
     },
     {
       "byte_length": 138,
@@ -822,7 +657,7 @@
   ],
   "formal_app_database": "fomc_simulation.sqlite",
   "formal_app_database_write_policy": "read_only",
-  "manifest_hash": "1b443124d2460819e7ff5f906dc8e3a8d9991c7044c4d1cab182b097f24d3c66",
+  "manifest_hash": "509bd0fb75e45e1eb870164cefb6c81f0848f41ac998d5da99af6b3d2c79b329",
   "mutable_runtime_disclosure": "The formal and display app databases are immutable during the demo. The FOMC-only interface does not expose database write actions.",
   "mutable_runtime_file": null,
   "root": ".",

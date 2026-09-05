@@ -15,11 +15,24 @@ from typing import Iterable, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Delivered outside the repository as external frozen inputs (see
+# IT_DATA_INPUTS_zh-TW.md). Allowlisted so a full handoff picks them up when
+# they are staged, skipped rather than fatal when they are not.
+EXTERNAL_INPUTS = frozenset({
+    "fomc_simulation.sqlite",
+    "fomc_simulation.transcript_segmentation_v3_candidate.sqlite",
+    "fomc_simulation.decision_trace_50_display.sqlite",
+    "fomc_simulation.vote_labels_fixed_candidate.sqlite",
+    "fred_fomc_real.sqlite",
+    "official_documents",
+    "FOMC_決策記憶系統_Hackathon_MVP_開發計畫_R5.docx",
+    "FOMC_決策記憶與_Self-Harness_混合架構_V3.2_正式開發規劃.docx",
+})
+
 DEFAULT_TOP_LEVEL_FILES = (
     "app.py",
     "build_real_fred_db.py",
     "DATABASE_GUIDE.md",
-    "DECISION_TRACE_HUMAN_REVIEW.md",
     "DEMO_SCRIPT.md",
     "fomc_calendar.py",
     "fomc_simulation.sqlite",
@@ -30,13 +43,9 @@ DEFAULT_TOP_LEVEL_FILES = (
     "fred_fomc_real.sqlite",
     "fred_vintage_db.py",
     "HACKATHON_SUBMISSION.md",
-    "R5_COMPLETION_AUDIT.md",
-    "R5_TECHNICAL_COMPLETION_AUDIT_2026-09-01.md",
     "requirements.txt",
     "RUNBOOK.md",
     "run_app.ps1",
-    "SUBMISSION_CHECKLIST.md",
-    "SUBMISSION_RECORD.md",
     "sync_fomc_meetings.py",
     "artifacts/manifests/hackathon_r5_offline_build_2026-09-02_v33.json",
     "FOMC_決策記憶系統_Hackathon_MVP_開發計畫_R5.docx",
@@ -45,7 +54,6 @@ DEFAULT_TOP_LEVEL_FILES = (
 
 DEFAULT_INCLUDE_DIRECTORIES = (
     "decision_memory",
-    "docs",
     "document_manifests",
     "evaluation_spec",
     "fixtures",
@@ -56,7 +64,6 @@ DEFAULT_INCLUDE_DIRECTORIES = (
     "schemas",
     "scripts",
     "submission_templates",
-    "tests",
 )
 
 DEFAULT_REQUIRED_FILES = (
@@ -70,7 +77,6 @@ DEFAULT_REQUIRED_FILES = (
     "fomc_simulation.vote_labels_fixed_candidate.sqlite",
     "RUNBOOK.md",
     "DATABASE_GUIDE.md",
-    "R5_COMPLETION_AUDIT.md",
     "model_spec/reaction_feature_contract_hackathon_r5_v1.json",
     "artifacts/evaluation/r5_subscription_variant_matrix_v1.json",
     "artifacts/forecast/fomc_2026_09_15_ensemble_v1/ensemble_forecast.json",
@@ -191,6 +197,8 @@ def _collect_payload(
     for relative_text in top_level_files:
         source = (root / relative_text).resolve()
         if not source.is_relative_to(root.resolve()) or not source.is_file():
+            if relative_text in EXTERNAL_INPUTS:
+                continue
             raise FileNotFoundError(f"allowlisted file is missing: {relative_text}")
         relative = source.relative_to(root.resolve())
         if _is_excluded(relative):
@@ -200,6 +208,8 @@ def _collect_payload(
     for relative_text in include_directories:
         directory = (root / relative_text).resolve()
         if not directory.is_relative_to(root.resolve()) or not directory.is_dir():
+            if relative_text in EXTERNAL_INPUTS:
+                continue
             raise FileNotFoundError(f"allowlisted directory is missing: {relative_text}")
         for source in directory.rglob("*"):
             if source.is_symlink():
@@ -358,6 +368,8 @@ def build_engineering_handoff(
     for required in required_files:
         required_path = (root / required).resolve()
         if not required_path.is_relative_to(root) or not required_path.is_file():
+            if required in EXTERNAL_INPUTS:
+                continue
             raise FileNotFoundError(f"required handoff file is missing: {required}")
 
     payload_sources = _collect_payload(root, top_level_files, include_directories)
