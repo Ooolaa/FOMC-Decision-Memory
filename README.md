@@ -16,9 +16,8 @@
 
 <p align="center">
   <a href="#60-秒上手">60 秒上手</a> ·
-  <a href="#展示一次完整的推論">功能展示</a> ·
-  <a href="#方法與回測誠實揭露">回測數字</a> ·
-  <a href="#邊界與揭露">邊界</a> ·
+  <a href="#這套系統是怎麼運作的">運作方式</a> ·
+  <a href="#專案結構">專案結構</a> ·
   <a href="#團隊">團隊</a>
 </p>
 
@@ -93,99 +92,6 @@ export FOMC_APP_DB="$PWD/fomc_simulation.decision_trace_50_display.sqlite"
 
 ---
 
-## Demo 影片
-
-**[`06_Video_Assets/FOMC_Demo_zh-TW.mp4`](06_Video_Assets/FOMC_Demo_zh-TW.mp4)** ——
-1920×1080、2 分 45 秒、中文字幕已燒進畫面。
-
-影片是**操作真實系統錄下來的**，不是簡報動畫：Playwright 逐格驅動上面那兩個網頁、
-旁白用 macOS `say` 合成、AVFoundation 合軌。時間軸只有一個來源——旁白逐句實測長度後
-寫進 `narration.json`，畫面用同一組數字決定停留秒數，所以改腳本重跑一定同步。
-整條管線與重建步驟在 [`06_Video_Assets/README.md`](06_Video_Assets/README.md)。
-
----
-
-## 展示：一次完整的推論
-
-下面每一張都是跑真實系統截下來的，用**同一個情境**：2008 年 10 月的總體數據——
-帳面通膨還很高（CPI 4.9%），但失業率一年內跳了 1.4 個百分點、非農就業轉負、
-BAA–10 年期信用利差爆到 3.45 個百分點。這正是**帳面數字和前瞻證據吵架**的時刻。
-
-> 想自己重跑這些截圖：`node 06_Video_Assets/capture_screenshots.mjs`（需先起
-> `python3 -m http.server 8810`）。
-
-### ① 輸入會前情境
-
-七個總體特徵（與原 R5 pooled ordered-logit 完全相同的七項）、三個動量欄，
-外加一段自由文字的市場敘述。右欄是這場會議的投票名單。
-
-![情境輸入與委員會名單](docs/screenshots/01-scenario.png)
-
-### ② 方向從哪裡來——而且刻意分成兩排
-
-上排是**計量模型**（ordered logit），下排是**資料檢索**（條件最像的 8 場會議實際
-怎麼決定）。**分開顯示，因為它們會吵架。**
-
-這一次檢索排第一的，就是 **2008-10-07 那場真實會議**（相似度 52.99，實際決策是
-**降息**到 1-1/2%）——系統確實從 244 場會議裡把正確的歷史類比撈了出來。但另外
-7 場類比多數是「維持」，計量模型也給維持 62.8%，所以混合後的結論是 **維持 68.8%、
-降息 28.4%**。
-
-**我們寧可讓你看見這個分歧，也不要給一個假裝有共識的數字。** 畫面同時列出計量
-模型的主要驅動（信用利差 −0.81、利率中點 −0.44、殖利率曲線 −0.39，三個都推向降息），
-你能一眼看出模型內部哪裡在拉扯。
-
-![政策方向推論：三類機率、最相似的歷史會議、計量模型驅動](docs/screenshots/02-direction.png)
-
-### ③ 逐一委員的票，不是只有方向
-
-主席提案由混合方向生成，然後**每一位在席委員各自有一張票、一個異議機率、一段理由**。
-
-![主席提案與委員逐一投票](docs/screenshots/03-votes.png)
-
-### ④ 每一票都點得開，而且追得回原文
-
-點任一位委員，展開的是**這位委員自己在語料裡的紀錄**——投反對票的原句、日期、
-文件類型、BM25 分數。下圖是 Beth M. Hammack：生涯 2/6 次異議、近 6 次有 2 次，
-底下三段是 2024-12-18、2026-04-29、2026-07-29 的原始異議句。
-
-**理由欄明確標成「生成說明，非委員發言」**——敘述是規則生成的，引文才是原文。
-
-![展開單一委員的個人佐證原文](docs/screenshots/04-vote-detail.png)
-
-### ⑤ 委員會層級的原文證據
-
-最後列出支撐這次判斷的 12 段委員會層級原文，每段都帶日期、文件類型、該場**實際
-決策**、條件標籤、BM25 分數與命中詞。第一段就是 2008-10-07 的會後聲明原文：
-
-> *"Inflationary pressures have started to moderate… The recent intensification of
-> the financial crisis has augmented the downside risks to growth."*
-
-![委員會層級的原文證據](docs/screenshots/05-evidence.png)
-
-### ⑥ 會議現場
-
-同一組結果換成會議室的樣子：12 個席次、舉手的三位是投下反對票的人、發言泡泡是
-他們的異議理由。點任何一位——包含投贊成票的——右欄就展開他為什麼這樣投。
-
-![FOMC 會議現場動畫](docs/screenshots/06-meeting-scene.png)
-
-### 其他情境
-
-`docs/screenshots/scenarios/` 另有四組完整長截圖：Lehman 2008、COVID 2020-02 與
-2020-03、以及動量特徵開啟前後的對照。
-
-### R5 Streamlit 應用程式
-
-| Decision Replay | Next-Meeting Forecast |
-| --- | --- |
-| ![決策重播](02_Application/artifacts/screenshots/decision_replay.png) | ![下次會議預測](02_Application/artifacts/screenshots/next_meeting_forecast.png) |
-
-**Decision Replay 只重播當時可見的資訊**：資訊截止日、當時可見的關鍵序列、實際
-政策與逐人投票。會後的政策聲明與會議紀要只當作標準答案與稽核證據，不餵回模型。
-
----
-
 ## 這套系統是怎麼運作的
 
 ```
@@ -223,41 +129,6 @@ build_app.py  ──►  FOMC_RAG_Vote_Simulator.html   （索引內嵌，離線
 
 ---
 
-## 方法與回測（誠實揭露）
-
-以每場會議聲明中的**經濟情勢敘述**當查詢（已剔除所有含利率決策、投票與實施註記的
-句子），檢索時排除該場及**前後各 2 場**會議，再以檢索到的類比會議實際決策加權投票。
-重跑：`python3 04_RAG_Vote_Simulator/eval_tags.py`。
-
-| 設定 | 準確率 | 平衡準確率 | 降息／維持／升息召回率 |
-| --- | --- | --- | --- |
-| **預設**（K=400, M=8, β=0, γ=0, δ=1.5） | **74.2%** | **61.4%** | 35% / 86% / 62% |
-| 加上相同標籤加分（γ=0.6, M=6） | 72.4% | 62.0% | 41% / 82% / 62% |
-| 不限制 M，全部命中加總 | 66.5% | 45.3% | 9% / 87% / 40% |
-| 多數類基準（全猜「維持」） | 66.5% | 33.3% | 0% / 100% / 0% |
-
-**這個數字仍可能偏樂觀，而且對互動使用高估得更多。** 兩個原因：
-
-1. 排除前後各 2 場之外，同一政策循環內的會議語言仍高度自相關。
-2. 回測的查詢是**該場會議自己的聲明原文**，用字自然跟同年代文件一致；互動介面的
-   查詢卻是用現代 Fed 語彙合成的敘述，會系統性偏向詞彙相近的近期會議。用 2008 年
-   9 月的總體數據測試時，前幾名類比一度全是 2023 年的「維持」會議——**回測完全看
-   不到這個誤差來源。**
-
-### 我們修掉的與刻意不修的
-
-| | 狀況 | 處置 |
-| --- | --- | --- |
-| ✅ 已修 | **語料涵蓋率的年代偏差**（真正的 bug）：原切段規則依賴 2009 年後才固定的體例，導致 2000–2009 每場只有 1.6–5.9 段、2012–2026 每場 17–19 段，整個危機年代在檢索池裡幾乎不存在 | 不足 10 段的會議改用政策詞密度最高的段落補足，各年代平均變成 11 對 17 |
-| ✅ 已修 | **重排候選池太小**：原本只取前 40 段，去重後約 25 場、全是近期會議 | K 放大到 400，2008 年的會議才有機會進入排序 |
-| ❌ 刻意不修 | **γ（相同標籤加分）**：能讓 2008 情境的降息機率從 17.5% 拉到 43.8%，但同一機制會讓 2020-03 情境被「勞動市場緊俏＋成長穩健」兩個常見標籤蓋過「金融條件緊縮」，結論翻成**升息**——比修正前更糟 | **停用**（`PARAMS.gamma = 0`），程式碼保留路徑並註明原因 |
-
-所有權重、參數與其代價完整寫在
-**[`README_RAG_VOTE_SIMULATOR_zh-TW.md`](README_RAG_VOTE_SIMULATOR_zh-TW.md)**；
-回測腳本在 [`04_RAG_Vote_Simulator/`](04_RAG_Vote_Simulator/)。
-
----
-
 ## 專案結構
 
 ```
@@ -265,8 +136,7 @@ FOMC-Decision-Memory/
 ├── README.md                          ← 你在這裡
 ├── README_zh-TW.md                    R5 交付說明：安裝、啟動、常見問題
 ├── README_RAG_VOTE_SIMULATOR_zh-TW.md RAG 模擬的完整模型權重、參數與邊界
-├── AGENTS.md                          給 AI coding agent 的工作守則（重要，見下）
-├── VIDEO_SCRIPT_zh-TW.md              影片腳本與章節時間碼
+├── AGENTS.md                          給 AI coding agent 的工作守則
 │
 ├── FOMC_RAG_Vote_Simulator.html       ★ 主要離線展示（開瀏覽器即可）
 ├── FOMC_Vote_Scenario_Lab.html        純計量模型對照組
@@ -277,15 +147,9 @@ FOMC-Decision-Memory/
 ├── 03_Environment/                    Python 3.11 環境紀錄
 ├── 04_RAG_Vote_Simulator/             索引建置與回測評估腳本
 ├── 05_Design_Canvas/                  會議現場動畫
-├── 06_Video_Assets/                   影片製作管線與成片
-└── docs/screenshots/                  本 README 的截圖與重製腳本
+├── docs/ENGINEERING_LOG_zh-TW.md      問題與解法摘要（開發過程）
+└── docs/screenshots/                  README 截圖
 ```
-
-> ### ⚠️ `02_Application/` 是雜湊列管的凍結 payload
-> App 全部以相對路徑解析資料：光是 `artifacts/` 就被引用 41 次、`document_manifests/`
-> 12 次；連根目錄的 `.md` 都被 `decision_memory/engineering_handoff.py` 列為必須位於
-> 根層。**搬動任何一項都會讓 App 與測試失效。** 要用 AI agent 處理本專案，請先讓它讀
-> [`AGENTS.md`](AGENTS.md)——照直覺「整理」會靜默破壞雜湊驗證。
 
 ### 資料在哪裡
 
@@ -298,22 +162,6 @@ external frozen inputs 另外遞交。這不是檔案損壞：`RELEASE_MANIFEST.
 同樣地，`artifacts/codex_subscription/` 與 `artifacts/llm_preflight/`（385 個封存的
 模型 run，共 360 MB）由 payload 自己的 `.gitignore` 排除，改由 artifact manifest
 治理。**上面兩個離線網頁不需要其中任何一項。**
-
----
-
-## 邊界與揭露
-
-我們**不把另一個 LLM 當唯一裁判**。資料 cutoff、證據引用、speaker attribution、
-政策結果、票數平衡與 lag，全部由可重跑的規則與 SQLite artifact 驗證；模型負責生成
-與權衡，系統負責記憶、邊界與稽核。
-
-- **FOMC 是 benchmark，不是最終產品邊界。** 企業案例是明確標示的 synthetic/composite，不是真實客戶案例。
-- **所有生成發言都標示為 synthetic**，不冒充任何歷史原話。委員理由欄一律標註「生成說明，非委員發言」；只有引號內的原文引文取自語料。
-- **Recognition lag 是可觀察的 statement 文字代理**，不是對內部認知的讀心。
-- **RAG 投票模擬本身不呼叫任何 LLM**，是瀏覽器內的確定性算術。原 R5 才有用 LLM（`gpt-5.6-terra`，385 個封存 forecast run）。
-- **Hackathon reaction model 用 BAA10Y 當窄義信用情勢 proxy**，它不是 NFCI，也不是完整金融情勢指標。
-- **失敗會直接顯示。** Demo 案例的政策方向雖然正確，逐人投票只對 8/9，並漏掉實際異議者 James Bullard——這個結果直接呈現在畫面上，不以名冊 coverage 或整體政策準確率掩蓋。
-- **未完成 repeats、信賴區間或 promotion gate 前，不宣稱模型已具統計顯著優勢。**
 
 ---
 

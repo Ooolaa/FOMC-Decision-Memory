@@ -108,6 +108,10 @@ FOMC 決策記憶：不只猜升降息，而是說出哪一位委員會反對 | 
 歷史會議，結合 pooled ordered-logit，推論政策方向與每一位委員的票——每個判斷
 都能追回一句資料裡真實說過的話。
 
+▶ 原始碼與完整文件：https://github.com/Ooolaa/FOMC-Decision-Memory
+　 下載後用瀏覽器打開 FOMC_RAG_Vote_Simulator.html 就能跑，不需要安裝任何東西。
+
+━━━ 章節 ━━━
 00:00 問題：沒有人說哪一位會反對
 00:18 決策記憶：244 場會議、3,553 段原文
 00:46 方向從哪裡來：兩個來源，會吵架就明講
@@ -125,8 +129,15 @@ FOMC 決策記憶：不只猜升降息，而是說出哪一位委員會反對 | 
 ・委員層級沒有個人行為模型。個人票是可稽核規則 ×情境對齊度，不是重新訓練出來的立場
 ・畫面上的「理由」是規則生成的說明，不是委員發言；引文才是資料原句
 ・2008 與 2020 兩組真實危機數據壓力測試，六個案例對四個；答錯的原因寫在專案文件裡
+・開發過程踩到的坑、以及一個加了又退掉的解法，整理在 docs/ENGINEERING_LOG_zh-TW.md
 
-#FUTUREMODE #SITCON #BUILDMODE #FOMC #RAG
+■ 團隊
+FOMC 決策記憶 Lab — @Ooolaa、@b91303046、@Tempest-s、@phidelia-tsao
+
+資料來源：Board of Governors of the Federal Reserve System（公開資料）、FRED。
+本專案與美國聯準會無任何關聯，僅供研究與展示，不構成投資或政策建議。
+
+#FUTUREMODE #SITCON #BUILDMODE #FOMC #RAG #聯準會 #可解釋AI
 ```
 
 **標籤**
